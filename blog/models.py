@@ -13,6 +13,11 @@ BLOG_CATEGORIES = (
     (6, 'Evereyday life'),
     (7, 'Other')
 )
+PROCESS = (
+    (0, 'Draft'),
+    (1, 'Published')
+)
+
 
 class Blogpost(models.Model):
     title = models.CharField(max_length=80, unique=True)
@@ -22,6 +27,7 @@ class Blogpost(models.Model):
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
     category = models.IntegerField(choices=BLOG_CATEGORIES, default=0)
+    process = models.IntegerField(choices=PROCESS, default=0)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
     class Meta:
