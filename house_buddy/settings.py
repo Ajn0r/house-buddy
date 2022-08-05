@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'house_buddy',
+    'receipts_organizer',
     'blog',
 ]
 
