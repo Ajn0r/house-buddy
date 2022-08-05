@@ -40,7 +40,7 @@ class Comments(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=300)
     posted_on = models.DateTimeField(auto_now_add=True)
-    apporoved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=False)
     
     class Meta:
         ordering = ['posted_on']
