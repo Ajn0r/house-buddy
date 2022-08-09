@@ -1,8 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>This is good</h1>
-<h3>It means that it is working!</h3>
+<h1>Categories</h1>
+<div class="row">
+    <div class="col-12 card">
+        <a href="#">
+            Add a Category
+        </a>
+    </div>
+    {% for category in categories_list%}
+
+    <div class="col-sm-6 col-lg-4 card">
+        <a href="#">
+            <h5 class="hard-header">
+                {{ category.name }}
+            </h5>
+        </a>
+    </div>
 
 
+    {% endfor %}
+</div>
 {% endblock content %}

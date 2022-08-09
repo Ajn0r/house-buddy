@@ -5,3 +5,11 @@
     }
 
 }
+
+/* Categories */
+.card {
+    height: 10rem;
+    width: 50rem;
+    text-align: center;
+    justify-content: center;
+}
