@@ -1,3 +1,7 @@
-body {
-    background-color: aquamarine;
+/* Header */
+@media only screen and (min-width: 992px) {
+    .navbar {
+        flex-direction: column;
+    }
+
 }

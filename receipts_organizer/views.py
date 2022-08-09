@@ -8,3 +8,4 @@ class CategoryList(generic.ListView):
     queryset = Categories.objects.order_by('name')
     template_name = 'category_page.html'
     paginate_by = 6
+
