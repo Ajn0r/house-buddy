@@ -25,3 +25,9 @@ class EditCategory(generic.UpdateView):
     fields = ['name']
     template_name = 'edit_category.html'
     success_url = '/categories'
+
+
+class DeleteCategory(generic.DeleteView):
+    model = Categories
+    template_name = 'category_page.html'
+    success_url = '/categories'
