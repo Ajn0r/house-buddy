@@ -14,6 +14,7 @@
         <a href="#">
             <h5 class="hard-header">
                 {{ category.name }}
+                <a href="{% url 'edit_category' category.slug %}">Edit</a>
             </h5>
         </a>
     </div>

@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Categories, Entries
 from .forms import NewCategoryForm
+
 
 class CategoryList(generic.ListView):
     model = Categories
@@ -14,8 +15,13 @@ class CategoryList(generic.ListView):
 class NewCategory(generic.CreateView):
     model = Categories
     fields = ['name']
-    
-
     template_name = 'new_category.html'
     # form_class = NewCategoryForm
     success_url = 'categories'
+
+
+class EditCategory(generic.UpdateView):
+    model = Categories
+    fields = ['name']
+    template_name = 'edit_category.html'
+    success_url = '/categories'
