@@ -15,7 +15,7 @@
     {% else %}
         {% for category in categories_list%}
         <div class="col-sm-6 col-lg-4 card">
-            <a href="#">
+            <a href="{% url 'detail_category' category.id %}">
                 <h5 class="hard-header">
                     {{ category.name }}
 

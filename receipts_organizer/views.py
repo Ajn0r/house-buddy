@@ -1,11 +1,19 @@
 from django.shortcuts import render, reverse
-from django.views import generic, View
-from django.http import HttpResponseRedirect
-from django.urls import reverse_lazy
+from django.views import generic
 from .models import Categories, Entries
-from .forms import NewCategoryForm
-from django.utils import timezone
 
+
+class CategoryDetails(generic.DetailView):
+    model = Categories
+    template_name = 'category_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryDetails, self).get_context_data()
+        list_obj = self.object
+        context['object'] = list_obj
+
+        context['items'] = Entries.objects.filter(category=list_obj)
+        return context
 
 
 class CategoryList(generic.ListView):
@@ -20,7 +28,7 @@ class NewCategory(generic.CreateView):
     fields = ['user', 'name']
     template_name = 'new_category.html'
     # form_class = NewCategoryForm
-    success_url = 'categories'
+    success_url = '/categories'
 
 
 class EditCategory(generic.UpdateView):

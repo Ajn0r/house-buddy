@@ -2,18 +2,22 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path("categories", views.CategoryList.as_view(), name="categories"),
-    path("new", views.NewCategory.as_view(), name='new_category'),
+    path('categories', views.CategoryList.as_view(), name='categories'),
+    path(
+        '<int:pk>/category_detail', views.CategoryDetails.as_view(),
+        name='detail_category'
+        ),
+    path('new', views.NewCategory.as_view(), name='new_category'),
     path(
         "<slug:slug>/edit_category", views.EditCategory.as_view(),
         name='edit_category'
         ),
     path(
-        "<slug:slug>/delete_category", views.DeleteCategory.as_view(),
+        '<slug:slug>/delete_category', views.DeleteCategory.as_view(),
         name='delete_category'
         ),
     path(
-        "detail", views.CategoryList.as_view(),
+        'detail', views.CategoryList.as_view(),
         name='category_index'
     ),
     path(
