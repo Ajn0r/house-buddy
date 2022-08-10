@@ -44,6 +44,7 @@ class EntryList(generic.ListView):
 
 class NewEntry(generic.CreateView):
     model = Entries
-    fields = ['title', 'category', 'image', 'amount', 'date_of_purchase', 'description']
+    fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'new_entry.html'
     success_url = 'entries'
+
