@@ -28,7 +28,7 @@ class Entries(models.Model):
     title = models.CharField(max_length=30)
     category = models.ForeignKey(
         Categories, on_delete=models.CASCADE, related_name='Category')
-    image = CloudinaryField("image")
+    image = CloudinaryField("image", default='placeholder')
     amount = models.IntegerField(blank=True)
     date_of_purchase = models.DateField(blank=True)
     date_added = models.DateTimeField(auto_now_add=True)

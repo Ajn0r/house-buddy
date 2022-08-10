@@ -19,5 +19,9 @@ urlpatterns = [
     path(
         'entries', views.EntryList.as_view(),
         name='entries'
-    ) 
+    ),
+    path(
+        'new_entry', views.NewEntry.as_view(),
+        name='new_entry'
+    )
 ]

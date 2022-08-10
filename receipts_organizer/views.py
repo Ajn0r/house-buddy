@@ -1,8 +1,10 @@
 from django.shortcuts import render, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from .models import Categories, Entries
 from .forms import NewCategoryForm
+
 
 
 class CategoryList(generic.ListView):
@@ -34,7 +36,14 @@ class DeleteCategory(generic.DeleteView):
 
 
 class EntryList(generic.ListView):
-    model = Entries()
+    model = Entries
     queryset = Entries.objects.order_by('category')
     template_name = 'entries_page.html'
     paginate_by = 6
+
+
+class NewEntry(generic.CreateView):
+    model = Entries
+    fields = ['title', 'category', 'image', 'amount', 'date_of_purchase', 'description']
+    template_name = 'new_entry.html'
+    success_url = 'entries'
