@@ -5,11 +5,11 @@ urlpatterns = [
     path("categories", views.CategoryList.as_view(), name="categories"),
     path("new", views.NewCategory.as_view(), name='new_category'),
     path(
-        "<slug:slug>/edit", views.EditCategory.as_view(),
+        "<slug:slug>/edit_category", views.EditCategory.as_view(),
         name='edit_category'
         ),
     path(
-        "<slug:slug>/delete", views.DeleteCategory.as_view(),
+        "<slug:slug>/delete_category", views.DeleteCategory.as_view(),
         name='delete_category'
         ),
     path(
@@ -27,5 +27,13 @@ urlpatterns = [
     path(
         '<int:pk>/', views.EntryDetail.as_view(),
         name='entry_detail'
+    ),
+    path(
+        '<int:pk>/edit_entry', views.EditEntry.as_view(),
+        name='edit_entry'
+    ),
+    path(
+        '<int:pk>/delete_entry', views.DeleteEntry.as_view(),
+        name='delete_entry'
     )
 ]

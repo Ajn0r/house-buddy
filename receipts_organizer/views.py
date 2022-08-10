@@ -53,3 +53,16 @@ class NewEntry(generic.CreateView):
 class EntryDetail(generic.DetailView):
     model = Entries
     template_name = 'entry_detail.html'
+
+
+class EditEntry(generic.UpdateView):
+    model = Entries
+    fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
+    template_name = 'edit_entry.html'
+    success_url = '/entries'
+
+
+class DeleteEntry(generic.DeleteView):
+    model = Entries
+    template_name = 'entries_page.html'
+    success_url = '/entries'

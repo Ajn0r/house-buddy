@@ -27,7 +27,7 @@
             </p>
 
         </a>
-        <button class="btn btn-primary"><a href="#">Edit</a></button>
+        <button class="btn btn-primary"><a href="{% url 'edit_entry' entries.id %}">Edit</a></button>
         <!-- Button to trigger delete modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
             Delete
@@ -44,12 +44,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        By pressing delete your category: {{ category.name }} will be deleted as well as all the entries
-                        in that
+                        By pressing delete your Entry: {{ entries.title }} will be deleted
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <form action="#" method="post">{% csrf_token %}
+                        <form action="{% url 'delete_entry' entries.id %}" method="post">{% csrf_token %}
                             <input type="submit" value="Delete" class="btn btn-primary">
                         </form>
                     </div>
