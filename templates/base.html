@@ -28,7 +28,7 @@
             <ul class="navbar-nav mx-auto">
                 <div class="row">
                     <li class="nav-item active col-lg-3">
-                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item col-lg-3">
                         <a class="nav-link" href="#">About</a>
@@ -37,9 +37,18 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                     <li class="nav-item col-lg-3">
-                        <a class="nav-link">Blog</a>
+                        <a class="nav-link" href="#">Blog</a>
                     </li>
                     {% if user.is_authenticated %}
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link">My page</a>
+                    </li>
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link" href="{% url 'categories' %}">Categories</a>
+                    </li>
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link" href="{% url 'entries' %}">Entries</a>
+                    </li>
                     <div class="buttons mx-auto col-lg-12d-flex justify-content-center">
                         <button type="button" class="btn btn-primary btn-sm m-1">Logout</button>
                     </div>

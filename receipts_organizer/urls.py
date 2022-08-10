@@ -23,5 +23,9 @@ urlpatterns = [
     path(
         'new_entry', views.NewEntry.as_view(),
         name='new_entry'
+    ),
+    path(
+        '<int:pk>/', views.EntryDetail.as_view(),
+        name='entry_detail'
     )
 ]

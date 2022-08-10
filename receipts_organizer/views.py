@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Categories, Entries
 from .forms import NewCategoryForm
+from django.utils import timezone
 
 
 
@@ -16,7 +17,7 @@ class CategoryList(generic.ListView):
 
 class NewCategory(generic.CreateView):
     model = Categories
-    fields = ['name']
+    fields = ['user', 'name']
     template_name = 'new_category.html'
     # form_class = NewCategoryForm
     success_url = 'categories'
@@ -48,3 +49,7 @@ class NewEntry(generic.CreateView):
     template_name = 'new_entry.html'
     success_url = 'entries'
 
+
+class EntryDetail(generic.DetailView):
+    model = Entries
+    template_name = 'entry_detail.html'

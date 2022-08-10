@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Categories</h1>
+<h1>Entries</h1>
 <div class="row">
     <div class="col-12 card">
-        <a href="#">
+        <a href="{% url 'new_entry' %}">
             Add a entry
         </a>
     </div>
     {% if entries_list.count == 0 %}
     <div class="col-12">
-        <h3>Lookes like the Category list is empty, add <a href="#">one</a> to get started!</h3>
+        <h3>Lookes like the Entry list is empty, add <a href="{% url 'new_entry' %}">one</a> to get started!</h3>
     </div>
     {% else %}
     {% for entries in entries_list%}
     <div class="col-sm-6 col-lg-4 card">
-        <a href="#">
+        <a href="{% url 'entry_detail' entries.id %}">
             <h4 class="hard-header">
                 {{ entries.title }}
             </h4>
