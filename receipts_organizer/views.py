@@ -31,3 +31,10 @@ class DeleteCategory(generic.DeleteView):
     model = Categories
     template_name = 'category_page.html'
     success_url = '/categories'
+
+
+class EntryList(generic.ListView):
+    model = Entries()
+    queryset = Entries.objects.order_by('category')
+    template_name = 'entries_page.html'
+    paginate_by = 6
