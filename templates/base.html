@@ -39,10 +39,16 @@
                     <li class="nav-item col-lg-3">
                         <a class="nav-link">Blog</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <div class="buttons mx-auto col-lg-12d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary btn-sm m-1">Logout</button>
+                    </div>
+                    {% else %}
                     <div class="buttons mx-auto col-lg-12d-flex justify-content-center">
                         <button type="button" class="btn btn-primary btn-sm m-1">Login</button>
                         <button type="button" class="btn btn-primary btn-sm m-1">Sign up</button>
                     </div>
+                    {% endif %}
                 </div>
             </ul>
         </div>

@@ -8,6 +8,8 @@ from django.utils.text import slugify
 class Categories(models.Model):
     name = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_name', null=True)
 
     class Meta:
         ordering = ['name']
@@ -23,8 +25,6 @@ class Categories(models.Model):
 
 # Entries model
 class Entries(models.Model):
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='user_name')
     title = models.CharField(max_length=30)
     category = models.ForeignKey(
         Categories, on_delete=models.CASCADE, related_name='Category')
