@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% for blogposts in blogpost %}
+    <div class="row">
+        <div class="col-12">
+            {{ blogposts.title }}
+            <br>
+            {{ blogposts.content }}
+            {{ blogposts.created_on }}
+        </div>
+    </div>
+
+
+
+
+    {% endfor %}
+</div>
+{% endblock content %}

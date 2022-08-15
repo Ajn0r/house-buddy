@@ -5,7 +5,11 @@
         {% for blogposts in blogpost_list %}
 
         <div class="col-4">
-            {{ blogposts.title }}
+            <a href="{% url 'blogpost' blogposts.slug %}">
+                <h5 class="hard-header">
+                    {{ blogposts.title }}
+                </h5>
+            </a>
             <br>
             {{ blogposts.created_on }}
         </div>
