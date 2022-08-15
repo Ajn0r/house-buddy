@@ -16,7 +16,6 @@ class CategoryDetails(LoginRequiredMixin, DetailView):
         return context
 
 
-
 class CategoryList(LoginRequiredMixin, ListView):
     model = Categories
     queryset = Categories.objects.order_by('name')
@@ -62,7 +61,7 @@ class EntryList(LoginRequiredMixin, ListView):
 
 class NewEntry(LoginRequiredMixin, CreateView):
     model = Entries
-    fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
+    fields = ['title', 'category', 'user', 'amount', 'date_of_purchase', 'description']
     template_name = 'new_entry.html'
     success_url = 'entries'
 
