@@ -55,6 +55,10 @@ class EntryList(LoginRequiredMixin, ListView):
     template_name = 'entries_page.html'
     paginate_by = 6
 
+    def get_queryset(self):
+        user = self.request.user
+        return Entries.objects.filter(user=user)
+
 
 class NewEntry(LoginRequiredMixin, CreateView):
     model = Entries

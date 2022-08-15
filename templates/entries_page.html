@@ -11,6 +11,9 @@
     {% if entries_list.count == 0 %}
     <div class="col-12">
         <h3>Lookes like the Entry list is empty, add <a href="{% url 'new_entry' %}">one</a> to get started!</h3>
+        <h6>
+            Category: {{ entry }}
+        </h6>
     </div>
     {% else %}
     {% for entries in entries_list %}
@@ -21,13 +24,13 @@
             </h4>
             <h6>
                 Category: {{ entries.category }}
-                {{ i.category }}
             </h6>
             <p>
                 Amount: {{ entries.amount }}
             </p>
 
         </a>
+
         <button class="btn btn-primary"><a href="{% url 'edit_entry' entries.id %}">Edit</a></button>
         <!-- Button to trigger delete modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
