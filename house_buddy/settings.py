@@ -88,6 +88,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+LOGIN_REDIRECT_URL = 'categories'
+
 WSGI_APPLICATION = 'house_buddy.wsgi.application'
 
 

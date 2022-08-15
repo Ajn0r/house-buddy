@@ -50,12 +50,12 @@
                         <a class="nav-link" href="{% url 'entries' %}">Entries</a>
                     </li>
                     <div class="buttons mx-auto col-lg-12d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-sm m-1">Logout</button>
+                        <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_logout' %}">Logout</a></button>
                     </div>
                     {% else %}
                     <div class="buttons mx-auto col-lg-12d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-sm m-1">Login</button>
-                        <button type="button" class="btn btn-primary btn-sm m-1">Sign up</button>
+                        <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_login' %}">Login</a> </button>
+                        <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_signup' %}">Sign up</a></button>
                     </div>
                     {% endif %}
                 </div>
