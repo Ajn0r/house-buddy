@@ -6,13 +6,15 @@ from django.utils.text import slugify
 
 # Category model
 class Categories(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    name = models.CharField(max_length=30)
+    slug = models.SlugField(max_length=200)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_name', null=True)
 
     class Meta:
         ordering = ['name']
+        unique_together = [['name', 'user']]
+
 
     def __str__(self):
         return self.name

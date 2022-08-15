@@ -11,9 +11,6 @@
     {% if entries_list.count == 0 %}
     <div class="col-12">
         <h3>Lookes like the Entry list is empty, add <a href="{% url 'new_entry' %}">one</a> to get started!</h3>
-        <h6>
-            Category: {{ entry }}
-        </h6>
     </div>
     {% else %}
     {% for entries in entries_list %}

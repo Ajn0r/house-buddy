@@ -29,10 +29,15 @@ class CategoryList(LoginRequiredMixin, ListView):
 
 class NewCategory(LoginRequiredMixin, CreateView):
     model = Categories
-    fields = ['user', 'name']
+    fields = ['name']
     template_name = 'new_category.html'
     # form_class = NewCategoryForm
     success_url = '/categories'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 
 class EditCategory(LoginRequiredMixin, UpdateView):
@@ -61,9 +66,14 @@ class EntryList(LoginRequiredMixin, ListView):
 
 class NewEntry(LoginRequiredMixin, CreateView):
     model = Entries
-    fields = ['title', 'category', 'user', 'amount', 'date_of_purchase', 'description']
+    fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'new_entry.html'
     success_url = 'entries'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+        
 
 
 class EntryDetail(LoginRequiredMixin, DetailView):
