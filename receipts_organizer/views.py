@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Categories, Entries
@@ -54,7 +54,6 @@ class EntryList(LoginRequiredMixin, ListView):
     queryset = Entries.objects.order_by('category')
     template_name = 'entries_page.html'
     paginate_by = 6
-
 
 
 class NewEntry(LoginRequiredMixin, CreateView):

@@ -13,7 +13,7 @@
         <h3>Lookes like the Entry list is empty, add <a href="{% url 'new_entry' %}">one</a> to get started!</h3>
     </div>
     {% else %}
-    {% for entries in entries_list%}
+    {% for entries in entries_list %}
     <div class="col-sm-6 col-lg-4 card">
         <a href="{% url 'entry_detail' entries.id %}">
             <h4 class="hard-header">
@@ -21,6 +21,7 @@
             </h4>
             <h6>
                 Category: {{ entries.category }}
+                {{ i.category }}
             </h6>
             <p>
                 Amount: {{ entries.amount }}
@@ -57,6 +58,7 @@
         </div>
     </div>
     {% endfor %}
+
     {% endif %}
 </div>
 {% endblock content %}
