@@ -28,6 +28,7 @@ urlpatterns = [
         'contact', TemplateView.as_view(template_name='contact.html'),
         name='contact'
     ),
-    path('', include('receipts_organizer.urls'), name='category_urls')
+    path('', include('receipts_organizer.urls'), name='category_urls'),
+    path('', include('blog.urls'), name='blog_urls'),
 
 ]

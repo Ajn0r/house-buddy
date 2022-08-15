@@ -1,9 +1,9 @@
 from django.shortcuts import render, reverse
-from django.views import generic
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from .models import Categories, Entries
 
 
-class CategoryDetails(generic.DetailView):
+class CategoryDetails(DetailView):
     model = Categories
     template_name = 'category_detail.html'
 
@@ -16,14 +16,14 @@ class CategoryDetails(generic.DetailView):
         return context
 
 
-class CategoryList(generic.ListView):
+class CategoryList(ListView):
     model = Categories
     queryset = Categories.objects.order_by('name')
     template_name = 'category_page.html'
     paginate_by = 6
 
 
-class NewCategory(generic.CreateView):
+class NewCategory(CreateView):
     model = Categories
     fields = ['user', 'name']
     template_name = 'new_category.html'
@@ -31,46 +31,46 @@ class NewCategory(generic.CreateView):
     success_url = '/categories'
 
 
-class EditCategory(generic.UpdateView):
+class EditCategory(UpdateView):
     model = Categories
     fields = ['name']
     template_name = 'edit_category.html'
     success_url = '/categories'
 
 
-class DeleteCategory(generic.DeleteView):
+class DeleteCategory(DeleteView):
     model = Categories
     template_name = 'category_page.html'
     success_url = '/categories'
 
 
-class EntryList(generic.ListView):
+class EntryList(ListView):
     model = Entries
     queryset = Entries.objects.order_by('category')
     template_name = 'entries_page.html'
     paginate_by = 6
 
 
-class NewEntry(generic.CreateView):
+class NewEntry(CreateView):
     model = Entries
     fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'new_entry.html'
     success_url = 'entries'
 
 
-class EntryDetail(generic.DetailView):
+class EntryDetail(DetailView):
     model = Entries
     template_name = 'entry_detail.html'
 
 
-class EditEntry(generic.UpdateView):
+class EditEntry(UpdateView):
     model = Entries
     fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'edit_entry.html'
     success_url = '/entries'
 
 
-class DeleteEntry(generic.DeleteView):
+class DeleteEntry(DeleteView):
     model = Entries
     template_name = 'entries_page.html'
     success_url = '/entries'
