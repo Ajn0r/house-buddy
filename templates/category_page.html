@@ -13,7 +13,7 @@
             <h3>Lookes like the Category list is empty, add <a href="{% url 'new_category' %}">one</a> to get started!</h3>
         </div>
     {% else %}
-        {% for category in categories_list%}
+        {% for category in categories_list %}
         <div class="col-sm-6 col-lg-4 card">
             <a href="{% url 'detail_category' category.id %}">
                 <h5 class="hard-header">

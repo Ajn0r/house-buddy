@@ -1,9 +1,10 @@
 from django.shortcuts import render, reverse
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Categories, Entries
 
 
-class CategoryDetails(DetailView):
+class CategoryDetails(LoginRequiredMixin, DetailView):
     model = Categories
     template_name = 'category_detail.html'
 
@@ -11,19 +12,23 @@ class CategoryDetails(DetailView):
         context = super(CategoryDetails, self).get_context_data()
         list_obj = self.object
         context['object'] = list_obj
-
         context['items'] = Entries.objects.filter(category=list_obj)
         return context
 
 
-class CategoryList(ListView):
+
+class CategoryList(LoginRequiredMixin, ListView):
     model = Categories
     queryset = Categories.objects.order_by('name')
     template_name = 'category_page.html'
     paginate_by = 6
 
+    def get_queryset(self):
+        user = self.request.user
+        return Categories.objects.filter(user=user)
 
-class NewCategory(CreateView):
+
+class NewCategory(LoginRequiredMixin, CreateView):
     model = Categories
     fields = ['user', 'name']
     template_name = 'new_category.html'
@@ -31,46 +36,47 @@ class NewCategory(CreateView):
     success_url = '/categories'
 
 
-class EditCategory(UpdateView):
+class EditCategory(LoginRequiredMixin, UpdateView):
     model = Categories
     fields = ['name']
     template_name = 'edit_category.html'
     success_url = '/categories'
 
 
-class DeleteCategory(DeleteView):
+class DeleteCategory(LoginRequiredMixin, DeleteView):
     model = Categories
     template_name = 'category_page.html'
     success_url = '/categories'
 
 
-class EntryList(ListView):
+class EntryList(LoginRequiredMixin, ListView):
     model = Entries
     queryset = Entries.objects.order_by('category')
     template_name = 'entries_page.html'
     paginate_by = 6
 
 
-class NewEntry(CreateView):
+
+class NewEntry(LoginRequiredMixin, CreateView):
     model = Entries
     fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'new_entry.html'
     success_url = 'entries'
 
 
-class EntryDetail(DetailView):
+class EntryDetail(LoginRequiredMixin, DetailView):
     model = Entries
     template_name = 'entry_detail.html'
 
 
-class EditEntry(UpdateView):
+class EditEntry(LoginRequiredMixin, UpdateView):
     model = Entries
     fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'edit_entry.html'
     success_url = '/entries'
 
 
-class DeleteEntry(DeleteView):
+class DeleteEntry(LoginRequiredMixin, DeleteView):
     model = Entries
     template_name = 'entries_page.html'
     success_url = '/entries'
