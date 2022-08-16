@@ -43,7 +43,7 @@ class NewCategory(LoginRequiredMixin, CreateView):
             form.instance.user = self.request.user
             return super().form_valid(form)
         except IntegrityError:
-            messages.info(self.request, 'This category already exists')
+            messages.error(self.request, 'This category already exists')
             return redirect('new_category')
 
 
