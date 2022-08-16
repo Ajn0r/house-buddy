@@ -9,9 +9,9 @@
     <div class="no-image"></div>
   {% endif %}
   <div class="card-body">
-    <h5 class="card-title"><a href="{% url 'entry_detail' item.slug %}">{{ item.title }}</a></h5>
+    <h5 class="card-title"><a href="{% url 'entry_detail' item.id %}">{{ item.title }}</a></h5>
     <p class="card-text">{{ item.category }}</p>
-    <a href="{% url 'edit_entry' item.slug %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'edit_entry' item.id %}" class="btn btn-primary">Edit</a>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
       Delete
     </button>
@@ -31,7 +31,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form action="{% url 'delete_entry' item.slug %}" method="post">{% csrf_token %}
+            <form action="{% url 'delete_entry' item.id %}" method="post">{% csrf_token %}
               <input type="submit" value="Delete" class="btn btn-primary">
             </form>
           </div>
