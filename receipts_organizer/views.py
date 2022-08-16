@@ -1,11 +1,11 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpResponseRedirect
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.urls import reverse_lazy
+# from django.urls import reverse_lazy
 from django.db import IntegrityError
 from .models import Categories, Entries
-from .forms import NewCategoryForm
+from .forms import NewCategoryForm, NewEntryForm
 
 
 class CategoryDetails(LoginRequiredMixin, DetailView):
@@ -73,14 +73,21 @@ class EntryList(LoginRequiredMixin, ListView):
 
 class NewEntry(LoginRequiredMixin, CreateView):
     model = Entries
-    fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
+    form_class = NewEntryForm
+    # fields = ['title', 'category', 'amount', 'image','date_of_purchase', 'description']
     template_name = 'new_entry.html'
     success_url = 'entries'
+
+    def get_form_kwargs(self):
+        """ Passes the request object to the form class.
+         This is necessary to only display members that belong to a given user"""
+        kwargs = super(NewEntry, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-        
 
 
 class EntryDetail(LoginRequiredMixin, DetailView):

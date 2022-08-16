@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-{{ entries.title }}
-{{ entries.category }}
-
-{{ entries.amount }}
+<div class="">
+<h3>{{ entries.title }}</h3>
+<h6>Category: {{ entries.category }}</h6>
+<p>Date purchased: {{ entries.date_of_purchase }}</p>
+<p>Date added: {{ entries.date_added }}</p>
+<p>Updated: {{ entries.date_updated }}</p>
+<p>Description: {{ entries.description }}</p>
+<p>Amount: {{ entries.amount }}kr</p>
+</div>
 {% endblock content %}
