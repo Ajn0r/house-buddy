@@ -3,10 +3,9 @@
     .navbar {
         flex-direction: column;
     }
-}
-
-.navbar {
-    margin-bottom: 2rem;
+    .nav-line {
+        width: 60rem;
+    }
 }
 
 /* Colors */
@@ -20,12 +19,6 @@
     --off-white: #f3f0ed;
 }
 
-body {
-    background-image: url(../images/pexels-evgeny-tchebotarev-2187603.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-
-}
 
 /*  Overriding .rows  */
 .row {
@@ -36,7 +29,6 @@ body {
 /* Cards */
 .card {
     padding: 2rem;
-
 }
 
 .category-card {
@@ -98,4 +90,52 @@ a:hover {
 
 button > a {
     color: var(--off-white);
+}
+/*----------------------- Nav -----------------------*/
+.mypage-btn {
+    max-width: 10rem;
+}
+/*----------------------- Home page -----------------------*/
+.hero {
+    width: 100%;
+    height: 80vh;
+    background-image: url(../images/pexels-evgeny-tchebotarev-2187603.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blue-layer {
+    width: 100%;
+    height: 80vh;
+    background-color: rgba(1, 46, 64, 0.7);
+}
+
+.jumbotron {
+    background-color: rgba(161, 161, 161, 0.8);
+    width: 70%;
+    margin: 0 auto;
+
+}
+
+.second {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.third {
+    height: 50rem;
+}
+
+/* media for home page */
+@media only screen and (min-width: 1240px) {
+    .jumbotron {
+        float: right;
+        margin-top: 6rem;
+        margin-right: 15rem;
+        width: 50%;
+    }
+    
 }

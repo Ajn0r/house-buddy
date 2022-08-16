@@ -16,17 +16,19 @@
 
 <body>
     <!-- Navbar -->
+    <!-- Logo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" width="160px" height="90px"
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="160px" height="90px"
                 alt="House buddy"></a>
+
+    <!-- Nav menu-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <div class="row">
+                <div class="row nav-line">
                     <li class="nav-item active col-lg-2">
                         <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
                     </li>
@@ -40,7 +42,7 @@
                         <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <div class="btn-group col-lg-2">
+                    <div class="btn-group col-lg-2 mypage-btn">
                         <button class="btn btn-secondary btn-sm" type="button">
                           <a href="{% url 'mypage' %}">My page</a>
                         </button>
