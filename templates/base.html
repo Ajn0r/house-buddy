@@ -40,15 +40,19 @@
                         <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item dropdown col-lg-2">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          My page
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
-                          <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
+                    <div class="btn-group col-lg-2">
+                        <button class="btn btn-secondary btn-sm" type="button">
+                          <a href="{% url 'mypage' %}">My page</a>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
+                            <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
+                          
                         </div>
-                    </li>
+                      </div>
                     <div class="buttons mx-auto col-lg-12 d-flex justify-content-center">
                         <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_logout' %}">Logout</a></button>
                     </div>

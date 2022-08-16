@@ -1,13 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="">
-<h3>{{ entries.title }}</h3>
-<h6>Category: {{ entries.category }}</h6>
-<p>Date purchased: {{ entries.date_of_purchase }}</p>
-<p>Date added: {{ entries.date_added }}</p>
-<p>Updated: {{ entries.date_updated }}</p>
-<p>Description: {{ entries.description }}</p>
-<p>Amount: {{ entries.amount }}kr</p>
+<button class="btn btn-primary"><a href="javascript:history.go(-1)">Go Back</a></button>
+<div class="card mx-auto col-lg-12 d-flex justify-content-center" style="width: 30rem;">
+  {% if item.image %}
+  <img class="card-img-top" src="#" alt="Card image cap">
+  {% else %}
+  <div class="no-image"></div>
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{ entries.title }}</h5>
+    <p class="card-text">Description: {{ entries.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Category: {{ entries.category }}</li>
+    <li class="list-group-item">Date purchased: {{ entries.date_of_purchase }}</li>
+    <li class="list-group-item">Amount: {{ entries.amount }}</li>
+    <li class="list-group-item">Date added: {{ entries.date_added }}</li>
+    <li class="list-group-item">Updated: {{ entries.date_updated }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'edit_entry' entries.id %}" class="card-link">Edit</a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
+      Delete
+    </button>
+    <!-- Modal to delete entry -->
+    <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLongTitle">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            By pressing delete your Entry: {{ entries.title }} will be deleted
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <form action="{% url 'delete_entry' entries.id %}" method="post">{% csrf_token %}
+              <input type="submit" value="Delete" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 {% endblock content %}

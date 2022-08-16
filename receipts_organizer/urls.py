@@ -13,7 +13,7 @@ urlpatterns = [
         name='edit_category'
         ),
     path(
-        '<int:pk>/delete_category', views.DeleteCategory.as_view(),
+        'delete_category/<int:pk>', views.DeleteCategory.as_view(),
         name='delete_category'
         ),
     path(
@@ -40,4 +40,7 @@ urlpatterns = [
         '<int:pk>/delete_entry', views.DeleteEntry.as_view(),
         name='delete_entry'
     ),
+    path(
+        'mypage', views.MyPage.as_view(), name='mypage'
+    )
 ]

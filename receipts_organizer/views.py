@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpResponseRedirect
-from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 # from django.urls import reverse_lazy
@@ -56,8 +56,8 @@ class EditCategory(LoginRequiredMixin, UpdateView):
 
 class DeleteCategory(LoginRequiredMixin, DeleteView):
     model = Categories
-    template_name = 'category_page.html'
     success_url = '/categories'
+    template_name = 'categories_confirm_delete.html'
 
 
 class EntryList(LoginRequiredMixin, ListView):
@@ -106,3 +106,17 @@ class DeleteEntry(LoginRequiredMixin, DeleteView):
     model = Entries
     template_name = 'entries_page.html'
     success_url = '/entries'
+
+
+class MyPage(LoginRequiredMixin, TemplateView):
+    model = Categories
+    template_name = 'mypage.html'
+
+    def get_context_data(self, **kwargs):
+        """
+        To be able to reach both Category and Entries
+        """
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Categories.objects.all()
+        context['entries'] = Entries.objects.all()
+        return context

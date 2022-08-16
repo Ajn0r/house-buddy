@@ -14,47 +14,23 @@
     </div>
     {% else %}
     {% for entries in entries_list %}
-    <div class="col-sm-6 col-lg-4 card">
-        <a href="{% url 'entry_detail' entries.id %}">
-            <h4 class="hard-header">
-                {{ entries.title }}
-            </h4>
-            <h6>
-                Category: {{ entries.category }}
-            </h6>
-            <p>
-                Amount: {{ entries.amount }}
-            </p>
+    <div class="card " style="width: 20rem;">
+        {% if item.image %}
+        <img class="card-img-top" src="#" alt="Card image cap">
+        {% else %}
+        <div class="no-image"></div>
+        {% endif %}
 
-        </a>
-
-        <button class="btn btn-primary"><a href="{% url 'edit_entry' entries.id %}">Edit</a></button>
-        <!-- Button to trigger delete modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
-            Delete
-        </button>
-        <!-- Modal for deleting a category -->
-        <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLongTitle">Are you sure?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        By pressing delete your Entry: {{ entries.title }} will be deleted
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <form action="{% url 'delete_entry' entries.id %}" method="post">{% csrf_token %}
-                            <input type="submit" value="Delete" class="btn btn-primary">
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'entry_detail' entries.id %}">{{ entries.title }}</a></h5>
+            <p class="card-text">Category: {{ entries.category }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Date purchased: {{ entries.date_of_purchase }}</li>
+            <li class="list-group-item">Amount: {{ entries.amount }}</li>
+        </ul>
+        <div class="card-body">
+            <a href="{% url 'edit_entry' entries.id %}" class="card-link">Edit</a>
         </div>
     </div>
     {% endfor %}
