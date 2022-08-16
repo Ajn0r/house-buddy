@@ -6,9 +6,17 @@
 {{ message }}
 {% endfor %}
 <h1>Hello!</h1>
-    <form method="POST" >
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Save">
-    </form>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

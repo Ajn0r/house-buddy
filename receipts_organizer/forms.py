@@ -6,11 +6,6 @@ class NewCategoryForm(forms.ModelForm):
         model = Categories
         fields = ['name', ]
 
-
-# class CustomModelChoiseField(forms.ModelChoiceField):
-#    def label_from_instance(self, category):
-#        return '%s' % category.name
-
 class NewEntryForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
@@ -25,3 +20,7 @@ class NewEntryForm(forms.ModelForm):
             'title', 'category', 'image', 
             'amount', 'date_of_purchase', 'description'
             ]
+
+        widgets = {
+            'date_of_purchase': forms.DateInput(format="%m/%d/%Y", attrs={'type': 'date'})
+        }
