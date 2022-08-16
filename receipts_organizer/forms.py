@@ -7,9 +7,7 @@ class NewCategoryForm(forms.ModelForm):
     class Meta:
         model = Categories
         fields = ['name', ]
-        labels = {
-            'name': ('Category name')
-        }
+
 
 
 class NewEntryForm(forms.Form):

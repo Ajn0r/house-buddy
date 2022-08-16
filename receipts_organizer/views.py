@@ -1,7 +1,9 @@
-from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpResponseRedirect
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
 from django.urls import reverse_lazy
+from django.db import IntegrityError
 from .models import Categories, Entries
 from .forms import NewCategoryForm
 
@@ -37,8 +39,12 @@ class NewCategory(LoginRequiredMixin, CreateView):
     success_url = '/categories'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+        try:
+            form.instance.user = self.request.user
+            return super().form_valid(form)
+        except IntegrityError:
+            messages.info(self.request, 'This category already exists')
+            return redirect('new_category')
 
 
 class EditCategory(LoginRequiredMixin, UpdateView):

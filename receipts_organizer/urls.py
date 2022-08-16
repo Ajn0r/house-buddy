@@ -9,11 +9,11 @@ urlpatterns = [
         ),
     path('new', views.NewCategory.as_view(), name='new_category'),
     path(
-        "<slug:slug>/edit_category", views.EditCategory.as_view(),
+        "<int:pk>/edit_category", views.EditCategory.as_view(),
         name='edit_category'
         ),
     path(
-        '<slug:slug>/delete_category', views.DeleteCategory.as_view(),
+        '<int:pk>/delete_category', views.DeleteCategory.as_view(),
         name='delete_category'
         ),
     path(
@@ -39,5 +39,5 @@ urlpatterns = [
     path(
         '<int:pk>/delete_entry', views.DeleteEntry.as_view(),
         name='delete_entry'
-    )
+    ),
 ]
