@@ -1,31 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>Categories</h1>
-<div class="row">
-    <div class="col-12 card">
-        <a href="{% url 'new_category' %}">
+<div class="container">
+    <div class="row">
+        <a href="{% url 'new_category' %}" class="btn btn-primary">
             Add a Category
         </a>
     </div>
-    {% if categories_list.count == 0 %}
+    <div class="row">
+        {% if categories_list.count == 0 %}
         <div class="col-12">
-            <h3>Lookes like the Category list is empty, add <a href="{% url 'new_category' %}">one</a> to get started!</h3>
+            <h3>Lookes like the Category list is empty, add <a href="{% url 'new_category' %}">one</a> to get started!
+            </h3>
         </div>
-    {% else %}
+        {% else %}
         {% for category in categories_list %}
-        <div class="col-sm-6 col-lg-4 card">
+        <div class="col-sm-12 col-md-4 card category-card">
             <a href="{% url 'detail_category' category.id %}">
-                <h5 class="hard-header">
+                <h5 class="hard-header title">
                     {{ category.name }}
                 </h5>
             </a>
-            <button class="btn btn-primary"><a href="{% url 'edit_category' category.id %}">Edit</a></button>
-            <!-- Button to trigger delete modal -->
-            <button class="btn btn-primary"><a href="{% url 'delete_category' category.id %}">Delete</a>
-            </button>
+            <a href="{% url 'edit_category' category.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'delete_category' category.id %}" class="btn btn-danger">Delete</a>
+
         </div>
         {% endfor %}
-    {% endif %}
+        {% endif %}
+    </div>
 </div>
 {% endblock content %}

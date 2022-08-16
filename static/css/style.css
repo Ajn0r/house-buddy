@@ -3,14 +3,92 @@
     .navbar {
         flex-direction: column;
     }
+}
 
+.navbar {
+    margin-bottom: 2rem;
+}
+
+/* Colors */
+:root {
+    --darkest-teal: #012E40;
+    --dark-teal: #025159;
+    --medium-teal: #038C8C;
+    --light-teal: #03A696;
+    --orange: #f58d0e;
+    --dark-orange: #df7904fb;
+    --off-white: #f3f0ed;
+}
+
+body {
+    background-image: url(../images/pexels-evgeny-tchebotarev-2187603.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+/*  Overriding .rows  */
+.row {
+    align-items: center;
+    justify-content: center;
 }
 
 /* Cards */
 .card {
     padding: 2rem;
+
 }
 
+.category-card {
+    margin: 1rem;
+    background-color: var(--off-white);
+    color: var(--dark-teal);
+    text-align: center;
+
+}
+
+.title {
+    color: var(--darkest-teal);
+    text-decoration: none;
+    text-shadow: var(--medium-teal);
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.title:hover {
+    text-decoration: none;
+    color: var(--medium-teal);
+}
+a:hover {
+    text-decoration: none;
+}
+
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--dark-teal);
+    border-color: var(--dark-teal);
+    color: var(--off-white);
+    margin-bottom: 4px;
+}
+
+.btn-primary:hover {
+    background-color: var(--light-teal);
+    border-color: var(--light-teal);
+}
+
+.btn-danger {
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
+
+.btn-danger:hover {
+    background-color: var(--dark-orange);
+    border-color: var(--dark-orange);
+}
+
+
+/* Image placeholders */
 .no-image {
     background: rgb(161, 161, 161);
     width: 100%;
@@ -19,5 +97,5 @@
 }
 
 button > a {
-    color: white;
+    color: var(--off-white);
 }
