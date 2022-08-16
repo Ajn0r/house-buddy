@@ -13,8 +13,9 @@ class Categories(models.Model):
 
     class Meta:
         ordering = ['name']
-        unique_together = [['name', 'user']]
-
+        constraints = [
+            models.UniqueConstraint(fields=['name', 'user'], name='unique category')
+        ]
 
     def __str__(self):
         return self.name

@@ -1,7 +1,9 @@
-from django.shortcuts import render, reverse, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from .models import Categories, Entries
+from .forms import NewCategoryForm
 
 
 class CategoryDetails(LoginRequiredMixin, DetailView):
@@ -29,15 +31,14 @@ class CategoryList(LoginRequiredMixin, ListView):
 
 class NewCategory(LoginRequiredMixin, CreateView):
     model = Categories
-    fields = ['name']
     template_name = 'new_category.html'
+    fields = ['name']
     # form_class = NewCategoryForm
     success_url = '/categories'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
 
 
 class EditCategory(LoginRequiredMixin, UpdateView):

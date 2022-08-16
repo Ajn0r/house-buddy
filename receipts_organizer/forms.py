@@ -1,11 +1,15 @@
 from .models import Categories, Entries
 from django import forms
+from django.forms import ValidationError
 
 
 class NewCategoryForm(forms.ModelForm):
     class Meta:
         model = Categories
-        fields = ('name', 'slug')
+        fields = ['name', ]
+        labels = {
+            'name': ('Category name')
+        }
 
 
 class NewEntryForm(forms.Form):
