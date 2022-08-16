@@ -5,9 +5,8 @@
 <h1>Hello!</h1>
 <div class="container">
     <div class="row">
+        <div class="col-12">Add a new <a href="{% url 'new_category' %}">Category</a></div>
         <div class="col-12">
-
-
             <form method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
