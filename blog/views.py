@@ -6,6 +6,8 @@ from .models import Blogpost, Comments
 class BlogList(ListView):
     model = Blogpost
     template_name = 'blog.html'
+    paginate_by = 2
+    ordering = '-created_on'
 
 
 class BlogDetail(DetailView):
