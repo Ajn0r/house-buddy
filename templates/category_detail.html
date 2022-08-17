@@ -10,7 +10,7 @@
         <div class="no-image"></div>
       {% endif %}
     <div class="card-body">
-      <h5 class="card-title"><a href="{% url 'entry_detail' item.id %}">{{ item.title }}</a></h5>
+      <h5 class="card-title"><a href="{% url 'entry_detail' item.id %}">{{ item.title|title }}</a></h5>
       <p class="card-text">{{ item.category }}</p>
       <a href="{% url 'edit_entry' item.id %}" class="btn btn-primary">Edit</a>
     </div>

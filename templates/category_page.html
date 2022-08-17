@@ -19,7 +19,7 @@
         <div class="col-sm-12 col-md-4 card category-card">
             <a href="{% url 'detail_category' category.id %}">
                 <h5 class="hard-header title">
-                    {{ category.name }}
+                    {{ category.name|title }}
                 </h5>
             </a>
             <a href="{% url 'edit_category' category.id %}" class="btn btn-primary">Edit</a>
