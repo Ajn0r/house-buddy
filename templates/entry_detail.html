@@ -3,12 +3,14 @@
 {% block content %}
 <button class="btn btn-primary"><a href="javascript:history.go(-1)">Go Back</a></button>
 <div class="card mx-auto col-lg-12 d-flex justify-content-center" style="width: 30rem;">
-  {% if item.image %}
-  <img class="card-img-top" src="#" alt="Card image cap">
-  {% else %}
-  <div class="no-image"></div>
-  {% endif %}
+
   <div class="card-body">
+    {% if "no_image" in entries.image.url %}
+      <div class="no-image"></div>    
+    {% else %}
+        <img src="{{ entries.image.url }}" width="100%" class="entry-image">
+    {% endif %}
+    
     <h5 class="card-title">{{ entries.title }}</h5>
     <p class="card-text">Description: {{ entries.description }}</p>
   </div>

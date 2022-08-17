@@ -32,7 +32,7 @@ class Entries(models.Model):
     category = models.ForeignKey(
         Categories, on_delete=models.CASCADE, related_name='Category')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    image = CloudinaryField("image", blank=True)
+    image = CloudinaryField('image', default='no_image')
     amount = models.IntegerField(blank=True)
     date_of_purchase = models.DateField(blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
