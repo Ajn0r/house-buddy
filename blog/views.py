@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Blogpost, Comments
 
 
@@ -26,3 +26,13 @@ class BlogDetail(DetailView):
         context['object'] = post_detail
         context['blogpost'] = Blogpost.objects.filter(title=post_detail)
         return context
+
+
+class PostComment(CreateView):
+    """
+    A view for posting comments on blogposts.
+    """
+    model = Comments
+    fields = ['content', ]
+    template_name = 'blogpost_detail.html'
+    success_url = '/blog'
