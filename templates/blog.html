@@ -10,14 +10,21 @@
         {% for blogposts in blogpost_list %}
         <div class="card blog-card">
             <a href="{% url 'blogpost' blogposts.slug %}">
+                <span>{{ blogposts.get_category_display }}</span>
                 <h5 class="hard-header">
                     {{ blogposts.title }}
                 </h5>
-            </a>
-            <br>
-            {{ blogposts.created_on }}
+            
+            <hr>
+            <p>
+                {{ blogposts.created_on }}
+            </p>
+
+            {{ blogposts.comments.count }}
+        </a>
         </div>
-        {% endfor %}
+            {% endfor %}
+        
     </div>
 </div>
 {% endblock content %}
