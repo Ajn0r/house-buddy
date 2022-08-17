@@ -1,24 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load crispy_forms_tags %}
 <div class="container">
     <div class="row">
         <div class="col-12">
-            {{ blogpost.title }}
+            {{ post.title }}
             <br>
-            <img src="{{ blogpost.image.url }}" alt="" width="100%">
-            {{ blogpost.content|striptags }}
-            {{ blogpost.posted_on }}
+            <img src="{{ post.image.url }}" alt="" width="100%">
+            {{ post.content|striptags }}
+            {{ post.posted_on }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-8">
+            <p>Comments: </p>
             {% for comment in comments %}
-                <p>Comments:</p>
                 <p>Posted by: {{ comment.name }}</p>
                 <p>
                 {{ comment.content|striptags }}</p>
             {% endfor %}
         </div>
-        <div class="col-12">
-            {{ comments.count }}
+        <div class="col-md-4">
+            <div class="card">
+                {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is submitted, once approved it will show up under comments
+                    </div>
+                {% else %}
+                    {% if user.is_authenticated %}
+                        <h4>Leave a comment:</h4>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ comment_form|crispy}}
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
+
 
 </div>
 {% endblock content %}
