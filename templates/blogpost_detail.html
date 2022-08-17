@@ -1,27 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load crispy_forms_tags %}
 <div class="container">
     {% for blogposts in blogpost %}
     <div class="row">
-        <div class="col-9">
-            <h3>
+        <div class="col-12">
             {{ blogposts.title }}
-        </h3>
-        </div>
-        <div class="col-3">
-            <p>Posted on: </p>
+            <br>
+            {{ blogposts.content|striptags }}
             {{ blogposts.created_on }}
         </div>
-        <div class="col-12">
-            {{ blogposts.content|striptags }}
-        </div>
     </div>
-</div>
-
-
-
-
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock content %}
