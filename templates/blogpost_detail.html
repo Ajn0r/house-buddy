@@ -5,6 +5,7 @@
         <div class="col-12">
             {{ blogpost.title }}
             <br>
+            <img src="{{ blogpost.image.url }}" alt="" width="100%">
             {{ blogpost.content|striptags }}
             {{ blogpost.posted_on }}
             {% for comment in comments %}
