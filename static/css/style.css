@@ -141,11 +141,22 @@ button > a {
 
 .blog-card {
     width: 49%;
-    height: 15rem;
+    height: 20rem;
 }
 
 .blog-row {
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 580px) {
+    .blog-row {
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+    .blog-card {
+        width: 100%;
+    }
 }
 
 /*----------------------- Entries -----------------------*/
