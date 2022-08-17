@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpR
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-# from django.urls import reverse_lazy
+from django.urls import reverse_lazy
 from django.db import IntegrityError
 from .models import Categories, Entries
 from .forms import NewEntryForm
@@ -32,6 +32,7 @@ class CategoryDetails(LoginRequiredMixin, DetailView):
     """
     model = Categories
     template_name = 'category_detail.html'
+    success_url = reverse_lazy('categories')
 
     def get_context_data(self, **kwargs):
         """
@@ -52,7 +53,7 @@ class NewCategory(LoginRequiredMixin, CreateView):
     model = Categories
     template_name = 'new_category.html'
     fields = ['name']
-    success_url = '/categories'
+    success_url = reverse_lazy('categories')
 
     def form_valid(self, form):
         """
@@ -75,7 +76,7 @@ class EditCategory(LoginRequiredMixin, UpdateView):
     model = Categories
     fields = ['name']
     template_name = 'edit_category.html'
-    success_url = '/categories'
+    success_url = reverse_lazy('categories')
 
 
 class DeleteCategory(LoginRequiredMixin, DeleteView):
@@ -83,7 +84,7 @@ class DeleteCategory(LoginRequiredMixin, DeleteView):
     A view to delete categories
     """
     model = Categories
-    success_url = '/categories'
+    success_url = reverse_lazy('categories')
     template_name = 'categories_confirm_delete.html'
 
 
@@ -119,7 +120,7 @@ class NewEntry(LoginRequiredMixin, CreateView):
     model = Entries
     form_class = NewEntryForm
     template_name = 'new_entry.html'
-    success_url = 'entries'
+    success_url = reverse_lazy('entries')
 
     def get_form_kwargs(self):
         """ 
@@ -148,7 +149,7 @@ class EditEntry(LoginRequiredMixin, UpdateView):
     model = Entries
     fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'edit_entry.html'
-    success_url = '/entries'
+    success_url = reverse_lazy('entries')
 
 
 class DeleteEntry(LoginRequiredMixin, DeleteView):
@@ -158,7 +159,7 @@ class DeleteEntry(LoginRequiredMixin, DeleteView):
     """
     model = Entries
     template_name = 'entries_page.html'
-    success_url = '/entries'
+    success_url = reverse_lazy('entries')
 
 
 class MyPage(LoginRequiredMixin, TemplateView):

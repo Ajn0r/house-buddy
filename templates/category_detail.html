@@ -2,49 +2,24 @@
 {% block content %}
 <button class="btn btn-primary"><a href="javascript:history.go(-1)">Go Back</a></button>
 {% if items.count > 0 %}
-{% for item in items %}
-<div class="card" style="width: 18rem;">
-  {% if item.image %}
-    <img class="card-img-top" src="#" alt="Card image cap">
-  {% else %}
-    <div class="no-image"></div>
-  {% endif %}
-  <div class="card-body">
-    <h5 class="card-title"><a href="{% url 'entry_detail' item.id %}">{{ item.title }}</a></h5>
-    <p class="card-text">{{ item.category }}</p>
-    <a href="{% url 'edit_entry' item.id %}" class="btn btn-primary">Edit</a>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
-      Delete
-    </button>
-    {% endfor %}
-    <!-- Modal to delete entry -->
-    <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLongTitle">Are you sure?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            By pressing delete your Entry: {{ item.title }} will be deleted
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form action="{% url 'delete_entry' item.id %}" method="post">{% csrf_token %}
-              <input type="submit" value="Delete" class="btn btn-primary">
-            </form>
-          </div>
-        </div>
-      </div>
+  {% for item in items %}
+    <div class="card" style="width: 18rem;">
+      {% if item.image %}
+        <img class="card-img-top" src="#" alt="Card image cap">
+      {% else %}
+        <div class="no-image"></div>
+      {% endif %}
+    <div class="card-body">
+      <h5 class="card-title"><a href="{% url 'entry_detail' item.id %}">{{ item.title }}</a></h5>
+      <p class="card-text">{{ item.category }}</p>
+      <a href="{% url 'edit_entry' item.id %}" class="btn btn-primary">Edit</a>
     </div>
   </div>
-</div>
+  {% endfor %}
 {% else %}
-<h2>There are no entires in {{ categories.name }}</h2>
-<button class="btn btn-primary">
-  <a href="{% url 'new_entry' %}">Add a entry</a></button>
+  <h2>There are no entires in {{ categories.name }}</h2>
+  <button class="btn btn-primary">
+    <a href="{% url 'new_entry' %}">Add a entry</a></button>
+
 {% endif %}
 {% endblock content %}

@@ -4,12 +4,12 @@ from django.urls import path
 urlpatterns = [
     path('categories', views.CategoryList.as_view(), name='categories'),
     path(
-        '<int:pk>/category_detail', views.CategoryDetails.as_view(),
+        'category_detail/<int:pk>', views.CategoryDetails.as_view(),
         name='detail_category'
         ),
     path('new', views.NewCategory.as_view(), name='new_category'),
     path(
-        "<int:pk>/edit_category", views.EditCategory.as_view(),
+        "edit_category/<int:pk>", views.EditCategory.as_view(),
         name='edit_category'
         ),
     path(
@@ -29,15 +29,15 @@ urlpatterns = [
         name='new_entry'
     ),
     path(
-        '<int:pk>/', views.EntryDetail.as_view(),
+        'entry/<int:pk>', views.EntryDetail.as_view(),
         name='entry_detail'
     ),
     path(
-        '<int:pk>/edit_entry', views.EditEntry.as_view(),
+        'edit_entry/<int:pk>', views.EditEntry.as_view(),
         name='edit_entry'
     ),
     path(
-        '<int:pk>/delete_entry', views.DeleteEntry.as_view(),
+        'delete_entry/<int:pk>', views.DeleteEntry.as_view(),
         name='delete_entry'
     ),
     path(
