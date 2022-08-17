@@ -115,8 +115,10 @@ class MyPage(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         """
         To be able to reach both Category and Entries
+        returns only the users objects.
         """
+        user = self.request.user
         context = super().get_context_data(**kwargs)
-        context['categories'] = Categories.objects.all()
-        context['entries'] = Entries.objects.all()
+        context['categories'] = Categories.objects.filter(user=user)
+        context['entries'] = Entries.objects.filter(user=user)
         return context
