@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    {% for blogposts in blogpost %}
     <div class="row">
         <div class="col-12">
-            {{ blogposts.title }}
+            {{ blogpost.title }}
             <br>
-            {{ blogposts.content|striptags }}
-            {{ blogposts.created_on }}
+            {{ blogpost.content|striptags }}
+            {{ blogpost.posted_on }}
+            {% for comment in comments %}
+                <p>Comments:</p>
+                <p>Posted by: {{ comment.name }}</p>
+                <p>
+                {{ comment.content|striptags }}</p>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
+
 </div>
 {% endblock content %}
