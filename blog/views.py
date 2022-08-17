@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, HttpResponseRedirect
 from django.views.generic import ListView, View
 from .models import Blogpost, Comments
 from .forms import CommentForm
@@ -55,7 +55,6 @@ class BlogDetail(View):
             comment.post = post
             comment.save()
 
-
         return render(
             request, 
             'blogpost_detail.html',
@@ -63,7 +62,19 @@ class BlogDetail(View):
                 'post': post,
                 'comments': comments,
                 'commented': True,
-                'liked': False,
+                'liked': liked,
                 'comment_form': CommentForm()
             },
         )
+
+
+class LikePost(View):
+
+    def post(self, request, slug):
+        post = get_object_or_404(Blogpost, slug=slug)
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        return HttpResponseRedirect(reverse('blogpost', args=[slug]))

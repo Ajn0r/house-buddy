@@ -25,15 +25,21 @@
                 </p>
 
                 <!-- Number of comments -->
-                {% if blogposts.comments.count == 0 %}
-                    <span><i class="far fa-comment"></i></span>
-                {% elif blogposts.comments.count == 1 %}
-                    <span><i class="fas fa-comment"></i></span>
-                    <span>{{ blogposts.comments.count }}</span>
-                {% else %}
-                    <span><i class="fas fa-comments"></i></span>
-                    <span>{{ blogposts.comments.count }}</span>   
-                {% endif %}
+                <div class="align-items-end">
+
+                    {% if blogposts.comments.count == 0 %}
+                        <span><i class="far fa-comment"></i></span>
+                    {% elif blogposts.comments.count == 1 %}
+                        <span><i class="fas fa-comment"></i></span>
+                        <span>{{ blogposts.comments.count }}</span>
+                    {% else %}
+                        <span><i class="fas fa-comments"></i></span>
+                        <span>{{ blogposts.comments.count }}</span>   
+                    {% endif %}
+
+                <!-- Number of likes -->
+                    <span><i class="fas fa-heart"></i>{{ blogposts.total_likes }}</span>
+                </div>
             </a>
         </div>
         {% endfor %}
