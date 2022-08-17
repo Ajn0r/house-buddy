@@ -4,6 +4,9 @@ from .models import Blogpost, Comments
 
 
 class BlogList(ListView):
+    """
+    View to display blogposts on blogpage
+    """
     model = Blogpost
     template_name = 'blog.html'
     paginate_by = 2
@@ -11,6 +14,9 @@ class BlogList(ListView):
 
 
 class BlogDetail(DetailView):
+    """
+    A view to display the blogposts full details
+    """
     model = Blogpost
     template_name = 'blogpost_detail.html'
 
