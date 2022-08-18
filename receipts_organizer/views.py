@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpR
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.db import IntegrityError
 from .models import Categories, Entries
@@ -46,7 +47,7 @@ class CategoryDetails(LoginRequiredMixin, DetailView):
         return context
 
 
-class NewCategory(LoginRequiredMixin, CreateView):
+class NewCategory(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     A view to create new categories
     """
@@ -54,6 +55,7 @@ class NewCategory(LoginRequiredMixin, CreateView):
     template_name = 'new_category.html'
     fields = ['name']
     success_url = reverse_lazy('categories')
+    success_message = 'Category was created successfully'
 
     def form_valid(self, form):
         """
@@ -65,11 +67,17 @@ class NewCategory(LoginRequiredMixin, CreateView):
             form.instance.user = self.request.user
             return super().form_valid(form)
         except IntegrityError:
-            messages.error(self.request, 'This category already exists')
+            name = form.instance.name
+            messages.error(
+                self.request, 
+                f"You already have a category called: {name}."
+                " Try something else or go "
+                "<a href='%s'>back</a> to categories" % reverse('categories')
+                )
             return redirect('new_category')
 
 
-class EditCategory(LoginRequiredMixin, UpdateView):
+class EditCategory(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
     A view to update categories
     """
@@ -77,16 +85,17 @@ class EditCategory(LoginRequiredMixin, UpdateView):
     fields = ['name']
     template_name = 'edit_category.html'
     success_url = reverse_lazy('categories')
+    success_message = 'Your category was updated successfully'
 
 
-class DeleteCategory(LoginRequiredMixin, DeleteView):
+class DeleteCategory(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """
     A view to delete categories
     """
     model = Categories
     success_url = reverse_lazy('categories')
     template_name = 'categories_confirm_delete.html'
-
+    success_message = 'Category successfully deleted'
 
 class EntryList(LoginRequiredMixin, ListView):
     """
@@ -113,7 +122,7 @@ class EntryDetail(LoginRequiredMixin, DetailView):
     template_name = 'entry_detail.html'
 
 
-class NewEntry(LoginRequiredMixin, CreateView):
+class NewEntry(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     A view for creating new entries
     """
@@ -121,6 +130,7 @@ class NewEntry(LoginRequiredMixin, CreateView):
     form_class = NewEntryForm
     template_name = 'new_entry.html'
     success_url = reverse_lazy('entries')
+    success_message = 'Entry succesfully created'
 
     def get_form_kwargs(self):
         """ 
@@ -142,7 +152,7 @@ class NewEntry(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditEntry(LoginRequiredMixin, UpdateView):
+class EditEntry(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
     A veiw to update entries
     """
@@ -150,6 +160,7 @@ class EditEntry(LoginRequiredMixin, UpdateView):
     fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
     template_name = 'edit_entry.html'
     success_url = reverse_lazy('entries')
+    success_message = 'Your entry has been updated'
 
 
 class DeleteEntry(LoginRequiredMixin, DeleteView):
