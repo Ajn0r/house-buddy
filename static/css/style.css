@@ -98,7 +98,7 @@ button > a {
 /*----------------------- Home page -----------------------*/
 .hero {
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     background-image: url(../images/pexels-evgeny-tchebotarev-2187603.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -107,14 +107,15 @@ button > a {
 
 .blue-layer {
     width: 100%;
-    height: 80vh;
+    height: 90vh;
+    padding-top: 3rem;
     background-color: rgba(1, 46, 64, 0.7);
 }
 
 .jumbotron {
     background-color: rgba(161, 161, 161, 0.8);
-    width: 70%;
     margin: 0 auto;
+    width: 75%;
 
 }
 
@@ -127,6 +128,28 @@ button > a {
 
 .third {
     height: 50rem;
+}
+
+/* media for home page */
+@media only screen and (min-width: 1240px) {
+    .jumbotron {
+        float: right;
+        margin-top: 6rem;
+        margin-right: 15rem;
+        width: 50%;
+    }
+    
+}
+@media only screen and (max-width: 320px) {
+    .jumbotron {
+        width: 100%;
+    }
+    .jumbo-title {
+        font-size: 2.5rem;
+    }
+    .jumbo-lead {
+        font-size: 1rem;
+    }
 }
 
 /*----------------------- Blog -----------------------*/
@@ -162,14 +185,4 @@ button > a {
 /*----------------------- Entries -----------------------*/
 .entry-image {
     min-height: 25rem;
-}
-/* media for home page */
-@media only screen and (min-width: 1240px) {
-    .jumbotron {
-        float: right;
-        margin-top: 6rem;
-        margin-right: 15rem;
-        width: 50%;
-    }
-    
 }
