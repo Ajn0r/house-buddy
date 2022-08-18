@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, HttpResponseRedirect
 from django.views.generic import ListView, View
+from django.core.paginator import Paginator
 from .models import Blogpost, Comments
 from .forms import CommentForm
 
@@ -21,6 +22,7 @@ class BlogDetail(View):
     walkthrouh 'I think therefore I blog
     """
     def get(self, request, slug, *args, **kwargs):
+
         queryset = Blogpost.objects.filter(process=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('posted_on')
@@ -35,7 +37,7 @@ class BlogDetail(View):
                 'post': post,
                 'comments': comments,
                 'commented': False,
-                'liked': False,
+                'liked': liked,
                 'comment_form': CommentForm()
             },
         )
@@ -62,8 +64,8 @@ class BlogDetail(View):
                 'post': post,
                 'comments': comments,
                 'commented': True,
+                'comment_form': CommentForm(),
                 'liked': liked,
-                'comment_form': CommentForm()
             },
         )
 

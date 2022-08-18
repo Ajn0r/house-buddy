@@ -51,7 +51,7 @@
 <!-- Pagination -->
 <div class="row pt-2">
     {% if is_paginated %}
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation">
         <ul class="pagination">
             {% if page_obj.has_previous %}
             <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>

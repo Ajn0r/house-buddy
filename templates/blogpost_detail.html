@@ -12,16 +12,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-1">
+        <div class="col-12">
             {% if user.is_authenticated %}
-            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+            <form action="{% url 'post_like' post.slug %}" method="POST">
                 {% csrf_token %}
                 {% if liked %}
-                <button class="btn-like" type="submit" name="blogpost_id" value="{{post.slug}}">
+                <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
                     <i class="fas fa-heart"></i>
                 </button>
                 {% else %}
-                <button class="btn-like" type="submit" name="blogpost_id" value="{{post.slug}}">
+                <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
                     <i class="far fa-heart"></i>
                 </button>
                 {% endif%}
@@ -29,38 +29,39 @@
             {% else %}
             <i class="far fa-heart"></i>
             {% endif %}
-            {{ blogpost.total_likes }}
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-8">
-            <p>Comments: </p>
+            <h4>Comments: </h4>
+            <hr>
             {% for comment in comments %}
-                <p>Posted by: {{ comment.name }}</p>
-                <p>
+            <p>Posted by: {{ comment.name }}</p>
+            <p>
                 {{ comment.content|striptags }}</p>
+            <hr>
             {% endfor %}
         </div>
+
+
         <div class="col-lg-4">
             <div class="card">
                 {% if commented %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is submitted, once approved it will show up under comments
-                    </div>
+                <div class="alert alert-success" role="alert">
+                    Your comment is submitted, once approved it will show up under comments
+                </div>
                 {% else %}
-                    {% if user.is_authenticated %}
-                        <h4>Leave a comment:</h4>
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ comment_form|crispy}}
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                        </form>
-                    {% endif %}
+                {% if user.is_authenticated %}
+                <h4>Leave a comment:</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form|crispy}}
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </form>
+                {% endif %}
                 {% endif %}
             </div>
         </div>
     </div>
-
-
 </div>
 {% endblock content %}

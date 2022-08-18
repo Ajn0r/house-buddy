@@ -217,6 +217,15 @@ button > a {
 .fa-heart {
     color: rgb(212, 55, 55);
 }
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+}
+.like-btn:hover {
+    zoom: 130%;
+}
+
 @media only screen and (max-width: 580px) {
     .blog-row {
         flex-direction: column;
