@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
+
 
 <div class="about-header-bg">
     <div class="about-hero">
@@ -28,6 +30,7 @@
         <div class="col-sm-12 col-md-4 vr-line">
             <h3>The Blog!</h3>
             <hr>
+            <img src="{% static 'images/keila-blogger.jpg' %}" alt="A image of Keila" class="round-img">
             <p><strong>Kiela</strong> runs the House buddy blog, where you can find usefull tips on anything house
                 related, she also blogs about her everyday life renovating houses.
             </p>
