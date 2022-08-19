@@ -1,16 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="about-page">
-    <div class="about-header-bg">
-        <div class="about-hero">
-            <h1 class="about-heading">We <br> are <br> the <br> House <br> Buddy</h1>
-            <div>
-                <a href="#about-main" class="about-heading about-arrow"><i class="fas fa-angle-down bounce"></i>
-            </div>
+
+<div class="about-header-bg">
+    <div class="about-hero">
+        <h1 class="about-heading">We <br> are <br> the <br> House <br> Buddy</h1>
+        <div>
+            <a href="#about-main" class="about-heading about-arrow"><i class="fas fa-angle-down bounce"></i></a>
         </div>
     </div>
-    <div id="about-main" class="main-about-section">
-        hihiogogo
+</div>
+
+<div id="about-main" class="main-about-section container-fluid">
+    <div class="row mt-4 p-md-5">
+        <div class="col-sm-12 col-md-8">
+            <h3>The homeowner's buddies!</h3>
+            <p>You know that receipt on the door you bought last year that you'd really need right now for warranties?
+                Yeah it's probably in a drawer somewhere, where you will never find it, does it sound familiar?</p>
+            <p>House buddy lets you store receipts, documents, and other information so that you'll always know where
+                you have them.</p>
+
+            <h4>Custom categories</h4>
+            <p>We know that not everybody's lives and homes are the same, and that is why we let you create your own
+                categories, making them custom to you and your needs.</p>
+        </div>
+        <hr>
+
+        <div class="col-sm-12 col-md-4 vr-line">
+            <h3>The Blog!</h3>
+            <hr>
+            <p><strong>Kiela</strong> runs the House buddy blog, where you can find usefull tips on anything house
+                related, she also blogs about her everyday life renovating houses.
+            </p>
+            <p>
+                Want to become a house buddy blogger and share your amazing ideas and hacks aswell? 
+                <a href="{% url 'contact' %}" class="get-in-touch"> Get in touch today!</a>
+            </p>
+        </div>
     </div>
 </div>
+
 {% endblock content %}

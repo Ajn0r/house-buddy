@@ -200,8 +200,7 @@ button > a {
     animation: bounce 2s;
     animation-delay: 1s;
     animation-iteration-count: infinite;
-  }
-  
+}
   @keyframes bounce {
     0%,
     25%,
@@ -224,6 +223,14 @@ button > a {
     font-weight: initial;
     height: 50vh;
   }
+
+.vr-line {
+    border-left:1px solid var(--darkest-teal);
+    height: 100%;
+}
+.get-in-touch {
+    color: black;
+}
 /*----------------------- Blog -----------------------*/
 
 #blog-header {
