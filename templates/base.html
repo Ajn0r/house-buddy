@@ -9,13 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1b00d9a190.js" crossorigin="anonymous"></script>
-   
+
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Css -->
     <link rel="stylesheet" type="text/css" href=" {% static 'css/style.css' %} ">
+
+    <!-- EmailJs -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("rXcGdbF_AwQgFUObc");
+        })();
+    </script>
     <title>House Buddy</title>
 </head>
 
@@ -23,10 +32,10 @@
     <!-- Navbar -->
     <!-- Logo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="160px" height="90px"
-                alt="House buddy"></a>
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="160px"
+                height="90px" alt="House buddy"></a>
 
-    <!-- Nav menu-->
+        <!-- Nav menu-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,24 +58,28 @@
                     {% if user.is_authenticated %}
                     <div class="btn-group col-lg-2 mypage-btn">
                         <button class="btn btn-secondary btn-sm" type="button">
-                          <a href="{% url 'mypage' %}">My page</a>
+                            <a href="{% url 'mypage' %}">My page</a>
                         </button>
-                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="sr-only">Toggle Dropdown</span>
+                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
                             <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
-                          
+
                         </div>
-                      </div>
+                    </div>
                     <div class="buttons mx-auto col-lg-12 d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_logout' %}">Logout</a></button>
+                        <button type="button" class="btn btn-primary btn-sm m-1"><a
+                                href="{% url 'account_logout' %}">Logout</a></button>
                     </div>
                     {% else %}
                     <div class="buttons mx-auto col-lg-12 d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_login' %}">Login</a> </button>
-                        <button type="button" class="btn btn-primary btn-sm m-1"><a href="{% url 'account_signup' %}">Sign up</a></button>
+                        <button type="button" class="btn btn-primary btn-sm m-1"><a
+                                href="{% url 'account_login' %}">Login</a> </button>
+                        <button type="button" class="btn btn-primary btn-sm m-1"><a
+                                href="{% url 'account_signup' %}">Sign up</a></button>
                     </div>
                     {% endif %}
                 </div>
