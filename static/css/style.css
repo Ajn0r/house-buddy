@@ -173,10 +173,9 @@ button > a {
 }
 
 /*----------------------- About page -----------------------*/
-.about-header {
+.about-header-bg {
     height: 85vh;
     width: 100%;
-    border-radius: 5px;
     background-image: url(../images/pexels-shonejai-1227515.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -186,15 +185,45 @@ button > a {
     background-color: rgba(31, 36, 34, 0.7);
     width: 100%;
     height: 100%;
-    border-radius: 5px;
-    padding: 4rem;
+    padding: 1.5rem 3rem;
     color: var(--off-white);
 }
 .about-heading {
     font-size: 6rem;
-
     font-weight: 900;
+    color: var(--off-white);
 }
+.about-arrow:hover {
+    color: var(--orange);
+}
+.bounce {
+    animation: bounce 2s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes bounce {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .main-about-section {
+    color: black;
+    font-size: initial;
+    font-weight: initial;
+    height: 50vh;
+  }
 /*----------------------- Blog -----------------------*/
 
 #blog-header {
