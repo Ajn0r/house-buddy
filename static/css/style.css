@@ -262,6 +262,12 @@ button>a {
     float: right;
 }
 
+.benefits {
+    text-align: center;
+}
+.benefit-hr {
+    width: 20%;
+}
 /*----------------------- Blog -----------------------*/
 
 #blog-header {

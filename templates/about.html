@@ -12,10 +12,10 @@
     </div>
 </div>
 
-<div id="about-main" class="main-about-section container-fluid">
+<div id="about-main" class="main-about-section container">
     <div class="row mt-4 p-md-5">
-        <div class="col-sm-12 col-md-8">
-            <h3>The homeowner's buddies!</h3>
+        <div class="col-sm-12 col-md-7">
+            <h3 class="mb-3">The homeowner's buddies!</h3>
             <p>
                 You know that receipt on the door you bought last year that you'd really need right now for warranties?
                 Yeah it's probably in a drawer somewhere, where you will never find it, does it sound familiar?
@@ -28,7 +28,7 @@
             <p>We know that not everybody's lives and homes are the same, and that is why we let you create your own
                 categories, making them custom to you and your needs.</p>
         </div>
-        <div class="col-sm-12 col-md-4 vr-line">
+        <div class="col-sm-12 col-md-5 vr-line">
             <h3>The Blog!</h3>
             <hr>
             <img src="{% static 'images/keila-blogger.jpg' %}" alt="A image of Keila" class="round-img">
@@ -42,30 +42,54 @@
         </div>
     </div>
     <hr>
-</div>
-    <div class="mt-4 p-md-5">
-        <div>
-            <h3>Benefits: </h3>
+    <div class="row mt-4 p-md-5">
+        <div class="col-sm-12 col-md-6">
+            <div>
+                <h3>Benefits: </h3>
+            </div>
+            <div class="benefits">
+                <span><i class="fas fa-receipt"></i></span>
+                <h5>Easy and quick receipt storing</h5>
+                <p>
+                    You can easily add an image and information about a receipt from your phone.
+                </p>
+            </div>
+            <hr class="benefit-hr">
+            
+            <div class="benefits">
+                <span ><i class="fas fa-user-edit"></i></span>
+                <h5>You can add custom categories</h5>
+                <p>
+                    You can customize your page to fit your needs, it doesn't have to be a receipt storing site, it can be whatever you'd like, maybe you want to start a cat picture organizer, who are we to stop you? 
+                </p>
+            </div>
+            <hr class="benefit-hr">
+
+            <div class="benefits">
+                <span><i class="fas fa-cloud"></i></span>
+                <h5>Have access to your information wherever you are</h5>
+                <p>If you save all of your color codes in House Buddy, you can access them while at the hardware store, and never have to second guess what the name of the color in the kitchen was again.</p>
+            </div>
+
+            <hr class="benefit-hr">
+            <div class="benefits">
+                <span><i class="fas fa-money-bill-wave"></i></span>
+                <h5>Save time and money</h5>
+            </div>
+
         </div>
-        <div>
-            <span><i class="fas fa-receipt"></i></span>
-        </div>
-        <div>
-            <span><i class="fas fa-user-edit"></i></span>
-        </div>
-        
-        <div ><i class="fas fa-money-bill-wave"></i></div>
-        <div class="text-center">
+        <div class="benefits col-sm-12 col-md-6">
             <p>
-                <a class="" data-toggle="collapse" href="#collapseSwedenBen" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
+                <a class="" data-toggle="collapse" href="#collapseSwedenBen" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
                     Do you own a property in Sweden?
                 </a>
             </p>
             <div class="collapse" id="collapseSwedenBen">
                 <div class="card card-body">
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                    proident.
                 </div>
             </div>
         </div>
