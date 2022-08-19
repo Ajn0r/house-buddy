@@ -31,10 +31,11 @@ body {
 
 
 /*  Overriding .rows  */
-.row {
+.row-center {
     align-items: center;
     justify-content: center;
 }
+
 
 /* Cards */
 .card {

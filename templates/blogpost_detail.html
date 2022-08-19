@@ -2,7 +2,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container">
-    <div class="row">
+    <div class="row-center">
         <div class="col-12">
             {{ post.title }}
             <br>
@@ -11,7 +11,7 @@
             {{ post.posted_on }}
         </div>
     </div>
-    <div class="row">
+    <div class="row-center">
         <div class="col-12">
             {% if user.is_authenticated %}
             <form action="{% url 'post_like' post.slug %}" method="POST">
@@ -31,7 +31,7 @@
             {% endif %}
         </div>
     </div>
-    <div class="row">
+    <div class="row-center">
         <div class="col-sm-12 col-lg-8">
             <h4>Comments: </h4>
             <hr>
