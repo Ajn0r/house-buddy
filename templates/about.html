@@ -43,7 +43,7 @@
     </div>
     <hr>
     <div class="row mt-4 p-md-5">
-        <div class="col-sm-12 col-md-6 benefits">
+        <div class="col-sm-12 col-lg-6 benefits">
             <div>
                 <h3>Benefits: </h3>
             </div>
@@ -55,12 +55,13 @@
                 </p>
             </div>
             <hr class="benefit-hr">
-            
+
             <div class="benefits">
-                <span ><i class="fas fa-user-edit"></i></span>
+                <span><i class="fas fa-user-edit"></i></span>
                 <h5>You can add custom categories</h5>
                 <p>
-                    You can customize your page to fit your needs, it doesn't have to be a receipt storing site, it can be whatever you'd like, maybe you want to start a cat picture organizer, who are we to stop you? 
+                    You can customize your page to fit your needs, it doesn't have to be a receipt storing site, it can
+                    be whatever you'd like, maybe you want to start a cat picture organizer, who are we to stop you?
                 </p>
             </div>
             <hr class="benefit-hr">
@@ -68,7 +69,8 @@
             <div class="benefits">
                 <span><i class="fas fa-cloud"></i></span>
                 <h5>Have access to your information wherever you are</h5>
-                <p>If you save all of your color codes in House Buddy, you can access them while at the hardware store, and never have to second guess what the name of the color in the kitchen was again.</p>
+                <p>If you save all of your color codes in House Buddy, you can access them while at the hardware store,
+                    and never have to second guess what the name of the color in the kitchen was again.</p>
             </div>
 
             <hr class="benefit-hr">
@@ -76,7 +78,8 @@
                 <span><i class="fas fa-money-bill-wave"></i></span>
                 <h5>Save time and money</h5>
                 <p>
-                    Having it all in one easily accessed place saves you time, and House buddy is completely free to use, so why pay for expensive cloud services?
+                    Having it all in one easily accessed place saves you time, and House buddy is completely free to
+                    use, so why pay for expensive cloud services?
                 </p>
             </div>
 
@@ -85,20 +88,46 @@
                 <a href="{% url 'account_signup' %}" class="btn btn-primary"> Sign up today!</a>
             </div>
             {% endif %}
-
         </div>
+
+        <div class="d-sm-none d-lg-block col-md-6 benefits">
+            <img src="{% static 'images/thumbs-up.jpg' %}" alt="a thumb up" class="oval-about-img">
+        </div>
+    </div>
+    <div class="row mt-4">
         <div class="benefits col-sm-12 col-md-6">
-            <p>
-                <a class="" data-toggle="collapse" href="#collapseSwedenBen" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
-                    <h3>Do you own a property in Sweden?</h3>
-                </a>
-            </p>
+            <a class="" data-toggle="collapse" href="#collapseSwedenBen" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                <h3>Do you own a property in Sweden?</h3>
+            </a>
+
             <div class="collapse" id="collapseSwedenBen">
                 <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                    proident.
+                    <p>
+                        Did you know that you have to pay a 22% tax on the profit if you sell your property in Sweden?
+                        <br> We know, that's quite a lot!
+                    </p>
+                    <p>
+                        But did you also know that you can reduce that amount by saving all of your receipts that have
+                        to do with home improvements?
+                    </p>
+                    <p>
+                        It's up to you as a homeowner to keep track of all of these, which can be a hurdle, to say the
+                        least!
+                    </p>
+                    <p>
+                        With House Buddy, you can store them all in one place, so when the day comes for you to sell
+                        your home, you will have them all in one place, not missing out on a penny!
+                    </p>
+                    <p>
+                        Most homeowners only save receipts when they buy or invest in expensive improvements, but it can
+                        be as little as buying new perennials for the garden, in the end, it will lead up to a huge
+                        saving on tax, that's more money in your pocket!
+                    </p>
+                    <p>
+                        For more information, get in touch and we can guide you through the information you need.
+                    </p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Contact</a>
                 </div>
             </div>
         </div>
