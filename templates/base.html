@@ -31,7 +31,9 @@
     <!-- Navbar -->
     <!-- Logo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">House Buddy</a>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <h1>House Buddy</h1>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,37 +52,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                 </li>
-                {% if user.is_authenticated %}
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{% url 'mypage' %}" id="navbarDropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My Page
+                        <i class="fas fa-user"></i>
                     </a>
+                    {% if user.is_authenticated %}
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{% url 'mypage' %}">My page</a>
                         <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
                         <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}" class="a-color">
+                            Sign out <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </li>
-                {% endif %}
-            </ul>
-            <div class="login">
-                {% if user.is_authenticated %}
-                <div class="">
-                    <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'account_logout' %}">Logout</a>
-                    </button>
-                </div>
                 {% else %}
-                <div class="">
-                    <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'account_login' %}">Login</a>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm "><a href="{% url 'account_signup' %}">Sign
-                            up</a></button>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                    <a class="dropdown-item" href="{% url 'account_signup' %}">Sign up</a>
                 </div>
                 {% endif %}
-            </div>
-        </div>
 
+            </ul>
+        </div>
     </nav>
 
 

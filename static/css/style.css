@@ -23,18 +23,24 @@ body {
     font-size: 2rem;
 }
 
-/* Header
+/* ----------------------- Navbar ----------------------- */
 @media only screen and (min-width: 992px) {
     .navbar {
         flex-direction: column;
     }
-
-    .nav-line {
-        width: 60rem;
+    .navbar-collapse {
+        flex-direction: column;
     }
-} */
+    .navbar-nav {
+        align-items: center;
+        font-size: 1.3rem;
+    }
+    .nav-item {
+        margin: 0 3rem;
+    }
+} 
 
-/* Colors */
+/* ----------------------- Colors ----------------------- */
 :root {
     --darkest-teal: #012E40;
     --dark-teal: #025159;
@@ -52,13 +58,13 @@ body {
 }
 
 
-/*  Overriding .rows  */
+/*  ----------------------- special rows -----------------------  */
 .row-center {
     align-items: center;
     justify-content: center;
 }
 
-/* Cards */
+/* ----------------------- Cards ----------------------- */
 .card {
     padding: 2rem;
 }
@@ -70,7 +76,6 @@ body {
     text-align: center;
 
 }
-
 .title {
     color: var(--darkest-teal);
     text-decoration: none;
@@ -78,7 +83,6 @@ body {
     font-size: 3rem;
     font-weight: 600;
 }
-
 .title:hover {
     text-decoration: none;
     color: var(--medium-teal);
@@ -89,7 +93,7 @@ a:hover {
 }
 
 
-/* Buttons */
+/* ----------------------- Buttons ----------------------- */
 .btn-primary {
     background-color: var(--dark-teal);
     border-color: var(--dark-teal);
@@ -113,7 +117,7 @@ a:hover {
 }
 
 
-/* Image placeholders */
+/* ----------------------- Image placeholders ----------------------- */
 .no-image {
     background: rgb(161, 161, 161);
     width: 100%;
@@ -123,11 +127,6 @@ a:hover {
 
 button>a {
     color: var(--off-white);
-}
-
-/*----------------------- Nav -----------------------*/
-.mypage-btn {
-    max-width: 10rem;
 }
 
 /*----------------------- Home page -----------------------*/
@@ -203,10 +202,10 @@ button>a {
 
 /*----------------------- About page -----------------------*/
 .about-header-bg {
-    height: 85vh;
+    height: 81vh;
     width: 100%;
     background-image: url(../images/pexels-shonejai-1227515.jpg);
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -289,6 +288,14 @@ button>a {
         border: none;
     }
 }
+
+/* For when nav is collapsed */
+@media only screen and (max-width: 992px) {
+    .about-header-bg {
+        height: 91vh;
+    }
+}
+
 /*----------------------- Blog -----------------------*/
 
 #blog-header {
