@@ -1,13 +1,27 @@
 from .models import Categories, Entries
 from django import forms
 
+
 class NewCategoryForm(forms.ModelForm):
+    """
+    Form for creating a new category
+    """
     class Meta:
         model = Categories
         fields = ['name', ]
 
-class NewEntryForm(forms.ModelForm):
+    def clean_name(self):
+        """
+        Takes the category name and turn it to lowercase
+        Prevents user from having duplicate categories
+        """
+        return self.cleaned_data['name'].lower()
 
+
+class NewEntryForm(forms.ModelForm):
+    """
+    Form for creating new entries.
+    """
     def __init__(self, *args, **kwargs):
 
         self.request = kwargs.pop('request')

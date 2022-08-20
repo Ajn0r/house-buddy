@@ -6,7 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.db import IntegrityError
 from .models import Categories, Entries
-from .forms import NewEntryForm
+from .forms import NewEntryForm, NewCategoryForm
 
 
 class CategoryList(LoginRequiredMixin, ListView):
@@ -53,7 +53,7 @@ class NewCategory(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     model = Categories
     template_name = 'new_category.html'
-    fields = ['name']
+    form_class = NewCategoryForm
     success_url = reverse_lazy('categories')
     success_message = 'Category was created successfully'
 
