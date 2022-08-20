@@ -43,7 +43,7 @@
     </div>
     <hr>
     <div class="row mt-4 p-md-5">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 benefits">
             <div>
                 <h3>Benefits: </h3>
             </div>
@@ -75,14 +75,23 @@
             <div class="benefits">
                 <span><i class="fas fa-money-bill-wave"></i></span>
                 <h5>Save time and money</h5>
+                <p>
+                    Having it all in one easily accessed place saves you time, and House buddy is completely free to use, so why pay for expensive cloud services?
+                </p>
             </div>
+
+            {% if not user.is_authenticated %}
+            <div class="benefits">
+                <a href="{% url 'account_signup' %}" class="btn btn-primary"> Sign up today!</a>
+            </div>
+            {% endif %}
 
         </div>
         <div class="benefits col-sm-12 col-md-6">
             <p>
                 <a class="" data-toggle="collapse" href="#collapseSwedenBen" role="button" aria-expanded="false"
                     aria-controls="collapseExample">
-                    Do you own a property in Sweden?
+                    <h3>Do you own a property in Sweden?</h3>
                 </a>
             </p>
             <div class="collapse" id="collapseSwedenBen">
