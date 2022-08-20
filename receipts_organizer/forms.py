@@ -25,7 +25,10 @@ class NewEntryForm(forms.ModelForm):
     Form for creating new entries.
     """
     def __init__(self, *args, **kwargs):
-
+        """
+        Function to only let the user choose from
+        a list of their own categories
+        """
         self.request = kwargs.pop('request')
         super(NewEntryForm, self).__init__(*args, **kwargs)
         self.fields['category'].queryset = Categories.objects.filter(user=self.request.user)
