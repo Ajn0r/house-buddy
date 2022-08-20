@@ -1,5 +1,7 @@
 from .models import Categories, Entries
 from django import forms
+from datetime import date
+from django.core.validators import MaxValueValidator
 
 
 class NewCategoryForm(forms.ModelForm):
@@ -36,5 +38,8 @@ class NewEntryForm(forms.ModelForm):
             ]
 
         widgets = {
-            'date_of_purchase': forms.DateInput(format="%m/%d/%Y", attrs={'type': 'date'})
+            'date_of_purchase': forms.DateInput(
+                format="%m/%d/%Y", attrs={'type': 'date', 'max': date.today()},
+            )
+                
         }
