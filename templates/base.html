@@ -31,59 +31,58 @@
     <!-- Navbar -->
     <!-- Logo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="160px"
-                height="90px" alt="House buddy"></a>
-
-        <!-- Nav menu-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{% url 'home' %}">House Buddy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <div class="row nav-line">
-                    <li class="nav-item active col-lg-2">
-                        <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item col-lg-2">
-                        <a class="nav-link" href="{% url 'about' %}">About</a>
-                    </li>
-                    <li class="nav-item col-lg-2">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    <li class="nav-item col-lg-2">
-                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <div class="btn-group col-lg-2 mypage-btn">
-                        <button class="btn btn-secondary btn-sm" type="button">
-                            <a href="{% url 'mypage' %}">My page</a>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
-                            <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
-
-                        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}"><span class="sr-only">(current)</span>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{% url 'mypage' %}" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Page
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'mypage' %}">My page</a>
+                        <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
+                        <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
                     </div>
-                    <div class="buttons mx-auto col-lg-12 d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-sm m-1"><a
-                                href="{% url 'account_logout' %}">Logout</a></button>
-                    </div>
-                    {% else %}
-                    <div class="buttons mx-auto col-lg-12 d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-sm m-1"><a
-                                href="{% url 'account_login' %}">Login</a> </button>
-                        <button type="button" class="btn btn-primary btn-sm m-1"><a
-                                href="{% url 'account_signup' %}">Sign up</a></button>
-                    </div>
-                    {% endif %}
-                </div>
+                </li>
+                {% endif %}
             </ul>
+            <div class="login">
+                {% if user.is_authenticated %}
+                <div class="">
+                    <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'account_logout' %}">Logout</a>
+                    </button>
+                </div>
+                {% else %}
+                <div class="">
+                    <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'account_login' %}">Login</a>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm "><a href="{% url 'account_signup' %}">Sign
+                            up</a></button>
+                </div>
+                {% endif %}
+            </div>
         </div>
+
+    </nav>
+
 
     </nav>
     {% for message in messages %}
