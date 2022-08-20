@@ -4,7 +4,7 @@
 
 
 <div class="about-header-bg">
-    <div class="about-hero">
+    <div class="about-hero box">
         <h1 class="about-heading">We <br> are <br> the <br> House <br> Buddy</h1>
         <div>
             <a href="#about-main" class="about-heading about-arrow"><i class="fas fa-angle-down bounce"></i></a>
@@ -12,43 +12,47 @@
     </div>
 </div>
 
-<div id="about-main" class="main-about-section container">
-    <div class="row mt-4 p-md-5">
+<div id="about-main" class="container">
+    <div class="row mt-4 mb-3 p-2 p-md-5 box">
         <div class="col-sm-12 col-md-7">
             <h3 class="mb-3">The homeowner's buddies!</h3>
             <p>
-                You know that receipt on the door you bought last year that you'd really need right now for warranties?
+                You know that receipt on the door you bought last year that you'd really need right now for
+                warranties?
                 Yeah it's probably in a drawer somewhere, where you will never find it, does it sound familiar?
             </p>
             <p>
-                House buddy lets you store receipts, documents, and other information so that you'll always know where
+                House buddy lets you store receipts, documents, and other information so that you'll always know
+                where
                 you have them.
             </p>
             <h4>Custom categories</h4>
             <p>We know that not everybody's lives and homes are the same, and that is why we let you create your own
                 categories, making them custom to you and your needs.</p>
         </div>
-        <div class="col-sm-12 col-md-5 vr-line">
-            <h3>The Blog!</h3>
-            <hr>
-            <img src="{% static 'images/keila-blogger.jpg' %}" alt="A image of Keila" class="round-img">
-            <p><strong>Kiela</strong> runs the House buddy blog, where you can find usefull tips on anything house
-                related, she also blogs about her everyday life renovating houses.
-            </p>
-            <p>
-                Want to become a house buddy blogger and share your amazing ideas and hacks aswell?
-                <a href="{% url 'contact' %}" class="get-in-touch"> Get in touch today!</a>
-            </p>
+        <div class="col-sm-12 col-md-5">
+            <div class="vr-line">
+                <h3>The Blog!</h3>
+                <hr>
+                <img src="{% static 'images/keila-blogger.jpg' %}" alt="A image of Keila" class="round-img">
+                <p><strong>Kiela</strong> runs the House buddy blog, where you can find usefull tips on anything house
+                    related, she also blogs about her everyday life renovating houses.
+                </p>
+                <p>
+                    Want to become a house buddy blogger and share your amazing ideas and hacks aswell?
+                    <a href="{% url 'contact' %}" class="a-color"> Get in touch today!</a>
+                </p>
+            </div>
         </div>
     </div>
     <hr>
-    <div class="row mt-4 p-md-5">
-        <div class="col-sm-12 col-lg-6 benefits">
+    <div class="row mt-4 p-3 p-md-5 box benefits">
+        <div class="col-sm-12 col-lg-6 ">
             <div>
                 <h3>Benefits: </h3>
             </div>
-            <div class="benefits">
-                <span><i class="fas fa-receipt"></i></span>
+            <div>
+                <span class="icons"><i class="fas fa-receipt"></i></span>
                 <h5>Easy and quick receipt storing</h5>
                 <p>
                     You can easily add an image and information about a receipt from your phone.
@@ -56,26 +60,28 @@
             </div>
             <hr class="benefit-hr">
 
-            <div class="benefits">
-                <span><i class="fas fa-user-edit"></i></span>
+            <div>
+                <span class="icons"><i class="fas fa-user-edit"></i></span>
                 <h5>You can add custom categories</h5>
                 <p>
-                    You can customize your page to fit your needs, it doesn't have to be a receipt storing site, it can
+                    You can customize your page to fit your needs, it doesn't have to be a receipt storing site, it
+                    can
                     be whatever you'd like, maybe you want to start a cat picture organizer, who are we to stop you?
                 </p>
             </div>
             <hr class="benefit-hr">
 
-            <div class="benefits">
-                <span><i class="fas fa-cloud"></i></span>
+            <div>
+                <span class="icons"><i class="fas fa-cloud"></i></span>
                 <h5>Have access to your information wherever you are</h5>
-                <p>If you save all of your color codes in House Buddy, you can access them while at the hardware store,
+                <p>If you save all of your color codes in House Buddy, you can access them while at the hardware
+                    store,
                     and never have to second guess what the name of the color in the kitchen was again.</p>
             </div>
 
             <hr class="benefit-hr">
-            <div class="benefits">
-                <span><i class="fas fa-money-bill-wave"></i></span>
+            <div>
+                <span class="icons"><i class="fas fa-money-bill-wave"></i></span>
                 <h5>Save time and money</h5>
                 <p>
                     Having it all in one easily accessed place saves you time, and House buddy is completely free to
@@ -84,35 +90,40 @@
             </div>
 
             {% if not user.is_authenticated %}
-            <div class="benefits">
+            <div>
                 <a href="{% url 'account_signup' %}" class="btn btn-primary"> Sign up today!</a>
             </div>
             {% endif %}
         </div>
 
-        <div class="d-sm-none d-lg-block col-md-6 benefits">
+        <div class="d-none d-lg-block col-md-6">
             <img src="{% static 'images/thumbs-up.jpg' %}" alt="a thumb up" class="oval-about-img">
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="benefits col-sm-12 col-md-6">
-            <a class="" data-toggle="collapse" href="#collapseSwedenBen" role="button" aria-expanded="false"
+    <hr>
+    <div class="row mt-4 box benefits p-2 p-md-5 mb-3">
+        <div class="col-12 sweden-benefit pt-4">
+            <a class="a-color" data-toggle="collapse" href="#collapseSwedenBen" role="button" aria-expanded="false"
                 aria-controls="collapseExample">
+                <span class="icons"><i class="fas fa-home"></i></span>
                 <h3>Do you own a property in Sweden?</h3>
             </a>
 
             <div class="collapse" id="collapseSwedenBen">
-                <div class="card card-body">
+                <div class="card card-body box">
                     <p>
-                        Did you know that you have to pay a 22% tax on the profit if you sell your property in Sweden?
+                        Did you know that you have to pay a 22% tax on the profit if you sell your property in
+                        Sweden?
                         <br> We know, that's quite a lot!
                     </p>
                     <p>
-                        But did you also know that you can reduce that amount by saving all of your receipts that have
+                        But did you also know that you can reduce that amount by saving all of your receipts that
+                        have
                         to do with home improvements?
                     </p>
                     <p>
-                        It's up to you as a homeowner to keep track of all of these, which can be a hurdle, to say the
+                        It's up to you as a homeowner to keep track of all of these, which can be a hurdle, to say
+                        the
                         least!
                     </p>
                     <p>
@@ -120,14 +131,17 @@
                         your home, you will have them all in one place, not missing out on a penny!
                     </p>
                     <p>
-                        Most homeowners only save receipts when they buy or invest in expensive improvements, but it can
+                        Most homeowners only save receipts when they buy or invest in expensive improvements, but it
+                        can
                         be as little as buying new perennials for the garden, in the end, it will lead up to a huge
                         saving on tax, that's more money in your pocket!
                     </p>
                     <p>
                         For more information, get in touch and we can guide you through the information you need.
                     </p>
-                    <a href="{% url 'contact' %}" class="btn btn-primary">Contact</a>
+                    <div>
+                        <a href="{% url 'contact' %}" class="btn btn-primary">Contact</a>
+                    </div>
                 </div>
             </div>
         </div>

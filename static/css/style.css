@@ -13,6 +13,15 @@ h6 {
 body {
     font-family: 'Lato', sans-serif;
 }
+/* ------------------ Shadow css ---------------- */
+.box {
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+}
+/* ------------------ Icons ----------------- */
+.icons {
+    font-size: 2rem;
+}
 
 /* Header */
 @media only screen and (min-width: 992px) {
@@ -34,6 +43,12 @@ body {
     --orange: #f58d0e;
     --dark-orange: #df7904fb;
     --off-white: #f3f0ed;
+}
+.a-color {
+    color: black;
+}
+.a-color:hover {
+    color: var(--medium-teal);
 }
 
 
@@ -197,7 +212,7 @@ button>a {
 }
 
 .about-hero {
-    background-color: rgba(31, 36, 34, 0.7);
+    background-color: rgba(31, 36, 34, 0.6);
     width: 100%;
     height: 100%;
     padding: 1.5rem 3rem;
@@ -239,20 +254,14 @@ button>a {
     }
 }
 
-.main-about-section {
-    color: black;
-    font-size: initial;
-    font-weight: initial;
-    height: 50vh;
+.sweden-benefit {
+    min-height: 5rem;
 }
 
 .vr-line {
-    border-left: 1px solid var(--darkest-teal);
+    border-left: 1px solid var(--dark-teal);
     height: 100%;
-}
-
-.get-in-touch {
-    color: black;
+    padding-left: 0.5rem;
 }
 
 .round-img {
@@ -272,8 +281,13 @@ button>a {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    border: 1px solid #012E40;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+}
+
+@media only screen and (max-width: 767px) {
+    .vr-line {
+        border: none;
+    }
 }
 /*----------------------- Blog -----------------------*/
 
