@@ -214,7 +214,7 @@ button>a {
 }   
 /*----------------------- About page -----------------------*/
 .about-header-bg {
-    height: 81vh;
+    height: 78vh;
     width: 100%;
     background-image: url(../images/pexels-shonejai-1227515.jpg);
     background-position: bottom;
@@ -231,7 +231,7 @@ button>a {
 }
 
 .about-heading {
-    font-size: 6rem;
+    font-size: 5.5rem;
     font-weight: 900;
     color: var(--off-white);
 }
