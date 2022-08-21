@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-
-<div class="hero">
+<section class="hero">
   <div class="blue-layer">
     <div class="jumbotron box">
       <h1 class="display-4 jumbo-title">Finally!</h1>
@@ -19,51 +17,50 @@
       </p>
     </div>
   </div>
-</div>
+</section>
 
-<div class="second p-2">
+<section class="main p-2">
   <div class="card-deck">
     <div class="card box">
       {% if user.is_authenticated %}
-      <img class="box card-img-top" src="{% static 'images/organize.jpg' %}" alt="Card image cap">
+      <img class="box card-img-top " src="{% static 'images/organize.jpg' %}" alt="A image of post it notes on a desk">
       <div class="card-body">
         <h5 class="card-title">Make it your own!</h5>
         <p class="card-text">You can create as many categories as you need, get those receipts organized today!
           </p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}">Go to my page</a></small></p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}" aria-label="click on this to go to your user page">Go to my page</a></small></p>
     
         {% else %}
-        <img class="box card-img-top" src="{% static 'images/piggy-bank.jpg' %}" alt="Card image cap">
+        <img class="box card-img-top " src="{% static 'images/piggy-bank.jpg' %}" alt="a image of a piggy bank">
         <div class="card-body">
           <h5 class="card-title">It's Free!</h5>
           <p class="card-text">House Buddy is completely free to use, create an account if you haven't got one already and
           get started today!</p>
-          <p class="card-text"><small class="text-muted"><a href="{% url 'account_signup' %}">Sign up</a></small></p>
+          <p class="card-text"><small class="text-muted"><a href="{% url 'account_signup' %}" aria-label="Click on this to go to the sign up page">Sign up</a></small></p>
       
       {% endif %}
     </div>
     </div>
     <div class="card box">
-      <img class="box card-img-top" src="{% static 'images/bloging.jpg' %}" alt="Card image cap">
+      <img class="box card-img-top" src="{% static 'images/bloging.jpg' %}" alt="A image of a computer">
       <div class="card-body">
         <h5 class="card-title">House Buddy Blog</h5>
         <p class="card-text"><strong>Kiela</strong> runs the blog here at House Buddy, she writes about her everyday
           life renovating houses, and she shares a lot of useful tips and how to save money on home renovations</p>
-        </p>
         <p class="card-text"><small class="text-muted"><a href="{% url 'blog' %}">The blog</a></small></p>
       </div>
     </div>
     <div class="card box">
-      <img class="box card-img-top" src="{% static 'images/happy-woman.jpg' %}" alt="Card image cap">
+      <img class="box card-img-top" src="{% static 'images/happy-woman.jpg' %}" alt="A image of a happy woman">
       <div class="card-body">
         <h5 class="card-title">Our philosophy</h5>
         <p class="card-text">Our main goal is to make life a little bit easier for homeowners, it is that simple!</p>
         <p>- Leia, founder of <cite title="Source Title">House Buddy</cite></p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'about' %}">Read more</a></small></p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'about' %}" aria-label="go to about page to read more">Read more</a></small></p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <div class="third">
 

@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A receipt and document organizer and storage, House Buddy blog about house renovations and more">
+    <meta name="keywords" content="Receipts, storage, organizer, homeowners, blog, renovations, house, home">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1b00d9a190.js" crossorigin="anonymous"></script>
-
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -64,7 +64,7 @@
                         <a class="dropdown-item" href="{% url 'mypage' %}">My page</a>
                         <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
                         <a class="dropdown-item" href="{% url 'entries' %}">Entries</a>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}" class="a-color">
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">
                             Sign out <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </li>
@@ -77,9 +77,6 @@
 
             </ul>
         </div>
-    </nav>
-
-
     </nav>
     {% for message in messages %}
     <div class="conatiner-fluid p-0">
