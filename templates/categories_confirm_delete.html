@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="card box w-50 mx-auto m-5">
+<div class="card box w-75 mx-auto m-5">
     <h5 class="card-header shadow">Delete Category: {{ object|title }}</h5>
     <div class="card-body">
         <h5 class="card-title">Are you sure you want to delete "{{ object|title }}"?</h5>
-        <form class="card-text" action="" method="post">
+        <form class="card-text" method="post">
             {% csrf_token %}
             <p><small>All entries in this category will be deleted as well.</small></p>
             <input type="submit" class="btn btn-danger mb-2" value="Confirm" />
@@ -13,6 +13,4 @@
         </form>
     </div>
 </div>
-
-
 {% endblock content %}

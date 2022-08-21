@@ -1,67 +1,77 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="container">
-    <div class="row-center">
-        <div class="col-12">
-            {{ post.title }}
-            <br>
-            <img src="{{ post.image.url }}" alt="" width="100%">
-            {{ post.content|striptags }}
-            {{ post.posted_on }}
-        </div>
-    </div>
-    <div class="row-center">
-        <div class="col-12">
-            {% if user.is_authenticated %}
-            <form action="{% url 'post_like' post.slug %}" method="POST">
-                {% csrf_token %}
-                {% if liked %}
-                <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
-                    <i class="fas fa-heart"></i>
-                </button>
-                {% else %}
-                <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
-                    <i class="far fa-heart"></i>
-                </button>
-                {% endif%}
-            </form>
-            {% else %}
-            <i class="far fa-heart"></i>
-            {% endif %}
-        </div>
-    </div>
-    <div class="row-center">
-        <div class="col-sm-12 col-lg-8">
-            <h4>Comments: </h4>
-            <hr>
-            {% for comment in comments %}
-            <p>Posted by: {{ comment.name }}</p>
-            <p>
-                {{ comment.content|striptags }}</p>
-            <hr>
-            {% endfor %}
-        </div>
+<section class="blogpost-detail">
+    <div class="container box p-5 mt-4 mb-4">
+        <div class="row">
+            <div class="col-11 mt-3 mt-lg-0">
+                <h2>
+                    {{ post.title|title }}
+                </h2>
+                <p><small><em>Posted: {{ post.created_on }} in category: {{ post.get_category_display }}</em></small>
+                </p>
+            </div>
 
-
-        <div class="col-lg-4">
-            <div class="card">
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is submitted, once approved it will show up under comments
-                </div>
-                {% else %}
+            <div class="col-sm-12 col-md-1">
                 {% if user.is_authenticated %}
-                <h4>Leave a comment:</h4>
-                <form method="post">
+                <form action="{% url 'post_like' post.slug %}" method="POST">
                     {% csrf_token %}
-                    {{ comment_form|crispy}}
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    {% if liked %}
+                    <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    {% else %}
+                    <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    {% endif%}
                 </form>
+                {% else %}
+                <i class="far fa-heart"></i>
                 {% endif %}
-                {% endif %}
+            </div>
+            <hr class="w-100 mt-0">
+            <div class="clearview">
+                <img src="{{ post.image.url }}" alt="A image for the blogpost" width="500px" height="500px"
+                class="box">
+                <p class=""> {{ post.content|safe }}</p>
+            </div>
+
+        </div>
+
+
+        <!-- Displays Comments -->
+        <div class="row mt-5">
+            <div class="col-sm-12 col-lg-8 ">
+                <h4>Comments: </h4>
+                <hr>
+                {% for comment in comments %}
+                <p>Posted by: {{ comment.name }}</p>
+                <p>
+                    {{ comment.content|striptags }}</p>
+                <hr>
+                {% endfor %}
+            </div>
+            <!-- Comment form -->
+            <div class="col-lg-4">
+                <div class="card box ">
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is submitted, once approved it will show up under comments
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+                    <h4>Leave a comment:</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ comment_form|crispy}}
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 {% endblock content %}
