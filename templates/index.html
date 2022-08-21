@@ -7,10 +7,12 @@
   <div class="blue-layer">
     <div class="jumbotron box">
       <h1 class="display-4 jumbo-title">Finally!</h1>
-      <p class="lead jumpo-lead">An easy way to store and keep track of all your thousands of receipts and documents connected to your property.
+      <p class="lead jumpo-lead">An easy way to store and keep track of all your thousands of receipts and documents
+        connected to your property.
       </p>
       <hr class="my-4">
-      <p>With House Buddy, you can store all of your papers, documents, and receipts in your custom Categories, easily accessed from your page.
+      <p>With House Buddy, you can store all of your papers, documents, and receipts in your custom Categories, easily
+        accessed from your page.
       </p>
       <p class="lead">
         <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
@@ -20,62 +22,49 @@
 </div>
 
 <div class="second p-2">
-  <div class="card-columns mt-4">
+  <div class="card-deck">
     <div class="card box">
-
+      {% if user.is_authenticated %}
+      <img class="box card-img-top" src="{% static 'images/organize.jpg' %}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Make your own categories to fit your needs</h5>
-        <p class="card-text">House Buddy is your Buddy, so you decide what kinds of categories you want</p>
-      </div>
-    </div>
-    <div class="card box p-3">
-      <blockquote class="blockquote mb-0 card-body">
-        <p>Our main goal is to make life a little bit easier for homeowners, it is that simple!</p>
-        <footer class="blockquote-footer">
-          <small class="text-muted">
-            Leia, founder of <cite title="Source Title">House Buddy</cite>
-          </small>
-        </footer>
-      </blockquote>
-    </div>
-    <div class="card box text-center">
+        <h5 class="card-title">Make it your own!</h5>
+        <p class="card-text">You can create as many categories as you need, get those receipts organized today!
+          </p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}">Go to my page</a></small></p>
+    
+        {% else %}
+        <img class="box card-img-top" src="{% static 'images/piggy-bank.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">It's Free!</h5>
+          <p class="card-text">House Buddy is completely free to use, create an account if you haven't got one already and
+          get started today!</p>
+          <p class="card-text"><small class="text-muted"><a href="{% url 'account_signup' %}">Sign up</a></small></p>
       
+      {% endif %}
+    </div>
+    </div>
+    <div class="card box">
+      <img class="box card-img-top" src="{% static 'images/bloging.jpg' %}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">House Buddy Blog</h5>
-        <p class="card-text mt-4"><strong>Kiela</strong> runs the blog here at House Buddy, she writes about her everyday life renovating houses, and she shares a lot of useful tips and how to save money on home renovations</p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'blog' %}">Read more</a></small></p>
+        <p class="card-text"><strong>Kiela</strong> runs the blog here at House Buddy, she writes about her everyday
+          life renovating houses, and she shares a lot of useful tips and how to save money on home renovations</p>
+        </p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'blog' %}">The blog</a></small></p>
       </div>
     </div>
-    <div class="card box text-center p-3">
-      <blockquote class="blockquote mb-0">
-        <p>I love it!</p>
-        <footer class="blockquote-footer">
-          <small>
-            Eric <cite title="Source Title">House Buddy user</cite>
-          </small>
-        </footer>
-      </blockquote>
-    </div>
-    <div class="card box text-center">
+    <div class="card box">
+      <img class="box card-img-top" src="{% static 'images/happy-woman.jpg' %}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">It's Free!</h5>
-        <p class="card-text">House Buddy is completely free to use, create an account if you haven't got one already and get started today!</p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'account_signup' %}">Sign up</a></small></p>
+        <h5 class="card-title">Our philosophy</h5>
+        <p class="card-text">Our main goal is to make life a little bit easier for homeowners, it is that simple!</p>
+        <p>- Leia, founder of <cite title="Source Title">House Buddy</cite></p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'about' %}">Read more</a></small></p>
       </div>
     </div>
-    <div class="card box p-3 text-right">
-      <blockquote class="blockquote mb-0">
-        <p>It is so easy! Why is not everybody using House Buddy already, so much time and headache saved!</p>
-        <footer class="blockquote-footer">
-          <small class="text-muted">
-            Ana <cite title="Source Title">House Buddy user</cite>
-          </small>
-        </footer>
-      </blockquote>
-    </div>
-
   </div>
 </div>
+
 <div class="third">
 
 </div>
