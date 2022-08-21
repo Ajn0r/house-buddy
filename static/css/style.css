@@ -388,3 +388,14 @@ button>a {
 .page-link {
     color: black;
 }
+
+/* -------------- Footer ------------- */
+.footer-links {
+    padding: 0.4rem;
+}
+.footer-links > a {
+    color: black;
+}
+.footer-links > a:hover {
+    color: var(--orange);
+}

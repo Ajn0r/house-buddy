@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A receipt and document organizer and storage, House Buddy blog about house renovations and more">
+    <meta name="description"
+        content="A receipt and document organizer and storage, House Buddy blog about house renovations and more">
     <meta name="keywords" content="Receipts, storage, organizer, homeowners, blog, renovations, house, home">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1b00d9a190.js" crossorigin="anonymous"></script>
@@ -92,6 +93,110 @@
     <!-- Content goes here -->
     {% endblock content %}
 
+    <!-- Footer -->
+    <footer class="text-center bg-light pt-3">
+        <div class="continer p-4">
+            <div class="row">
+                <div class="col-md-4 col-lg-3 mb-4 mb-lg-0">
+                    <h4>House Buddy</h4>
+                    <hr class="w-50">
+                    <p class="pl-3 pr-3">
+                        House buddy is a receipt and document organizing and storage website.
+                    </p>
+                    <p class="pl-3 pr-3">
+                        <i>This page has been created for educational purposes by Ronja Sjögren</i>
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-2 mb-4 mb-lg-0">
+                    <h5>Pages: </h5>
+                    <hr class="w-50">
+                    <ul class="list-unstyled ">
+                        <li class="footer-links">
+                            <a href="{% url 'home' %}"><span class="sr-only">(current)</span>Home</a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'contact' %}">Contact</a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'blog' %}">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-2 mb-4 mb-lg-0">
+                    {% if user.is_authenticated %}
+                    <h5>Quick links: </h5>
+                    <hr class="w-50">
+                    <ul class="list-unstyled">
+                        <li class="footer-links">
+                            <a href="{% url 'categories' %}">Categories</a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'new_category' %}">
+                                Add a Category
+                            </a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'entries' %}">Entries</a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'new_entry' %}">
+                                Add a Entry
+                            </a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <h6 class="mb-4">Benefits: </h6>
+                    <ul class="list-unstyled">
+                        <li class="footer-links">
+                            <i class="fas fa-receipt mr-2"></i>
+                                Easy and quick receipt storing
+                        </li>
+                        <li class="footer-links">
+                            <i class="fas fa-cloud mr-2"></i>
+                            Have access to your information wherever you are
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'about' %}" aria-label="Click here to read more about the benefits of signing up to House Buddy">
+                                <i class="fas fa-plus mr-2"></i> More Benefits</a>
+                        </li>
+                        <li class="footer-links">
+                            <a href="{% url 'account_signup' %}" aria-label="Click here to sign up">
+                                <i class="fas fa-user-plus mr-2"></i>Sign up today!</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+
+                </div>
+                <div class="col-md-12 col-lg-5 mb-4 mb-lg-0">
+                    <h5 class="mb-4">
+                        Subscribe to our newsletter
+                    </h5>
+                    <hr class="w-50">
+                    <p class="pl-xl-5 pr-xl-5 ml-lg-5 mr-lg-5"><small>
+                        Every two weeks our blogger Kiela sends out a newsletter, with all the latest news and tips on what you can do with your House Buddy account.
+                    </small></p>
+                    <hr class="w-25">
+                    <form class="row justify-content-center" id="newsletter">
+                        <div class="col-auto">
+                            <input type="email" id="newsletter-email" class="form-control box" placeholder="Email Adress">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+            <hr>
+            <div class="copy">
+                <small>&copy; Copyright 2022, House Buddy</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'javascript/script.js' %}"></script>
     <!-- JavaScript for Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -99,7 +204,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
