@@ -31,10 +31,9 @@
                 {% endif %}
             </div>
             <hr class="w-100 mt-0">
-            <div class="clearview">
-                <img src="{{ post.image.url }}" alt="A image for the blogpost" width="500px" height="500px"
-                class="box">
-                <p class=""> {{ post.content|safe }}</p>
+            <div class="col-12">
+                <img src="{{ post.image.url }}" alt="A image for the blogpost" class="blog-image box float-sm-none float-md-right ml-md-4 mb-3 col-md-8 p-0">
+                <p class="float-start"> {{ post.content|safe }} </p>
             </div>
 
         </div>
@@ -54,7 +53,7 @@
             </div>
             <!-- Comment form -->
             <div class="col-lg-4">
-                <div class="card box ">
+                <div class="card box sticky">
                     {% if commented %}
                     <div class="alert alert-success" role="alert">
                         Your comment is submitted, once approved it will show up under comments
