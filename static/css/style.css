@@ -83,8 +83,10 @@ body, span {
 a:hover {
     text-decoration: none;
 }
-
-
+/* -------------------- Django allauth templates ---------------------*/
+.auth-box {
+    max-width: 25rem;
+}
 /* ----------------------- Buttons ----------------------- */
 .btn-primary {
     border-color: var(--dark-teal);
