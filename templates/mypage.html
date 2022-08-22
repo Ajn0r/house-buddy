@@ -26,7 +26,7 @@
         <div class="col-12 col-sm-4 text-sm-right pt-2">
             <a href="{% url 'new_category' %}" class="a-color">
                 <i class="fas fa-plus mr-1">
-                <span>New category</span></i>
+                    <span>New category</span></i>
             </a>
         </div>
     </div>
@@ -39,10 +39,8 @@
                     <h5 class="mb-2 card-title">{{ category.name|title }} </h5>
                     <hr class="mt-0">
                     <div class="btn-group mt-3">
-                        <a href="{% url 'detail_category' category.id %}"
-                            class="btn btn-sm btn-primary">View</a>
-                            <a href="{% url 'edit_category' category.id %}"
-                                class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'detail_category' category.id %}" class="btn btn-sm btn-primary">View</a>
+                        <a href="{% url 'edit_category' category.id %}" class="btn btn-sm btn-primary">Edit</a>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
@@ -53,9 +51,9 @@
         {% empty %}
         <p>Looks like its empty, add a Category to get started</p>
         {% endfor %}
-        <hr class="w-75 mx-auto">
 
         <div class="col-12 text-center">
+            <hr class=" w-75 mx-auto">
             <a href="{% url 'categories' %}" class="btn btn-primary">View all categories</a>
         </div>
     </div>
@@ -70,7 +68,7 @@
         <div class="col-12 col-sm-4 text-sm-right pt-2">
             <a href="{% url 'new_entry' %}" class="a-color">
                 <i class="fas fa-plus mr-1">
-                <span>New entry</span></i>
+                    <span>New entry</span></i>
             </a>
         </div>
     </div>
@@ -85,9 +83,8 @@
                     <hr class="mt-0">
                     <p class="card-text"><em><small>Category: {{ entry.category|title }}</small></em></p>
                     <div class="btn-group mt-3">
-                        <a href="{% url 'entry_detail' entry.id %}"
-                            class="btn btn-sm btn-primary">View</a>
-                            <a href="{% url 'edit_entry' entry.id %}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'entry_detail' entry.id %}" class="btn btn-sm btn-primary">View</a>
+                        <a href="{% url 'edit_entry' entry.id %}" class="btn btn-sm btn-primary">Edit</a>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
@@ -99,8 +96,9 @@
         <p>Looks like its empty</p>
         {% endif %}
         {% endfor %}
-        <hr class="w-75 mx-auto">
+
         <div class="text-center col-12">
+            <hr class="w-75 mx-auto">
             <a href="{% url 'entries' %}" class="btn btn-primary">View all entries</a>
         </div>
     </div>

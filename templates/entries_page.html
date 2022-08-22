@@ -1,40 +1,83 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Entries</h1>
-<div class="row">
-    <div class="col-12 card">
-        <a href="{% url 'new_entry' %}">
-            Add a entry
-        </a>
+
+<div class="container box m-3 mx-auto p-5">
+    <div class="row mb-3">
+        <div class="col-12 col-sm-6 mb-3">
+            <a href="{% url 'mypage' %}" class="title">
+                <i class="fas fa-user-circle"><span class="ml-2">Back to my page</span></i>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 text-sm-right mb-3">
+            <a href="{% url 'new_entry' %}" class="title">
+                <i class="fas fa-plus mr-2">
+                    <span>Add a new entry</span></i>
+            </a>
+        </div>
     </div>
-    {% if entries_list.count == 0 %}
-    <div class="col-12">
-        <h3>Lookes like the Entry list is empty, add <a href="{% url 'new_entry' %}">one</a> to get started!</h3>
+
+    <div class="row">
+        {% for entries in entries_list %}
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3 category-card text-center">
+            <div class="card box p-3">
+                {% if 'no_image' in entries.image.url %}
+                <div class="no-image"></div>
+
+                {% else %}
+                <img class="card-img-top" src="{{ entries.image.url }}" alt="Card image cap">
+                {% endif %}
+                <div class="card-body">
+                    <a href="{% url 'entry_detail' entries.id %}">
+                        <h5 class="hard-header title">
+                            {{ entries.title|title }}
+                        </h5>
+                    </a>
+                    <p class="card-text"><em><small>Category: {{ entries.category|title }}</small></em></p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Date purchased: {{ entries.date_of_purchase }}</li>
+                        <li class="list-group-item">Amount: {{ entries.amount }}</li>
+                    </ul>
+                    <div class="">
+                        <a href="{% url 'edit_entry' entries.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'entry_detail' entries.id %}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center p-4">
+            <p>It looks like you don't have any entries yet, add <a href="{% url 'new_entry' %}">one</a> to get started
+            </p>
+        </div>
+        {% endfor %}
     </div>
-    {% else %}
-    {% for entries in entries_list %}
-    <div class="card " style="width: 20rem;">
-        {% if item.image %}
-        <img class="card-img-top" src="#" alt="Card image cap">
-        {% else %}
-        <div class="no-image"></div>
+
+
+    <!-- Pagination -->
+    <div class="row mx-auto justify-content-center mt-4 mb-3">
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination box">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+                {% if page_obj.3.exists %}
+                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+                {% endif %}
+                {% if page_obj.4.exists %}
+                <li class="page-item"><a class="page-link" href="?page=4">4</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>
         {% endif %}
-
-        <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'entry_detail' entries.id %}">{{ entries.title }}</a></h5>
-            <p class="card-text">Category: {{ entries.category }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Date purchased: {{ entries.date_of_purchase }}</li>
-            <li class="list-group-item">Amount: {{ entries.amount }}</li>
-        </ul>
-        <div class="card-body">
-            <a href="{% url 'edit_entry' entries.id %}" class="card-link">Edit</a>
-        </div>
     </div>
-    {% endfor %}
-
-    {% endif %}
 </div>
 {% endblock content %}
