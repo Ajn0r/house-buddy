@@ -339,6 +339,7 @@ button>a {
 .blog-card {
     width: 49%;
     min-height: 20rem;
+    margin-bottom: 1rem;
 }
 
 .blog-card>a {

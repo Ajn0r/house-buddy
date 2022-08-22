@@ -11,7 +11,7 @@ class BlogList(ListView):
     """
     model = Blogpost
     template_name = 'blog.html'
-    paginate_by = 2
+    paginate_by = 4
     queryset = Blogpost.objects.filter(process=1).order_by('-created_on')
 
 
