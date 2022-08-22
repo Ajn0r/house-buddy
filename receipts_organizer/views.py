@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpResponseRedirect
-from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 from django.db import IntegrityError
 from .models import Categories, Entries
 from .forms import NewEntryForm, NewCategoryForm
-
 
 class CategoryList(LoginRequiredMixin, ListView):
     """
@@ -173,12 +172,12 @@ class DeleteEntry(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('entries')
 
 
-class MyPage(LoginRequiredMixin, TemplateView):
+class MyPage(LoginRequiredMixin, ListView):
     """
     A view for the 'My Page'
     """
     model = Categories
-    template_name = 'mypage.html'
+    template_name = 'mypage.html'    
 
     def get_context_data(self, **kwargs):
         """
@@ -188,5 +187,6 @@ class MyPage(LoginRequiredMixin, TemplateView):
         user = self.request.user
         context = super().get_context_data(**kwargs)
         context['categories'] = Categories.objects.filter(user=user)
-        context['entries'] = Entries.objects.filter(user=user).order_by('-date_added')[:4]
+        context['entries'] = Entries.objects.filter(user=user).order_by(
+            '-date_added')
         return context

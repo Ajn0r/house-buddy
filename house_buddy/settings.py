@@ -106,7 +106,6 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

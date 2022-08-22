@@ -1,31 +1,67 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container box mb-4 p-4">
+<div class="container box mt-4 mb-4 p-4">
     <div class="row mb-4 mt-4 p-4">
-        <div class="col-12">
+        <div class="col-sm-8">
             <h2>Welcome {{ user.username|title }}
             </h2>
+            <p><small>Last login: {{ user.last_login|date }}</small></p>
         </div>
-        <hr class="w-100">
-        <div class="col-md-12 col-lg-6"><a href="{% url 'categories' %}">
-                <h4>Categories:
-            </a></h4>
-            {{ categories.count }}
+        <div class="col-sm-4 text-center p-4">
+            <p>You have got:</p>
+            <hr class="w-50">
+            <p><span class="mr-1">{{ categories.count }}</span> Categories</p>
+            <hr class="benefit-hr">
+            <p><span class="mr-1">{{ entries.count }}</span> Entries</p>
 
         </div>
-        <div class="col-12">
-            {% for category in categories %}
-            <p>
-                {{ category.name }}
-            </p>
-
-            {% endfor %}
-        </div>
-
     </div>
 
+    <div class="row mt-3">
+        <div class="col-12 col-sm-8">
+            <h3>Categories:
+            </h3>
+        </div>
+        <div class="col-12 col-sm-4 text-sm-right pt-2">
+            <a href="{% url 'new_category' %}" class="a-color">
+                <i class="fas fa-plus mr-1"></i>
+                <span>New category</span>
+            </a>
+        </div>
+    </div>
     <div class="row">
+        <hr class="w-100">
+        {% for category in categories|slice:":4" %}
+        <div class="col-sm-6 col-lg-3 mx-auto p-2 text-center">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h6 class="mb-2 card-title">{{ category.name|title }} </h6>
+                    <hr class="mt-0">
+                    <div class="btn-group mt-3">
+                        <a href="{% url 'detail_category' category.id %}"
+                            class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="{% url 'edit_category' category.id %}"
+                                class="btn btn-sm btn-outline-secondary">Edit</a>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <p class="card-text"><em><small></small></em></p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Looks like its empty, add a Category to get started</p>
+        {% endfor %}
+        <hr class="w-75 mx-auto">
+
+        <div class="col-12 text-center">
+            <a href="{% url 'categories' %}" class="btn btn-primary">View all categories</a>
+        </div>
+    </div>
+
+
+    <div class="row mt-5">
         <div class="col-12 col-sm-8">
             <h3>
                 Latest added entries
@@ -34,12 +70,14 @@
         <div class="col-12 col-sm-4 text-sm-right pt-2">
             <a href="{% url 'new_entry' %}" class="a-color">
                 <i class="fas fa-plus mr-1"></i>
-                <span>New entry</span></a>
+                <span>New entry</span>
+            </a>
         </div>
     </div>
     <hr class="w-100">
     <div class="row">
-        {% for entry in entries %}
+        {% for entry in entries|slice:"4" %}
+        {% if entry %}
         <div class="col-sm-6 col-lg-3 mx-auto p-2 ">
             <div class="card shadow">
                 <div class="card-body">
@@ -47,8 +85,9 @@
                     <hr class="mt-0">
                     <p class="card-text"><em><small>Category: {{ entry.category|title }}</small></em></p>
                     <div class="btn-group mt-3">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        <a href="{% url 'entry_detail' entry.id %}"
+                            class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="{% url 'edit_entry' entry.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
@@ -56,7 +95,14 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <p>Looks like its empty</p>
+        {% endif %}
         {% endfor %}
+        <hr class="w-75 mx-auto">
+        <div class="text-center col-12">
+            <a href="{% url 'entries' %}" class="btn btn-primary">View all entries</a>
+        </div>
     </div>
 </div>
 
