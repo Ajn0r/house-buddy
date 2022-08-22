@@ -18,12 +18,7 @@
   <div class="row">
     {% for item in items %}
     <div class="col-sm-12 col-md-6 col-lg-4 p-3 category-card text-center">
-      <div class="card box p-3">
-        {% if 'no_image' in item.image.url %}
-        <div class="no-image"></div>
-        {% else %}
-        <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
-        {% endif %}
+      <div class="card box entry-box p-3">
         <div class="card-body">
           <a href="{% url 'entry_detail' item.id %}">
             <h5 class="hard-header title">

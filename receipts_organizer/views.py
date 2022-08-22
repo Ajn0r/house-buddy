@@ -156,10 +156,29 @@ class EditEntry(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     A veiw to update entries
     """
     model = Entries
-    fields = ['title', 'category', 'amount', 'date_of_purchase', 'description']
+    form_class = NewEntryForm
     template_name = 'edit_entry.html'
     success_url = reverse_lazy('entries')
     success_message = 'Your entry has been updated'
+
+    def get_form_kwargs(self):
+        """ 
+        Passes the request object to the form class, so that the
+        user can only chose from their own categories.
+        This code is greatly inspired by a post by 
+        Alice Campkin on medium.com/analytics-vidhya
+        """
+        kwargs = super(EditEntry, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
+        def form_valid(self, form):
+            """
+            Validates the form and makes sure its connected to
+            the user.
+            """
+            form.instance.user = self.request.user
+            return super().form_valid(form)
 
 
 class DeleteEntry(LoginRequiredMixin, DeleteView):

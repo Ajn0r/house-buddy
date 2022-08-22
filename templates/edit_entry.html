@@ -2,8 +2,16 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<form method="post">{% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Update">
-</form>
+<div class="card m-5 p-4 box">
+    <div class="card-title text-center p-2">
+        <h3 >Update entry</h3>
+        <hr class="w-25">
+    </div>
+    <div class="card-body">
+        <form method="post">{% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Update" class="btn btn-primary">
+        </form>
+    </div>
+</div>
 {% endblock content %}
