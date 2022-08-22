@@ -13,7 +13,7 @@
 
     <div class="row blog-row">
         {% for blogposts in blogpost_list %}
-        <div class="card blog-card box">
+        <div class="card blog-card box p-4">
             <a href="{% url 'blogpost' blogposts.slug %}">
                 <span class="font-italic">{{ blogposts.get_category_display }}</span>
 
