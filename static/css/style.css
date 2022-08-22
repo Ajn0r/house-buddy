@@ -66,18 +66,12 @@ body {
 
 /* ----------------------- Cards ----------------------- */
 
-.category-card {
-    margin: 1rem;
-    background-color: var(--off-white);
-    color: var(--dark-teal);
-    text-align: center;
 
-}
 .title {
     color: var(--darkest-teal);
     text-decoration: none;
     text-shadow: var(--medium-teal);
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 .title:hover {
@@ -92,15 +86,15 @@ a:hover {
 
 /* ----------------------- Buttons ----------------------- */
 .btn-primary {
-    background-color: var(--dark-teal);
     border-color: var(--dark-teal);
-    color: var(--off-white);
-    margin-bottom: 4px;
+    background-color: white;
+    color: var(--darkest-teal);
 }
 
 .btn-primary:hover {
-    background-color: var(--light-teal);
-    border-color: var(--light-teal);
+    background-color: var(--dark-teal);
+    border-color: var(--dark-teal);
+    color: var(--off-white);
 }
 
 .btn-danger {
