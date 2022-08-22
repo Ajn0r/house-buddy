@@ -10,7 +10,7 @@ h6 {
     font-family: 'Lora', serif;
 }
 
-body {
+body, span {
     font-family: 'Lato', sans-serif;
 }
 /* ------------------ Shadow css ---------------- */
@@ -71,8 +71,9 @@ body {
     color: var(--darkest-teal);
     text-decoration: none;
     text-shadow: var(--medium-teal);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    font-family: 'Lora', serif;
 }
 .title:hover {
     text-decoration: none;

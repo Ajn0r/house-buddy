@@ -25,8 +25,8 @@
         </div>
         <div class="col-12 col-sm-4 text-sm-right pt-2">
             <a href="{% url 'new_category' %}" class="a-color">
-                <i class="fas fa-plus mr-1"></i>
-                <span>New category</span>
+                <i class="fas fa-plus mr-1">
+                <span>New category</span></i>
             </a>
         </div>
     </div>
@@ -36,13 +36,13 @@
         <div class="col-sm-6 col-lg-3 mx-auto p-2 text-center">
             <div class="card shadow">
                 <div class="card-body">
-                    <h6 class="mb-2 card-title">{{ category.name|title }} </h6>
+                    <h5 class="mb-2 card-title">{{ category.name|title }} </h5>
                     <hr class="mt-0">
                     <div class="btn-group mt-3">
                         <a href="{% url 'detail_category' category.id %}"
-                            class="btn btn-sm btn-outline-secondary">View</a>
+                            class="btn btn-sm btn-primary">View</a>
                             <a href="{% url 'edit_category' category.id %}"
-                                class="btn btn-sm btn-outline-secondary">Edit</a>
+                                class="btn btn-sm btn-primary">Edit</a>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
@@ -69,8 +69,8 @@
         </div>
         <div class="col-12 col-sm-4 text-sm-right pt-2">
             <a href="{% url 'new_entry' %}" class="a-color">
-                <i class="fas fa-plus mr-1"></i>
-                <span>New entry</span>
+                <i class="fas fa-plus mr-1">
+                <span>New entry</span></i>
             </a>
         </div>
     </div>
@@ -86,8 +86,8 @@
                     <p class="card-text"><em><small>Category: {{ entry.category|title }}</small></em></p>
                     <div class="btn-group mt-3">
                         <a href="{% url 'entry_detail' entry.id %}"
-                            class="btn btn-sm btn-outline-secondary">View</a>
-                            <a href="{% url 'edit_entry' entry.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            class="btn btn-sm btn-primary">View</a>
+                            <a href="{% url 'edit_entry' entry.id %}" class="btn btn-sm btn-primary">Edit</a>
                     </div>
                 </div>
                 <div class="card-footer text-muted">

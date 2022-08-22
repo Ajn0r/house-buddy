@@ -1,16 +1,23 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <a href="{% url 'new_category' %}" class="btn btn-primary">
-            Add a Category
-        </a>
+<div class="container box m-3 mx-auto p-5">
+    <div class="row mb-3">
+        <div class="col-12 col-sm-6 mb-3">
+            <a href="{% url 'mypage' %}" class="title">
+                <i class="fas fa-user-circle"><span class="ml-2">Back to my page</span></i>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 title text-sm-right mb-3">
+            <a href="{% url 'new_category' %}" class="title">
+                <i class="fas fa-plus mr-2">
+                    <span>Add a new category</span></i>
+            </a>
+        </div>
     </div>
     <div class="row">
         {% for category in categories_list %}
-        <div class="col-sm-12 col-md-4 p-3 category-card text-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-3 category-card text-center">
             <div class="card box p-3">
                 <div class="card-body">
                     <a href="{% url 'detail_category' category.id %}">
