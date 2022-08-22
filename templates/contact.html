@@ -13,19 +13,19 @@
             </p>
             <span class="font-italic">- The House Buddy Team</span>
         </div>
-        <div class="col-sm-12 col-lg-8 mt-5 box p-4">
+        <div class="col-sm-12 col-lg-8 mt-5 mb-5 box p-4">
             <form id="contact-form">
                 <div class="form-group">
                     <label for="name">Name: </label>
-                    <input type="text" id="name" name="from_name" class="form-control">
+                    <input type="text" id="name" name="from_name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email: </label>
-                    <input type="email" id="email" name="user_email" class="form-control">
+                    <input type="email" id="email" name="user_email" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="subject">Choose a subject: </label>
-                    <select id="subject" name="subject" class="form-control">
+                    <select id="subject" name="subject" class="form-control" required>
                         <option value="Contact">Contact</option>
                         <option value="Mypage">My page</option>
                         <option value="Questions">Questions</option>
@@ -38,9 +38,9 @@
                         quicker
                         response</small>
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <label for="message">Message: </label>
-                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Send" class="btn btn-primary">
