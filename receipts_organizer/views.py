@@ -188,5 +188,5 @@ class MyPage(LoginRequiredMixin, TemplateView):
         user = self.request.user
         context = super().get_context_data(**kwargs)
         context['categories'] = Categories.objects.filter(user=user)
-        context['entries'] = Entries.objects.filter(user=user)
+        context['entries'] = Entries.objects.filter(user=user).order_by('-date_added')[:4]
         return context

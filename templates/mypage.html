@@ -1,47 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 col-lg-8 card">
+<div class="container box mb-4 p-4">
+    <div class="row mb-4 mt-4 p-4">
+        <div class="col-12">
             <h2>Welcome {{ user.username|title }}
             </h2>
         </div>
-        <div class="col-md-12 col-lg-4 card">two div</div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 col-lg-6 card"><a href="{% url 'categories' %}"><h4>Categories:</a></h4>
+        <hr class="w-100">
+        <div class="col-md-12 col-lg-6"><a href="{% url 'categories' %}">
+                <h4>Categories:
+            </a></h4>
             {{ categories.count }}
+
         </div>
-        <div class="col-md-12 col-lg-6 card"><a href="{% url 'entries' %}"><h4>Entries:</a></h4>
-            {{ entries.count }}
+        <div class="col-12">
+            {% for category in categories %}
+            <p>
+                {{ category.name }}
+            </p>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-8">
+            <h3>
+                Latest added entries
+            </h3>
+        </div>
+        <div class="col-12 col-sm-4 text-sm-right pt-2">
+            <a href="{% url 'new_entry' %}" class="a-color">
+                <i class="fas fa-plus mr-1"></i>
+                <span>New entry</span></a>
         </div>
     </div>
+    <hr class="w-100">
     <div class="row">
-        <div class="col-12">
-            <h2>Latest added entries
-            </h2>
+        {% for entry in entries %}
+        <div class="col-sm-6 col-lg-3 mx-auto p-2 ">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h6 class="mb-2 card-title">{{ entry.title|title }} </h6>
+                    <hr class="mt-0">
+                    <p class="card-text"><em><small>Category: {{ entry.category|title }}</small></em></p>
+                    <div class="btn-group mt-3">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <p class="card-text"><em><small>Added: {{ entry.date_added|date }}</small></em></p>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 card">
-            <h5>Category: </h5>
-            <h6>Title: </h6>
-            <p>Date added: </p>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 card">
-            <h5>Category: </h5>
-            <h6>Title: </h6>
-            <p>Date added: </p>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 card">
-            <h5>Category: </h5>
-            <h6>Title: </h6>
-            <p>Date added: </p>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 card">
-            <h5>Category: </h5>
-            <h6>Title: </h6>
-            <p>Date added: </p>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
