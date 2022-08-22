@@ -353,6 +353,10 @@ button>a {
 .blog-row {
     justify-content: space-between;
 }
+.blog-about-image {
+    max-height: 370px;
+    width: 100%;
+}
 
 .blog-image {
     max-height: 500px;

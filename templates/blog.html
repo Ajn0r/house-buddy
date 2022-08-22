@@ -5,95 +5,102 @@
     <div class="row">
         <div class="col-12" id="blog-header">
             <div class="blog-layer">
-            <h1 id="blog-hero-heading">The blog!</h1>
+                <h1 id="blog-hero-heading">The blog!</h1>
             </div>
         </div>
     </div>
 
-<div class="row blog-row">
-    {% for blogposts in blogpost_list %}
-    <div class="card blog-card box">
-        <a href="{% url 'blogpost' blogposts.slug %}">
-            <span class="font-italic">{{ blogposts.get_category_display }}</span>
+    <div class="row blog-row">
+        {% for blogposts in blogpost_list %}
+        <div class="card blog-card box">
+            <a href="{% url 'blogpost' blogposts.slug %}">
+                <span class="font-italic">{{ blogposts.get_category_display }}</span>
 
-            <h5 class="hard-header">
-                {{ blogposts.title|title }}
-            </h5>
-            <p>
-                {{ blogposts.created_on }}
-            </p>
-            <hr>
-            <p>
-                {{ blogposts.content|truncatewords_html:17|safe }}
-            </p>
-            <p class="pt-4"><em>Read more...</em></p>
+                <h5 class="hard-header">
+                    {{ blogposts.title|title }}
+                </h5>
+                <p>
+                    {{ blogposts.created_on }}
+                </p>
+                <hr>
+                <p>
+                    {{ blogposts.content|truncatewords_html:17|safe }}
+                </p>
+                <p class="pt-4"><em>Read more...</em></p>
 
-            <!-- Number of comments -->
-            <div class="blog-card-icon">
+                <!-- Number of comments -->
+                <div class="blog-card-icon">
 
-                {% if blogposts.comments.count == 0 %}
-                <span><i class="far fa-comment comment-icon"></i></span>
-                {% elif blogposts.comments.count == 1 %}
-                <span><i class="fas fa-comment comment-icon"></i></span>
-                <span>{{ blogposts.comments.count }}</span>
-                {% else %}
-                <span><i class="fas fa-comments comment-icon"></i></span>
-                <span>{{ blogposts.comments.count }}</span>
-                {% endif %}
+                    {% if blogposts.comments.count == 0 %}
+                    <span><i class="far fa-comment comment-icon"></i></span>
+                    {% elif blogposts.comments.count == 1 %}
+                    <span><i class="fas fa-comment comment-icon"></i></span>
+                    <span>{{ blogposts.comments.count }}</span>
+                    {% else %}
+                    <span><i class="fas fa-comments comment-icon"></i></span>
+                    <span>{{ blogposts.comments.count }}</span>
+                    {% endif %}
 
-                <!-- Number of likes -->
-                <span><i class="fas fa-heart ml-2 mr-1"></i>{{ blogposts.total_likes }}</span>
-            </div>
-        </a>
-    </div>
-    {% endfor %}
-</div>
-
-<!-- Pagination -->
-<div class="row pt-2">
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-            </li>
-            {% endif %}
-            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
-            <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
-            {% if page_obj.3.exists %}
-            <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
-            {% endif %}
-            {% if page_obj.4.exists %}
-            <li class="page-item"><a class="page-link" href="?page=4">4</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
-
-<div class="row mt-4 p-0">
-    <div class="col-sm-12 col-md-8 p-0">
-        <h2>Latest comments:</h2>
-        <hr>
-        {% for comment in blogpost_list %}
-        <p>By: {{ comment.comments.name }}
-        </p>
-        <p>On post: {{ comment.title }}</p>
-        <hr>
+                    <!-- Number of likes -->
+                    <span><i class="fas fa-heart ml-2 mr-1"></i>{{ blogposts.total_likes }}</span>
+                </div>
+            </a>
+        </div>
         {% endfor %}
-
     </div>
-    <div class="col-sm-12 col-md-4 p-0">
-        <div class="bg-light">
-            <h5>About</h5>
-            <p>This blog is blalbalba jfjff</p>
+
+    <!-- Pagination -->
+    <div class="row mx-auto justify-content-center mt-4 mb-3">
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination box">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+                {% if page_obj.3.exists %}
+                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+                {% endif %}
+                {% if page_obj.4.exists %}
+                <li class="page-item"><a class="page-link" href="?page=4">4</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+    <div class="row blog-row mb-4">
+        <div class="bg-light p-4 p-md-5 box col-12">
+            <h5 class="text-center">About</h5>
+            <hr>
+            <div class="float-none float-md-right ml-0 ml-md-5 mb-3">
+            <img src="{% static 'images/blog-image.jpg' %}" alt="A image of Keila"
+                class="blog-about-image  box"></div>
+            <h6>Hi, I'm Keila!</h6>
+            <p>
+                I run the blog here at House Buddy, hoping to share my passion for home renovations
+                and some useful tips on how to save money doing it.
+            </p>
+            <p>
+                In 2016 I bought a small country house in Sweden that had seen its better days,
+                and that is where my love story with home renovations started.
+            </p>
+            <p>
+                I soon found out that there was money to be saved by just a few simple tricks,
+                which came in handy since renovating a whole house isn't exactly cheap.
+            </p>
+            <p>
+                I hope you will enjoy my blog, and if you have any smart tips yourself,
+                please feel free to reach out, I would love to hear from you!
+            </p>
+            <a href="{% url 'contact' %}" class="a-color"><i class="fas fa-envelope mr-2"></i><span class="">Get in
+                    touch</span></a>
+
         </div>
     </div>
-
-
-</div>
 </div>
 {% endblock content %}
