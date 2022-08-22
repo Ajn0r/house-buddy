@@ -24,11 +24,12 @@
             </p>
             <hr>
             <p>
-                {{ blogposts.content|truncatewords_html:20|striptags }}
+                {{ blogposts.content|truncatewords_html:17|safe }}
             </p>
+            <p class="pt-4"><em>Read more...</em></p>
 
             <!-- Number of comments -->
-            <div class="align-items-end">
+            <div class="blog-card-icon">
 
                 {% if blogposts.comments.count == 0 %}
                 <span><i class="far fa-comment comment-icon"></i></span>
@@ -41,7 +42,7 @@
                 {% endif %}
 
                 <!-- Number of likes -->
-                <span><i class="fas fa-heart"></i>{{ blogposts.total_likes }}</span>
+                <span><i class="fas fa-heart ml-2 mr-1"></i>{{ blogposts.total_likes }}</span>
             </div>
         </a>
     </div>

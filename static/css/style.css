@@ -338,11 +338,16 @@ button>a {
 
 .blog-card {
     width: 49%;
-    height: 20rem;
+    min-height: 20rem;
 }
 
 .blog-card>a {
     color: black;
+}
+.blog-card-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
 }
 
 .blog-row {
