@@ -2,13 +2,14 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-12" id="blog-header">
-            <div class="blog-layer">
-                <h1 id="blog-hero-heading">The blog!</h1>
+    <div class="row blog-row">
+        <div class="col-12 box" id="blog-header">
+            <div class="blog-layer pt-3">
+                <h2 class="blog-hero-heading pb-3 pt-sm-5">The <br> House <br> Buddy <br> Blog</h2>
             </div>
         </div>
     </div>
+    <hr class="w-75 mb-4">
 
     <div class="row blog-row">
         {% for blogposts in blogpost_list %}
@@ -73,6 +74,7 @@
         </nav>
         {% endif %}
     </div>
+    <hr class="w-75 mb-4">
     <div class="row blog-row mb-4">
         <div class="bg-light p-4 p-md-5 box col-12">
             <h5 class="text-center">About</h5>
