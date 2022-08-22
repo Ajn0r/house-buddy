@@ -3,7 +3,7 @@
 {% block content %}
 <section class="hero">
   <div class="blue-layer">
-    <div class="jumbotron box">
+    <div class="jumbotron box pb-2">
       <h1 class="display-4 jumbo-title">Finally!</h1>
       <p class="lead jumpo-lead">An easy way to store and keep track of all your thousands of receipts and documents
         connected to your property.
@@ -12,8 +12,12 @@
       <p>With House Buddy, you can store all of your papers, documents, and receipts in your custom Categories, easily
         accessed from your page.
       </p>
-      <p class="lead">
-        <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
+      <p class="lead mt-4">
+        <a class="btn btn-primary btn-lg mb-2" href="{% url 'about' %}" role="button">Learn more</a>
+        {% if not user.is_authenticated %}
+        <a class="btn btn-primary btn-lg mb-2" href="{% url 'account_signup' %}" role="button">Sign up</a>
+        {% endif %}
+        
       </p>
     </div>
   </div>
@@ -24,14 +28,14 @@
   <div class="card-deck">
     <div class="card box">
       {% if user.is_authenticated %}
-      <img class="box card-img-top " src="{% static 'images/organize.jpg' %}" alt="A image of post it notes on a desk">
+      <img class="card-img-top" src="{% static 'images/organize.jpg' %}" alt="A image of post it notes on a desk">
       <div class="card-body">
         <h5 class="card-title">Make it your own!</h5>
         <p class="card-text">You can create as many categories as you need, get those receipts organized today!
           </p>
         <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}" aria-label="click on this to go to your user page">Go to my page</a></small></p>
         {% else %}
-        <img class="box card-img-top " src="{% static 'images/piggy-bank.jpg' %}" alt="a image of a piggy bank">
+        <img class="card-img-top" src="{% static 'images/piggy-bank.jpg' %}" alt="a image of a piggy bank">
         <div class="card-body">
           <h5 class="card-title">It's Free!</h5>
           <p class="card-text">House Buddy is completely free to use, create an account if you haven't got one already and
@@ -42,7 +46,7 @@
     </div>
     </div>
     <div class="card box">
-      <img class="box card-img-top" src="{% static 'images/bloging.jpg' %}" alt="A image of a computer">
+      <img class="card-img-top" src="{% static 'images/bloging.jpg' %}" alt="A image of a computer">
       <div class="card-body">
         <h5 class="card-title">House Buddy Blog</h5>
         <p class="card-text"><strong>Kiela</strong> runs the blog here at House Buddy, she writes about her everyday
@@ -51,7 +55,7 @@
       </div>
     </div>
     <div class="card box">
-      <img class="box card-img-top" src="{% static 'images/happy-woman.jpg' %}" alt="A image of a happy woman">
+      <img class="card-img-top" src="{% static 'images/happy-woman.jpg' %}" alt="A image of a happy woman">
       <div class="card-body">
         <h5 class="card-title">Our philosophy</h5>
         <p class="card-text">Our main goal is to make life a little bit easier for homeowners, it is that simple!</p>
