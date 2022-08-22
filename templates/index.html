@@ -19,7 +19,8 @@
   </div>
 </section>
 
-<section class="main p-2">
+<section class="main p-4 mb-3">
+  <hr class="w-75 mt-4 mb-4">
   <div class="card-deck">
     <div class="card box">
       {% if user.is_authenticated %}
@@ -29,7 +30,6 @@
         <p class="card-text">You can create as many categories as you need, get those receipts organized today!
           </p>
         <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}" aria-label="click on this to go to your user page">Go to my page</a></small></p>
-    
         {% else %}
         <img class="box card-img-top " src="{% static 'images/piggy-bank.jpg' %}" alt="a image of a piggy bank">
         <div class="card-body">
@@ -61,9 +61,5 @@
     </div>
   </div>
 </section>
-
-<div class="third">
-
-</div>
 
 {% endblock content %}
