@@ -17,17 +17,22 @@
             </a>
         </div>
     </div>
-    <div class="row filter">
-        <div class="col-4">
-
+    <div class="d">
+        <button class="btn btn-primary" id="filter-btn">Filter</button>
+    </div>
+    <div class="row filter d-none" id="filter-row">
+        <div class="col-12">
+            <button id="close-filter">Close</button>
+        </div>
+        <div class="col-12 col-md-5">
             <form method="get">
                 {{ filter.form|crispy }}
-                <input type="submit" class="btn btn-primary" value="Search"/>
+                <input type="submit" class="btn btn-primary" value="Search" />
                 <a href="{% url 'entries' %}" class="btn btn-primary">Clear</a>
             </form>
         </div>
-    </div>
 
+    </div>
     <div class="row">
         {% for entries in entries_list %}
         <div class="col-sm-12 col-md-6 col-lg-4 p-3 category-card text-center">
@@ -51,7 +56,7 @@
                 </div>
             </div>
         </div>
-       
+
         {% empty %}
         <div class="col-12 text-center p-4">
             <p>No entries found.
@@ -86,4 +91,14 @@
         {% endif %}
     </div>
 </div>
+<script>
+    let filterBtn = document.getElementById('filter-btn').addEventListener('click', function () {
+        document.getElementById('filter-row').classList.remove('d-none');
+        document.getElementById('filter-btn').classList.add('d-none');
+    });
+    let closeFilterBtn = document.getElementById('close-filter').addEventListener('click', function () {
+        document.getElementById('filter-row').classList.add('d-none');
+        document.getElementById('filter-btn').classList.remove('d-none');
+    })
+</script>
 {% endblock content %}
