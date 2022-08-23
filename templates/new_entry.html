@@ -2,16 +2,27 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<button class="btn btn-primary"><a href="javascript:history.go(-1)">Go Back</a></button>
-<h1>Hello!</h1>
-<div class="container">
+<div class="container box m-3 mx-auto p-4 p-sm-5">
+    <div class="row mb-3">
+        <div class="col-12 col-sm-6 mb-3">
+            <a href="{% url 'entries' %}" class="title">
+                <i class="fas fa-angle-double-left"><span class="ml-2">Back to entries</span></i>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 text-sm-right pt-2">
+            <a href="{% url 'new_category' %}" class="a-color">
+                <i class="fas fa-plus mr-1">
+                    <span>New category</span></i>
+            </a>
+        </div>
+    </div>
+
     <div class="row">
-        <div class="col-12">Add a new <a href="{% url 'new_category' %}">Category</a></div>
         <div class="col-12">
             <form method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <input type="submit" value="Save">
+                <input type="submit" value="Save" class="btn btn-primary">
             </form>
         </div>
     </div>

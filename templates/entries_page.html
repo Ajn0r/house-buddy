@@ -46,10 +46,14 @@
                     <p class="card-text"><em><small>Category: {{ entries.category|title }}</small></em></p>
 
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Date purchased: {{ entries.date_of_purchase }}</li>
+                        {% if entries.date_of_purchase %}
+                        <li class="list-group-item">Date of purchase: {{ entries.date_of_purchase|date }}</li>
+                        {% else %}
+                        <li class="list-group-item">Date of purchase: Not known</li>
+                        {% endif %}
                         <li class="list-group-item">Amount: {{ entries.amount }}</li>
                     </ul>
-                    <div class="">
+                    <div class="mt-3">
                         <a href="{% url 'edit_entry' entries.id %}" class="btn btn-primary">Edit</a>
                         <a href="{% url 'entry_detail' entries.id %}" class="btn btn-primary">View</a>
                     </div>

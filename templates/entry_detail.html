@@ -25,7 +25,11 @@
 
         <div class="col-12 col-md-6 mt-3 mb-3">
             <p class="">Category: {{ entries.category }}</p>
+            {% if entries.date_of_purchase %}
             <p class="">Date purchased: {{ entries.date_of_purchase }}</p>
+            {% else %}
+            <p class="">Date of purchase: Not known</p>
+            {% endif %}
             <p class="">Amount: {{ entries.amount }}</p>
             <p class="">Date added: {{ entries.date_added }}</p>
             <p class="">Updated: {{ entries.date_updated }}</p>
