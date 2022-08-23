@@ -47,6 +47,7 @@
                 <h4>Comments: </h4>
                 <hr>
                 {% for comment in comments %}
+                
                 <p>Posted by: {{ comment.name }}</p>
                 <p>
                     {{ comment.content|striptags }}</p>

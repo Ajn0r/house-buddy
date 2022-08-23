@@ -14,7 +14,6 @@ class BlogList(ListView):
     paginate_by = 4
     queryset = Blogpost.objects.filter(process=1).order_by('-created_on')
 
-
 class BlogDetail(View):
     """
     A view to display the blogposts full details

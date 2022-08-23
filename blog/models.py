@@ -53,4 +53,3 @@ class Comments(models.Model):
 
     def __str__(self):
         return f'Comment {self.content} by {self.name}'
-
