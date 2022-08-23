@@ -3,6 +3,11 @@
 
 {% block content %}
 <div class="card m-5 p-4 box">
+    <div class="col-12 col-sm-6 mb-3">
+        <a href="{% url 'entries' %}" class="title">
+            <i class="fas fa-angle-double-left"><span class="ml-2">Back to entries</span></i>
+        </a>
+    </div>
     <div class="card-title text-center p-2">
         <h3 >Update entry</h3>
         <hr class="w-25">
@@ -11,6 +16,8 @@
         <form method="post">{% csrf_token %}
             {{ form|crispy }}
             <input type="submit" value="Update" class="btn btn-primary">
+
+
         </form>
     </div>
 </div>
