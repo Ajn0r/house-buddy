@@ -21,7 +21,7 @@
         <div class="col-12">
             <form method="POST">
                 {% csrf_token %}
-                {{ form|crispy }}
+                {{ form|crispy|enctype="multipart/form-data }}
                 <input type="submit" value="Save" class="btn btn-primary">
             </form>
         </div>

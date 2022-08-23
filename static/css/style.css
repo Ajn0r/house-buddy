@@ -206,7 +206,7 @@ button>a {
 .about-header-bg {
     height: 78vh;
     width: 100%;
-    background-image: url(/static/images/brick-background.jpg);
+    background-image: url('static/images/brick-background.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
