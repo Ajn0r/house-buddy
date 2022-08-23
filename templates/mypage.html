@@ -33,8 +33,8 @@
     <div class="row">
         <hr class="w-100">
         {% for category in categories|slice:":4" %}
-        <div class="col-sm-6 col-lg-3 mx-auto p-2 text-center">
-            <div class="card shadow">
+        <div class="col-sm-6 col-lg-3 mx-auto p-2 p-sm-4 text-center">
+            <div class="card shadow p-3">
                 <div class="card-body">
                     <h5 class="mb-2 card-title">{{ category.name|title }} </h5>
                     <hr class="mt-0">
@@ -49,7 +49,9 @@
             </div>
         </div>
         {% empty %}
-        <p>Looks like its empty, add a Category to get started</p>
+        <div class="col-sm-6 col-lg-3 mx-auto p-2 p-sm-4 text-center">
+            <p class="text-center">Looks like its empty, add a category to get started</p>
+        </div>
         {% endfor %}
 
         <div class="col-12 text-center">
@@ -75,7 +77,6 @@
     <hr class="w-100">
     <div class="row">
         {% for entry in entries|slice:"4" %}
-        {% if entry %}
         <div class="col-sm-6 col-lg-3 mx-auto p-2 ">
             <div class="card shadow">
                 <div class="card-body">
@@ -92,9 +93,10 @@
                 </div>
             </div>
         </div>
-        {% else %}
-        <p>Looks like its empty</p>
-        {% endif %}
+        {% empty %}
+        <div class="col-sm-6 col-lg-3 mx-auto p-2 p-sm-4 text-center">
+            <p class="text-center">Looks like its empty, add a category or entry to get started</p>
+        </div>
         {% endfor %}
 
         <div class="text-center col-12">
