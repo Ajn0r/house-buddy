@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container box m-3 mx-auto p-5">
     <div class="row mb-3">
@@ -14,6 +15,16 @@
                 <i class="fas fa-plus mr-2">
                     <span>Add a new entry</span></i>
             </a>
+        </div>
+    </div>
+    <div class="row filter">
+        <div class="col-4">
+
+            <form method="get">
+                {{ filter.form|crispy }}
+                <input type="submit" class="btn btn-primary" value="Search"/>
+                <a href="{% url 'entries' %}" class="btn btn-primary">Clear</a>
+            </form>
         </div>
     </div>
 
@@ -40,9 +51,10 @@
                 </div>
             </div>
         </div>
+       
         {% empty %}
         <div class="col-12 text-center p-4">
-            <p>It looks like you don't have any entries yet, add <a href="{% url 'new_entry' %}">one</a> to get started
+            <p>No entries found.
             </p>
         </div>
         {% endfor %}

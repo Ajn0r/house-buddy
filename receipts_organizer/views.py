@@ -7,6 +7,9 @@ from django.urls import reverse_lazy
 from django.db import IntegrityError
 from .models import Categories, Entries
 from .forms import NewEntryForm, NewCategoryForm
+from .filters import EntryFilter
+from django_filters.views import FilterMixin, FilterView
+
 
 class CategoryList(LoginRequiredMixin, ListView):
     """
@@ -96,7 +99,8 @@ class DeleteCategory(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     template_name = 'categories_confirm_delete.html'
     success_message = 'Category successfully deleted'
 
-class EntryList(LoginRequiredMixin, ListView):
+
+class EntryList(LoginRequiredMixin, FilterView):
     """
     A view to display all entries
     """
@@ -104,6 +108,7 @@ class EntryList(LoginRequiredMixin, ListView):
     queryset = Entries.objects.order_by('category')
     template_name = 'entries_page.html'
     paginate_by = 6
+    filterset_class = EntryFilter
 
     def get_queryset(self):
         """
