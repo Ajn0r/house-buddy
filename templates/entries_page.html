@@ -3,7 +3,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="container box m-3 mx-auto p-5">
+<div class="container box m-3 mx-auto p-4 p-sm-5">
     <div class="row mb-3">
         <div class="col-12 col-sm-6 mb-3">
             <a href="{% url 'mypage' %}" class="title">
@@ -17,15 +17,15 @@
             </a>
         </div>
     </div>
-    <div class="d">
+    <div class="filter-btn-div">
         <button class="btn btn-primary" id="filter-btn">Filter</button>
     </div>
     <div class="row filter d-none" id="filter-row">
         <div class="col-12">
-            <button id="close-filter">Close</button>
+            <button id="close-filter" class="btn btn-primary">Close</button>
         </div>
         <div class="col-12 col-md-5">
-            <form method="get">
+            <form method="get" id="filter-form">
                 {{ filter.form|crispy }}
                 <input type="submit" class="btn btn-primary" value="Search" />
                 <a href="{% url 'entries' %}" class="btn btn-primary">Clear</a>
@@ -35,7 +35,7 @@
     </div>
     <div class="row">
         {% for entries in entries_list %}
-        <div class="col-sm-12 col-md-6 col-lg-4 p-3 category-card text-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-2 p-sm-3 category-card text-center">
             <div class="card box p-3 entry-box">
                 <div class="card-body">
                     <a href="{% url 'entry_detail' entries.id %}">
@@ -99,6 +99,6 @@
     let closeFilterBtn = document.getElementById('close-filter').addEventListener('click', function () {
         document.getElementById('filter-row').classList.add('d-none');
         document.getElementById('filter-btn').classList.remove('d-none');
-    })
+    });
 </script>
 {% endblock content %}

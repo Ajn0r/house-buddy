@@ -1,7 +1,7 @@
 import django_filters
 from .models import Entries
 from django_filters.widgets import RangeWidget
-from django_filters import DateFromToRangeFilter
+from django_filters import DateFromToRangeFilter, RangeFilter
 
 class EntryFilter(django_filters.FilterSet):
     """
@@ -10,8 +10,14 @@ class EntryFilter(django_filters.FilterSet):
     title = django_filters.CharFilter(lookup_expr='icontains')
     date_of_purchase = DateFromToRangeFilter(
         widget=RangeWidget(attrs={
-            'placeholder': 'YYYY/MM/DD', 'type': 'date', 'class': 'w-50 form-control'}))
+            'type': 'date', 'class': 'col-sm-5'})
+    )
+    amount = RangeFilter(
+        widget=RangeWidget(attrs={
+            'class': 'col-sm-5'})
+    )
+
 
     class Meta:
         model = Entries
-        fields = ['title', 'date_of_purchase']
+        fields = ['title', 'amount', 'date_of_purchase']
