@@ -1,14 +1,15 @@
-from django.shortcuts import render, reverse, get_object_or_404, redirect, HttpResponseRedirect
-from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.shortcuts import reverse, redirect
+from django.views.generic import (
+    DetailView, ListView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.db import IntegrityError
+from django_filters.views import FilterView
 from .models import Categories, Entries
 from .forms import NewEntryForm, NewCategoryForm
 from .filters import EntryFilter
-from django_filters.views import FilterMixin, FilterView
 
 
 class CategoryList(LoginRequiredMixin, ListView):
@@ -71,7 +72,7 @@ class NewCategory(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         except IntegrityError:
             name = form.instance.name
             messages.error(
-                self.request, 
+                self.request,
                 f"You already have a category called: {name}."
                 " Try something else or go "
                 "<a href='%s'>back</a> to categories" % reverse('categories')
@@ -90,14 +91,16 @@ class EditCategory(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'Your category was updated successfully'
 
 
-class DeleteCategory(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+class DeleteCategory(LoginRequiredMixin, DeleteView):
     """
     A view to delete categories
     """
     model = Categories
-    success_url = reverse_lazy('categories')
     template_name = 'categories_confirm_delete.html'
-    success_message = 'Category successfully deleted'
+
+    def get_success_url(self):
+        messages.success(self.request, 'Category successfully deleted')
+        return reverse_lazy('categories')
 
 
 class EntryList(LoginRequiredMixin, FilterView):
@@ -137,10 +140,10 @@ class NewEntry(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = 'Entry succesfully created'
 
     def get_form_kwargs(self):
-        """ 
+        """
         Passes the request object to the form class, so that the
         user can only chose from their own categories.
-        This code is greatly inspired by a post by 
+        This code is greatly inspired by a post by
         Alice Campkin on medium.com/analytics-vidhya
         """
         kwargs = super(NewEntry, self).get_form_kwargs()
@@ -164,26 +167,18 @@ class EditEntry(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class = NewEntryForm
     template_name = 'edit_entry.html'
     success_url = reverse_lazy('entries')
-    success_message = 'Your entry has been updated'
+    success_message = 'Entry successfully updated'
 
     def get_form_kwargs(self):
-        """ 
+        """
         Passes the request object to the form class, so that the
         user can only chose from their own categories.
-        This code is greatly inspired by a post by 
+        This code is greatly inspired by a post by
         Alice Campkin on medium.com/analytics-vidhya
         """
         kwargs = super(EditEntry, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
-
-        def form_valid(self, form):
-            """
-            Validates the form and makes sure its connected to
-            the user.
-            """
-            form.instance.user = self.request.user
-            return super().form_valid(form)
 
 
 class DeleteEntry(LoginRequiredMixin, DeleteView):
@@ -193,7 +188,10 @@ class DeleteEntry(LoginRequiredMixin, DeleteView):
     """
     model = Entries
     template_name = 'entries_page.html'
-    success_url = reverse_lazy('entries')
+
+    def get_success_url(self):
+        messages.success(self.request, 'Entry successfully deleted')
+        return reverse_lazy('entries')
 
 
 class MyPage(LoginRequiredMixin, ListView):
@@ -201,7 +199,7 @@ class MyPage(LoginRequiredMixin, ListView):
     A view for the 'My Page'
     """
     model = Categories
-    template_name = 'mypage.html'    
+    template_name = 'mypage.html'
 
     def get_context_data(self, **kwargs):
         """
