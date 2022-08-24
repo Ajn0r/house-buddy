@@ -171,9 +171,7 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 
 | Nr | User story fulfilled |
 | --- | --- |
-
 | 1 | The user can register for an account by clicking on the sign-up button, either on the navbar under the user icon or on the home page, there is a button on the hero and one on the first card under the hero. There is also a quick link to sign up under benefits both on the about page and in the footer. |
-
 | 2 | A signed-in user can view the total amount of categories they have on their 'my page' page, where they can also see up to 4 of their categories. They can choose to view or edit, or go to all categories where they will be able to delete a category as well. If they click on the view button on 'my page' they will see all entries in that category, and if they are on the category page, they can click on the name for the same result. |
 | 3 | A signed-in user can view 4 of their latest entries on 'my page', where they have the option to view or edit the entry. There is a link to all entries that takes them to the entries page that shows all the entries by that user. To delete an entry the user needs to view it, and then can choose to edit or delete the item. |
 | 4 | This is almost identical to user story 2, the user can view all categories if they go to the 'categories' page. If the user has many categories they will be paginated. |
