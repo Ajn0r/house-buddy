@@ -29,9 +29,9 @@ The site is especially useful for property owners in Sweden.
 
 #### **Why?**
 
-In Sweden, homeowners must pay a tax on the profit if they sell their property, which is at 22% today. 
+In Sweden, homeowners must pay a tax on the profit if they sell their property, which is at 22% today.
 However, the tax can be reduced by the amount spent on home improvements, the cost of materials mainly, but also all other sorts of improvements that increase the value of the property, such as flowers and other small items.
-It’s up to the homeowner to save and keep track of all the receipts, which can be a hassle, especially since it can add up to quite a few receipts of small sums, that in the end can result in a considerable grand total. 
+It’s up to the homeowner to save and keep track of all the receipts, which can be a hassle, especially since it can add up to quite a few receipts of small sums, that in the end can result in a considerable grand total.
 
 Another perspective is the real estate agent side of it, they are the ones who must put all the receipts together and send them to the tax office.  
 More times than often they will be handed a bag of receipts from the homeowners, and then have to do the time-consuming task of sorting, adding and putting it all together, a workload that they could do without. Being able to retrieve all the receipts digitally from the start would save them a ton of time and work, maybe also making it possible to lower the commission as a bonus for the homeowners.
@@ -70,7 +70,7 @@ Looking through forums on the subject I found that people still use maps and fol
 **As a site owner I would like to:**
 
 - Restrict access to non-logged-in users
-- Be able to control users' comments on the blog, making sure they are not inappropriate. 
+- Be able to control users' comments on the blog, making sure they are not inappropriate.
 - Write blog posts
 
 ### User stories
@@ -105,7 +105,6 @@ I have used Github Issues to create user stories, these are the ones that have b
     - As a **site owner** I can **create, view, edit and delete posts from the admin page** so that **I can manage my blog and its content.**
 
 </details>
-
 
 <details><summary>These user stories have the label `should have`</summary>
 
@@ -192,7 +191,7 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 | 18 | |
 | 19 | |
 
-## Feautures
+## Features
 
 ### Structure
 
@@ -204,3 +203,22 @@ In total without the authorisation pages, there are 16 Html pages, one CSS, and 
 I have made two apps, one that handles the receipt organizing functionality and one that serves the blog and comment functions.
 The homepage, about and contact URLs are in the main project 'house buddy' folder.
 
+### Existing features
+
+#### Footer
+
+The footer consists of 4 different columns that stack on top of each other on small devices.
+
+The first has the heading House Buddy and then displays a short description of the website, followed by a text that lets the user know that the site is for educational purposes.
+
+The second column consists of the same links as in the header, home, about, contact and blog.  
+If a user has many entries and is at the bottom it makes it easier for them to navigate than to scroll back up to the top.
+
+The third column has different content depending on if the user is logged in or not.
+If the user is not logged in it will display two of the benefits of using house buddy. Below those, there is a link to the about page that invites the user to learn more about the benefits.  
+The last object is a link to sign up.
+
+If the user is signed in there will be four links, one for categories, one for adding a new category, a third for entries and the last for adding a new entry.
+
+The fourth and last column is a suggestion to sign up for a newsletter.
+If the user would like they can submit their email and get a newsletter every two weeks. The form doesn’t go anywhere at this time, but I have used JavaScript to make it visible to the user that they have successfully signed up.
