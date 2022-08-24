@@ -80,85 +80,66 @@ I have used Github Issues to create user stories, these are the ones that have b
 
 #### These have the label `must have`
 
-Account registration
+1. Account registration
+    - As a **site user** I can **register for an account** so that **I can benefit from all the logged-in user functions of the site, such as creating, viewing, editing, and deleting entries and/or categories.**
 
-- As a **site user** I can **register for an account** so that **I can benefit from all the logged-in user functions of the site, such as creating, viewing, editing, and deleting entries and/or categories.**
+2. Manage categories
+    - As a **logged-in site user** I can **create, view, edit and delete categories from my page** so that **I can manage my categories and organize my posts.**
 
-Manage categories
+3. Manage entries
+    - As a **logged-in site user** I can **create, view, edit and delete entries on my page** so that **I can manage my entries and keep track of important receipts/information.**
 
-- As a **logged-in site user** I can **create, view, edit and delete categories from my page** so that **I can manage my categories and organize my posts.**
+4. View categories
+    - As a **logged-in site user** I can **view all of my categories** so that **I can get a clear overview of all my different categories and easily find the one im looking for.**
 
-Manage entries
+5. Blog: View blogposts
+    - As a **site user** I can **view a list of blog posts** so that **I can select which one I would like to read**
 
-- As a **logged-in site user** I can **create, view, edit and delete entries on my page** so that **I can manage my entries and keep track of important receipts/information.**
+6. Blog: Choose a blog post to read
+    - As a **site user** I can **click on the blog post I would like to read** so that **I can see the full post and all of the comments.**
 
-View categories
+7. Site navigation
+    - As a **site user** I can **navigate the site using the navbar** so that **I can easily find the information/content I was looking for.**
 
-- As a **logged-in site user** I can **view all of my categories** so that **I can get a clear overview of all my different categories and easily find the one im looking for.**
-
-Blog: View blogposts
-
-- As a **site user** I can **view a list of blog posts** so that **I can select which one I would like to read**
-
-Blog: Choose a blog post to read
-
-- As a **site user** I can **click on the blog post I would like to read** so that **I can see the full post and all of the comments.**
-
-Site navigation
-
-- As a **site user** I can **navigate the site using the navbar** so that **I can easily find the information/content I was looking for.**
-
-Blog: Manage blog posts
-
-- As a **site owner** I can **create, view, edit and delete posts from the admin page** so that **I can manage my blog and its content.**
+8. Blog: Manage blog posts
+    - As a **site owner** I can **create, view, edit and delete posts from the admin page** so that **I can manage my blog and its content.**
 
 #### These user stories have the label `should have`
 
-About the website
+9. About the website
+    - As a **site user** I can **read about the House Buddy website and the benefits of using it on an about page** so that **I can get to know more about the website and how I could get the most out of using it, also get inspired to create an account if I haven't already got it.**
 
-- As a **site user** I can **read about the House Buddy website and the benefits of using it on an about page** so that **I can get to know more about the website and how I could get the most out of using it, also get inspired to create an account if I haven't already got it.**
+10. Contact the site owner
+    - As a **site user** I can **get in contact with the site owner** so that **I can ask questions, ask for help with my account or give them feedback**
 
-Contact the site owner
+11. Blog: Leave a comment on a post
+    - As a **logged-in user** I can **leave a comment on a post** so that **I can let the author know how I feel about it, and interact with other users.**
 
-- As a **site user** I can **get in contact with the site owner** so that **I can ask questions, ask for help with my account or give them feedback**
+12. Blog: Create drafts
+    - As a **site owner** I can **create draft posts** so that **I can finish writing the blog post later**
 
-Blog: Leave a comment on a post
+13. Blog: Approve comments
+    - As a **site owner** I can **approve or delete comments** so that **I easily can control that it won't be any offensive or hateful comments posted.**
 
-- As a **logged-in user** I can **leave a comment on a post** so that **I can let the author know how I feel about it, and interact with other users.**
+14. Blog: View comments
+    - As a **site user or site owner** I can **view comments in a blog post** so that **I can read the comments and see what others think about the post.**
 
-Blog: Create drafts
+15. Blog: Like or unlike posts
+    - As a **logged-in site user** I can **like or unlike a post** so that **I can interact with the content**
 
-- As a **site owner** I can **create draft posts** so that **I can finish writing the blog post later**
-
-Blog: Approve comments
-
-- As a **site owner** I can **approve or delete comments** so that **I easily can control that it won't be any offensive or hateful comments posted.**
-
-Blog: View comments
-
-- As a **site user or site owner** I can **view comments in a blog post** so that **I can read the comments and see what others think about the post.**
-
-Blog: Like or unlike posts
-
-- As a **logged-in site user** I can **like or unlike a post** so that **I can interact with the content**
-
-Blog: View likes
-
-- As a **site user or site owner** I can **view the number of likes on each blog post** so that **I can see which is the most popular and if it's an appreciated blog post.**
+16. Blog: View likes
+    - As a **site user or site owner** I can **view the number of likes on each blog post** so that **I can see which is the most popular and if it's an appreciated blog post.**
 
 #### These user stories have the label `could have`
 
-Sort entries
+17. Sort entries
+    - As a **logged-in site user** I can **sort my entries by category, amount or date added** so that **I can easily find or sort my entries and get a good overview of them.**
 
-- As a **logged-in site user** I can **sort my entries by category, amount or date added** so that **I can easily find or sort my entries and get a good overview of them.**
+18. Search for entries
+    - As a **logged-in site user** I can **search for an entry** so that **I can easily find what I was looking for**
 
-Search for entries
-
-- As a **logged-in site user** I can **search for an entry** so that **I can easily find what I was looking for**
-
-Sign up for a newsletter
-
-- As a **site user** I can **sign up for a newsletter** so that **I can receive interesting news from the House Buddy website and its owner.**
+19. Sign up for a newsletter
+    - As a **site user** I can **sign up for a newsletter** so that **I can receive interesting news from the House Buddy website and its owner.**
 
 ---
 
@@ -180,3 +161,36 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 
 ---
 
+### User stories fulfillment
+
+| Nr | User story fulfilled |
+| --- | --- |
+| 1 | |
+| 2 | |
+| 3 | |
+| 4 | |
+| 5 | |
+| 6 | |
+| 7 | |
+| 8 | |
+| 9 | |
+| 10 | |
+| 11 | |
+| 12 | |
+| 13 | |
+| 14 | |
+| 15 | |
+| 16 | |
+| 17 | |
+| 18 | |
+| 19 | |
+
+## Feautures
+
+### Structure
+
+The website has been structured to be easily navigated and user-friendly. Users that are not signed in will be displayed slight different content than logged-in users, inviting them to sign up. Logged-in users also get access to 'my page' 'categories' and 'entries' pages.
+There are 4 main pages and then 3 more for signed-in users
+In total without the authorisation pages, there are 16 Html pages, one CSS, and one javascript file.
+I have made two apps, one that handles the receipt organizing functionality and one that serves the blog and comment functions.
+The homepage, about and contact URLs are in the main project 'house buddy' folder.
