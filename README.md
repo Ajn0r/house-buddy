@@ -176,20 +176,20 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 | 3 | A signed-in user can view 4 of their latest entries on 'my page', where they have the option to view or edit the entry. There is a link to all entries that takes them to the entries page that shows all the entries by that user. To delete an entry the user needs to view it, and then can choose to edit or delete the item. |
 | 4 | This is almost identical to user story 2, the user can view all categories if they go to the 'categories' page. If the user has many categories they will be paginated. |
 | 5 | The user can go to the blog page, where a list of blog posts will be displayed, if there are more than 4 blog posts they will be paginated. |
-| 6 | |
-| 7 | |
-| 8 | |
-| 9 | |
-| 10 | |
-| 11 | |
-| 12 | |
-| 13 | |
-| 14 | |
-| 15 | |
-| 16 | |
-| 17 | |
-| 18 | |
-| 19 | |
+| 6 | The user can read the full content of the blog post if they click on it, the whole card is a link to the specific post so it's easy even on smaller screens. Once clicked the user will be redirected to the blog post detail page, where they also can view all comments at the bottom. |
+| 7 | The navbar is the same on all the pages, so it will be easily navigated, there are also some links in the footer to help the user to navigate. |
+| 8 | The site owner can manage blog posts from the admin page. |
+| 9 | The user can read about House Buddy on the about page, where there is both information about the blog and the site. The user is presented with the benefits of using house buddy and then a button to sign up. |
+| 10 | The user can get in touch with the house buddy team by filling in the form on the contact page. The form is connected with emailJs to send an email to a Gmail made for House buddy. |
+| 11 | A logged-in user can leave a comment on a blog post if they scroll down past the post. |
+| 12 | The site owner can choose to create a draft on the admin site, there is a filter that only displays blog posts with the status of 'published' |
+| 13 | The site owner can control all the comments from the admin site. |
+| 14 | At the bottom of the blog detail page, all approved comments will be displayed. |
+| 15 | The logged-in user can like a blog post by clicking on the heart at the top of the blog detail page. If the user wants to unlike the post they simply have to click again. the heart will be filled if liked and only contoured if not making it easy for the user to see if they have liked the post or not. |
+| 16 | The number of likes on each post is shown on the blog page, at the top right corner of each post there is a heart with the number of likes next to it. |
+| 17 | The logged-in user can sort entries by amount or date added on the entires page if they open the filter function by clicking on the filter button.  To filter entries by category the user has to go to the category page, and then click on the category they would like to view entries in. |
+| 18 | The user can search for entries by title with the filter function, it will show results that contain what has been searched for, so it doesn't need to be exact. |
+| 19 | In the footer there is a section where the user can sign up for a newsletter, however, the form is not connected to anything, but with the magic of JavaScript, it will make it look like the user has subscribed if they enter their email and press subscribe. |
 
 ## Features
 
