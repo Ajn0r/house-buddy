@@ -205,6 +205,17 @@ The homepage, about and contact URLs are in the main project 'house buddy' folde
 
 ### Existing features
 
+#### Blogpost detail
+
+The blog post detail page is where the user can read the full blog post, it’s also where they can like and comment on the post.
+
+The first thing that the user sees is the “heading” which is the title of the post, followed by the published date and what category the post is in. On large and medium screens the like button shaped like a heart is at the right corner, it will stack under the heading on smaller screens.
+
+A horizontal line separates the heading and the content and image.  
+On smaller screens, the image will appear on top and the content of the post under. On medium and larger screens the text will wrap around the image for a better experience.
+
+Once the post is finished the comments will be displayed, with a comment form where logged-in users can submit a comment.
+
 #### Footer
 
 The footer consists of 4 different columns that stack on top of each other on small devices.
