@@ -1,5 +1,6 @@
-from . import views
 from django.urls import path
+from . import views
+
 
 urlpatterns = [
     path('categories', views.CategoryList.as_view(), name='categories'),
@@ -41,6 +42,6 @@ urlpatterns = [
         name='delete_entry'
     ),
     path(
-        'mypage', views.MyPage.as_view(), name='mypage'
+        '', views.MyPage.as_view(), name='mypage'
     )
 ]
