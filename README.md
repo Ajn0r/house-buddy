@@ -205,6 +205,15 @@ The homepage, about and contact URLs are in the main project 'house buddy' folde
 
 ### Existing features
 
+#### Home
+
+The first page the user lands on is the 'Home' page, there is a large background image of houses, with a large jumbotron with text to give the user a quick idea of what house buddy is with a button that takes the user to the about page.
+
+If the user is not signed in there will also be a button to sign up.
+Further down there are 3 cards, the first changes depending on if the user is signed in or not, and the other two stay the same.
+
+The user is redirected to 'My page' if they log in instead of Home.
+
 #### About
 
 The about page contains information on what House buddy can offer.
