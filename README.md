@@ -167,7 +167,7 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 
 ---
 
-### User stories fulfillment
+### User stories fulfilment
 
 | Nr | User story fulfilled |
 | --- | --- |

@@ -33,6 +33,7 @@ class NewEntryForm(forms.ModelForm):
         self.fields['category'].queryset = Categories.objects.filter(
             user=self.request.user)
 
+
     class Meta:
         model = Entries
         fields = [
@@ -45,3 +46,4 @@ class NewEntryForm(forms.ModelForm):
                 format="%m/%d/%Y", attrs={'type': 'date', 'max': date.today()},
             )
         }
+
