@@ -78,7 +78,7 @@ Looking through forums on the subject I found that people still use maps and fol
 ---
 I have used Github Issues to create user stories, these are the ones that have been implemented:
 
-#### These have the label `must have`
+<details><summary>These have the label `must have`</summary>
 
 1. Account registration
     - As a **site user** I can **register for an account** so that **I can benefit from all the logged-in user functions of the site, such as creating, viewing, editing, and deleting entries and/or categories.**
@@ -104,7 +104,10 @@ I have used Github Issues to create user stories, these are the ones that have b
 8. Blog: Manage blog posts
     - As a **site owner** I can **create, view, edit and delete posts from the admin page** so that **I can manage my blog and its content.**
 
-#### These user stories have the label `should have`
+</details>
+
+
+<details><summary>These user stories have the label `should have`</summary>
 
 9. About the website
     - As a **site user** I can **read about the House Buddy website and the benefits of using it on an about page** so that **I can get to know more about the website and how I could get the most out of using it, also get inspired to create an account if I haven't already got it.**
@@ -130,7 +133,9 @@ I have used Github Issues to create user stories, these are the ones that have b
 16. Blog: View likes
     - As a **site user or site owner** I can **view the number of likes on each blog post** so that **I can see which is the most popular and if it's an appreciated blog post.**
 
-#### These user stories have the label `could have`
+</details>
+
+<details><summary>These user stories have the label `could have`</summary>
 
 17. Sort entries
     - As a **logged-in site user** I can **sort my entries by category, amount or date added** so that **I can easily find or sort my entries and get a good overview of them.**
@@ -141,9 +146,9 @@ I have used Github Issues to create user stories, these are the ones that have b
 19. Sign up for a newsletter
     - As a **site user** I can **sign up for a newsletter** so that **I can receive interesting news from the House Buddy website and its owner.**
 
----
+</details>
 
-These user stories have the label of `won't have` and will not be implemented in this release
+<details><summary>These user stories have the label of `won't have` and will not be implemented in this release</summary>
 
 Blog: sort posts by category or date
 
@@ -156,6 +161,8 @@ Blog: Like comments
 Blog: Manage blogpost frontend
 
 - As a **site owner** I can **create, view, edit and delete blog posts from my logged in site (not /admin)**   so that **I can create and edit blogpost quick and easy**
+
+</details>
 
 The project board can be found [here](https://github.com/users/Ajn0r/projects/4/views/1)
 
@@ -190,6 +197,7 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 ### Structure
 
 The website has been structured to be easily navigated and user-friendly. Users that are not signed in will be displayed slight different content than logged-in users, inviting them to sign up. Logged-in users also get access to 'my page' 'categories' and 'entries' pages.
+
 There are 4 main pages and then 3 more for signed-in users
 In total without the authorisation pages, there are 16 Html pages, one CSS, and one javascript file.
 I have made two apps, one that handles the receipt organizing functionality and one that serves the blog and comment functions.
