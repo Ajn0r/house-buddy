@@ -205,6 +205,21 @@ The homepage, about and contact URLs are in the main project 'house buddy' folde
 
 ### Existing features
 
+#### About
+
+The about page contains information on what House buddy can offer.
+The landing of the about page is a background of bricks with the text “We are House Buddy” vertically on the whole page and a downward pointer that bounces.
+
+If the user clicks the bouncer they will be directed down to the about content.
+
+The first part covers the fundamental idea of House buddy, and also a piece of short information about the blog and who runs it. It’s a made-up woman called “Kiela”.
+
+Further down on the page there are 4 icons and short benefits descriptions as to why the user should use House buddy.
+
+There is a collapsible part that has the heading “Do you own a property in Sweden?
+
+If the user clicks that then the information on how to save money on tax if they sell their property, and how using house buddy can make life easier for them
+
 #### Blogpost detail
 
 The blog post detail page is where the user can read the full blog post, it’s also where they can like and comment on the post.
