@@ -200,5 +200,7 @@ The website has been structured to be easily navigated and user-friendly. Users 
 
 There are 4 main pages and then 3 more for signed-in users
 In total without the authorisation pages, there are 16 Html pages, one CSS, and one javascript file.
+
 I have made two apps, one that handles the receipt organizing functionality and one that serves the blog and comment functions.
 The homepage, about and contact URLs are in the main project 'house buddy' folder.
+
