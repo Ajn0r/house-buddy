@@ -58,9 +58,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{% url 'mypage' %}" id="navbarDropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if user.is_authenticated %}
                         <i class="fas fa-user"></i>
                     </a>
-                    {% if user.is_authenticated %}
+                    
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{% url 'mypage' %}">My page</a>
                         <a class="dropdown-item" href="{% url 'categories' %}">Categories</a>
@@ -69,11 +70,14 @@
                             Sign out <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </li>
-                {% else %}
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                    <a class="dropdown-item" href="{% url 'account_signup' %}">Sign up</a>
-                </div>
+                        {% else %}
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Sign up</a>
+                    </div>
+                </li>
                 {% endif %}
 
             </ul>
