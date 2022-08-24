@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, reverse, HttpResponseRedirect
+from django.shortcuts import (
+    render, get_object_or_404, reverse, HttpResponseRedirect)
 from django.views.generic import ListView, View
-from django.core.paginator import Paginator
-from .models import Blogpost, Comments
+from .models import Blogpost
 from .forms import CommentForm
 
 
@@ -13,6 +13,7 @@ class BlogList(ListView):
     template_name = 'blog.html'
     paginate_by = 4
     queryset = Blogpost.objects.filter(process=1).order_by('-created_on')
+
 
 class BlogDetail(View):
     """
@@ -28,9 +29,9 @@ class BlogDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
+
         return render(
-            request, 
+            request,
             'blogpost_detail.html',
             {
                 'post': post,
@@ -57,7 +58,7 @@ class BlogDetail(View):
             comment.save()
 
         return render(
-            request, 
+            request,
             'blogpost_detail.html',
             {
                 'post': post,
@@ -70,7 +71,9 @@ class BlogDetail(View):
 
 
 class LikePost(View):
-
+    """
+    View for function to like on blogposts
+    """
     def post(self, request, slug):
         post = get_object_or_404(Blogpost, slug=slug)
 

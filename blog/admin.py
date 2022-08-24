@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Blogpost, Comments
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Blogpost, Comments
 
-# Register your models here.
+
 @admin.register(Blogpost)
 class BlogpostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
@@ -21,4 +21,3 @@ class CommentAdmin(SummernoteModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-    

@@ -14,6 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='entries',
             name='image',
-            field=cloudinary.models.CloudinaryField(default='no_image', max_length=255, verbose_name='image'),
+            field=cloudinary.models.CloudinaryField(
+                default='no_image', max_length=255, verbose_name='image'),
         ),
     ]

@@ -1,7 +1,6 @@
-from .models import Categories, Entries
-from django import forms
 from datetime import date
-from django.core.validators import MaxValueValidator
+from django import forms
+from .models import Categories, Entries
 
 
 class NewCategoryForm(forms.ModelForm):
@@ -31,12 +30,13 @@ class NewEntryForm(forms.ModelForm):
         """
         self.request = kwargs.pop('request')
         super(NewEntryForm, self).__init__(*args, **kwargs)
-        self.fields['category'].queryset = Categories.objects.filter(user=self.request.user)
+        self.fields['category'].queryset = Categories.objects.filter(
+            user=self.request.user)
 
     class Meta:
         model = Entries
         fields = [
-            'title', 'category', 'image', 
+            'title', 'category', 'image',
             'amount', 'date_of_purchase', 'description'
             ]
 
@@ -44,5 +44,4 @@ class NewEntryForm(forms.ModelForm):
             'date_of_purchase': forms.DateInput(
                 format="%m/%d/%Y", attrs={'type': 'date', 'max': date.today()},
             )
-                
         }

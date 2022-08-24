@@ -1,7 +1,8 @@
 import django_filters
-from .models import Entries
-from django_filters.widgets import RangeWidget
 from django_filters import DateFromToRangeFilter, RangeFilter
+from django_filters.widgets import RangeWidget
+from .models import Entries
+
 
 class EntryFilter(django_filters.FilterSet):
     """
@@ -16,7 +17,6 @@ class EntryFilter(django_filters.FilterSet):
         widget=RangeWidget(attrs={
             'class': 'col-sm-5'})
     )
-
 
     class Meta:
         model = Entries

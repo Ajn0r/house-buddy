@@ -42,12 +42,13 @@ class Blogpost(models.Model):
 
 # model for comments
 class Comments(models.Model):
-    post = models.ForeignKey(Blogpost, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        Blogpost, on_delete=models.CASCADE, related_name='comments')
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=300)
     posted_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
-    
+
     class Meta:
         ordering = ['posted_on']
 
