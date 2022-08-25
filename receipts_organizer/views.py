@@ -1,7 +1,7 @@
 from django.shortcuts import reverse, redirect
 from django.views.generic import (
     DetailView, ListView, CreateView, UpdateView, DeleteView)
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -29,7 +29,7 @@ class CategoryList(LoginRequiredMixin, ListView):
         return Categories.objects.filter(user=user)
 
 
-class CategoryDetails(LoginRequiredMixin, DetailView):
+class CategoryDetails(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     """
     A view to dislay the details of the category, in this instance its
     all the entries connected to the category the user chooses to display.
@@ -48,6 +48,14 @@ class CategoryDetails(LoginRequiredMixin, DetailView):
         context['object'] = category_obj
         context['items'] = Entries.objects.filter(category=category_obj)
         return context
+
+    def test_func(self):
+        """
+        function to make sure that the user cannot 
+        reach another users categories
+        """
+        category = self.get_object()
+        return category.user == self.request.user
 
 
 class NewCategory(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -80,7 +88,9 @@ class NewCategory(LoginRequiredMixin, SuccessMessageMixin, CreateView):
             return redirect('new_category')
 
 
-class EditCategory(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class EditCategory(
+    LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView
+):
     """
     A view to update categories
     """
@@ -90,8 +100,16 @@ class EditCategory(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('categories')
     success_message = 'Your category was updated successfully'
 
+    def test_func(self):
+        """
+        function to make sure that the user cannot 
+        edit another users category
+        """
+        category = self.get_object()
+        return category.user == self.request.user
 
-class DeleteCategory(LoginRequiredMixin, DeleteView):
+
+class DeleteCategory(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     A view to delete categories
     """
@@ -101,6 +119,14 @@ class DeleteCategory(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         messages.success(self.request, 'Category successfully deleted')
         return reverse_lazy('categories')
+
+    def test_func(self):
+        """
+        function to make sure that the user cannot 
+        delete another users category
+        """
+        category = self.get_object()
+        return category.user == self.request.user
 
 
 class EntryList(LoginRequiredMixin, FilterView):
@@ -121,12 +147,20 @@ class EntryList(LoginRequiredMixin, FilterView):
         return Entries.objects.filter(user=user)
 
 
-class EntryDetail(LoginRequiredMixin, DetailView):
+class EntryDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     """
     A view to show the details of a entry
     """
     model = Entries
     template_name = 'entry_detail.html'
+
+    def test_func(self):
+        """
+        function to make sure that the user cannot 
+        reach another users entries
+        """
+        entry = self.get_object()
+        return entry.user == self.request.user
 
 
 class NewEntry(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -159,7 +193,9 @@ class NewEntry(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditEntry(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class EditEntry(
+    LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView
+):
     """
     A veiw to update entries
     """
@@ -179,9 +215,17 @@ class EditEntry(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         kwargs = super(EditEntry, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
+    
+    def test_func(self):
+        """
+        function to make sure that the user cannot 
+        edit another users entry
+        """
+        entry = self.get_object()
+        return entry.user == self.request.user
 
 
-class DeleteEntry(LoginRequiredMixin, DeleteView):
+class DeleteEntry(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     A view to delete entries, this is done via a modal
     in the detailview, so no confirm delete page needed.
@@ -192,6 +236,14 @@ class DeleteEntry(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         messages.success(self.request, 'Entry successfully deleted')
         return reverse_lazy('entries')
+
+    def test_func(self):
+        """
+        function to make sure that the user cannot 
+        delete another users entry
+        """
+        entry = self.get_object()
+        return entry.user == self.request.user
 
 
 class MyPage(LoginRequiredMixin, ListView):
