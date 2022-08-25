@@ -204,7 +204,7 @@ button>a {
 }   
 /*----------------------- About page -----------------------*/
 .about-header-bg {
-    height: 78vh;
+    height: 83vh;
     width: 100%;
     background-image: url('https://res.cloudinary.com/majascloud/image/upload/v1661272993/static/images/brick-background.bf1d1b07cb7d.jpg');
     background-position: bottom;
@@ -221,7 +221,7 @@ button>a {
 }
 
 .about-heading {
-    font-size: 5.5rem;
+    font-size: 4.75rem;
     font-weight: 900;
     color: var(--off-white);
 }
@@ -295,6 +295,9 @@ button>a {
 @media only screen and (max-width: 992px) {
     .about-header-bg {
         height: 91vh;
+    }
+    .about-heading {
+        font-size: 4.25rem;
     }
 }
 
