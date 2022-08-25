@@ -13,9 +13,9 @@
         accessed from your page.
       </p>
       <p class="lead mt-4">
-        <a class="btn btn-primary btn-lg mb-2" href="{% url 'about' %}" role="button">Learn more</a>
+        <a class="btn btn-primary btn-lg mb-2 a-color" href="{% url 'about' %}" role="button">Learn more</a>
         {% if not user.is_authenticated %}
-        <a class="btn btn-primary btn-lg mb-2" href="{% url 'account_signup' %}" role="button">Sign up</a>
+        <a class="btn btn-primary btn-lg mb-2 a-color" href="{% url 'account_signup' %}" role="button">Sign up</a>
         {% endif %}
         
       </p>
@@ -33,14 +33,14 @@
         <h5 class="card-title">Make it your own!</h5>
         <p class="card-text">You can create as many categories as you need, get those receipts organized today!
           </p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}" aria-label="click on this to go to your user page">Go to my page</a></small></p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'mypage' %}" class="a-color" aria-label="click on this to go to your user page">Go to my page</a></small></p>
         {% else %}
         <img class="card-img-top" src="{% static 'images/piggy-bank.jpg' %}" alt="a image of a piggy bank">
         <div class="card-body">
           <h5 class="card-title">It's Free!</h5>
           <p class="card-text">House Buddy is completely free to use, create an account if you haven't got one already and
           get started today!</p>
-          <p class="card-text"><small class="text-muted"><a href="{% url 'account_signup' %}" aria-label="Click on this to go to the sign up page">Sign up</a></small></p>
+          <p class="card-text"><small class="text-muted"><a href="{% url 'account_signup' %}" class="a-color" aria-label="Click on this to go to the sign up page">Sign up</a></small></p>
       
       {% endif %}
     </div>
@@ -51,7 +51,7 @@
         <h5 class="card-title">House Buddy Blog</h5>
         <p class="card-text"><strong>Kiela</strong> runs the blog here at House Buddy, she writes about her everyday
           life renovating houses, and she shares a lot of useful tips and how to save money on home renovations</p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'blog' %}">The blog</a></small></p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'blog' %}" class="a-color">The blog</a></small></p>
       </div>
     </div>
     <div class="card box">
@@ -60,7 +60,7 @@
         <h5 class="card-title">Our philosophy</h5>
         <p class="card-text">Our main goal is to make life a little bit easier for homeowners, it is that simple!</p>
         <p>- Leia, founder of <cite title="Source Title">House Buddy</cite></p>
-        <p class="card-text"><small class="text-muted"><a href="{% url 'about' %}" aria-label="go to about page to read more">Read more</a></small></p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'about' %}" aria-label="go to about page to read more" class="a-color">Read more</a></small></p>
       </div>
     </div>
   </div>
