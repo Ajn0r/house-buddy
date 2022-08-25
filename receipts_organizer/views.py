@@ -239,7 +239,7 @@ class DeleteEntry(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         """
-        function to make sure that the user cannot 
+        function to make sure that the user cannot
         delete another users entry
         """
         entry = self.get_object()
