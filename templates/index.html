@@ -13,9 +13,9 @@
         accessed from your page.
       </p>
       <p class="lead mt-4">
-        <a class="btn btn-primary btn-lg mb-2 a-color" href="{% url 'about' %}" role="button">Learn more</a>
+        <a class="btn btn-teal btn-lg mb-2 a-color" href="{% url 'about' %}" role="button">Learn more</a>
         {% if not user.is_authenticated %}
-        <a class="btn btn-primary btn-lg mb-2 a-color" href="{% url 'account_signup' %}" role="button">Sign up</a>
+        <a class="btn btn-teal-outline btn-lg mb-2 a-color" href="{% url 'account_signup' %}" role="button">Sign up</a>
         {% endif %}
         
       </p>

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container box m-3 mx-auto p-5">
+<div class="container box m-3 mx-auto p-5 bg-light">
   <div class="row mb-3">
     <div class="col-12 col-sm-6 mb-3">
       <a href="javascript:history.go(-1)" class="title">
@@ -32,15 +32,15 @@
             <li class="list-group-item">Amount: {{ item.amount }}</li>
           </ul>
           <div class="">
-            <a href="{% url 'edit_entry' item.id %}" class="btn btn-primary">Edit</a>
-            <a href="{% url 'entry_detail' item.id %}" class="btn btn-primary">View</a>
+            <a href="{% url 'edit_entry' item.id %}" class="btn btn-teal">Edit</a>
+            <a href="{% url 'entry_detail' item.id %}" class="btn btn-teal-outline">View</a>
           </div>
         </div>
       </div>
     </div>
     {% empty %}
     <div class="col-12 text-center p-4">
-      <p>It looks like you don't have any entries yet, add <a href="{% url 'new_entry' %}">one</a> to get started
+      <p>It looks like you don't have any entries yet, add <a href="{% url 'new_entry' %}" class="a-color">one</a> to get started
       </p>
     </div>
     {% endfor %}

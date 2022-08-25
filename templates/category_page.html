@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container box m-3 mx-auto p-5">
+<div class="container box m-3 mx-auto p-5 bg-light">
     <div class="row mb-3">
         <div class="col-12 col-sm-6 mb-3">
             <a href="{% url 'mypage' %}" class="title">
@@ -27,8 +27,8 @@
                     </a>
                     <hr class="w-25">
                     <div class="">
-                        <a href="{% url 'edit_category' category.id %}" class="btn btn-primary">Edit</a>
-                        <a href="{% url 'delete_category' category.id %}" class="btn  btn-danger">Delete</a>
+                        <a href="{% url 'edit_category' category.id %}" class="btn btn-teal">Edit</a>
+                        <a href="{% url 'delete_category' category.id %}" class="btn  btn-teal-outline">Delete</a>
                     </div>
                 </div>
             </div>

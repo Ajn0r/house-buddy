@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="continer auth-box mx-auto m-4 p-2">
-  <div class="box p-4">
+  <div class="box p-4 bg-light">
     <div class="row">
       <div class="col-12">
         <h2 class="text-center">{% trans "Sign In" %}</h2>
@@ -18,7 +18,7 @@
 
       {% if socialaccount_providers %}
       <p>{% blocktrans with site.name as site_name %}Please sign in with one
-        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+        of your existing third party accounts. Or, <a href="{{ signup_url }}" class="a-color">sign up</a>
         for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
       <div class="socialaccount_ballot">
@@ -36,7 +36,7 @@
       {% else %}
       <div class="col-12">
         <p>{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+          <a href="{{ signup_url }}" class="a-color">sign up</a> first.{% endblocktrans %}
         </p>
         {% endif %}
 
@@ -51,8 +51,8 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button class="primaryAction btn btn-primary" type="submit" >{% trans "Sign In" %}</button>
-          <a class="button secondaryAction" href="{% url 'contact' %}">
+          <button class="primaryAction btn btn-teal" type="submit" >{% trans "Sign In" %}</button>
+          <a class="button secondaryAction a-color" href="{% url 'contact' %}">
             {% trans "Forgot Password?" %}</a>
           
         </form>

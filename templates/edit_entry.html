@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="card m-5 p-4 box">
+<div class="card m-5 p-4 box bg-light">
     <div class="col-12 col-sm-6 mb-3">
         <a href="{% url 'entries' %}" class="title">
             <i class="fas fa-angle-double-left"><span class="ml-2">Back to entries</span></i>
@@ -16,9 +16,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
-            <input type="submit" value="Update" class="btn btn-primary">
-
-
+            <input type="submit" value="Update" class="btn btn-teal">
         </form>
     </div>
 </div>

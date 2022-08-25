@@ -30,6 +30,9 @@ span {
 
 .nav-hr {
     width: 100%;
+    /*
+    This code is from https://css-tricks.com/examples/hrs/
+    */
     overflow: visible;
     /* For IE */
     padding: 0;
@@ -37,7 +40,6 @@ span {
     border-top: medium double #333;
     color: #333;
     text-align: center;
-
 }
 
 @media only screen and (min-width: 992px) {
@@ -67,30 +69,23 @@ span {
     --light-teal: #03A696;
     --orange: #f58d0e;
     --off-white: #f2f2f2;
-
-    --pale-orange: #e88d67;
     --light-grey: #e9ece9;
     --grey-green: #BCC6B9;
-    --green: #61725A;
-    --black: #141613;
 }
 
 body {
-    background-image: linear-gradient(var(--off-white), var(--light-grey));
+    background-image: linear-gradient(var(--off-white), var(--light-grey), var(--grey-green));
 }
-
-.offwhite-bg {
-    background-color: var(--off-white);
-}
-
-
 
 .a-color {
-    color: var(--darkest-teal);
+    color: var(--dark-teal);
 }
 
 .a-color:hover {
     color: var(--medium-teal);
+}
+.user-color {
+    color: var(--dark-teal);
 }
 
 
@@ -101,7 +96,6 @@ body {
 }
 
 /* ----------------------- Cards ----------------------- */
-
 
 .title {
     color: var(--darkest-teal);
@@ -123,23 +117,34 @@ a:hover {
 
 /* -------------------- Django allauth templates ---------------------*/
 .auth-box {
-    max-width: 25rem;
+    max-width: 30rem;
 }
 
 /* ----------------------- Buttons ----------------------- */
-.btn-primary {
+.btn-teal {
     border-color: var(--dark-teal);
-    background-color: white;
+    background-color: var(--dark-teal);
+    color: var(--off-white);
+}
+
+.btn-teal-outline {
+    border-color: var(--dark-teal);
+    background-color: var(--off-white);
     color: var(--darkest-teal);
 }
 
-.btn-primary:hover {
-    background-color: var(--dark-teal);
+.btn-teal:hover {
+    background-color: var(--medium-teal);
     border-color: var(--dark-teal);
     color: var(--off-white);
 }
 
-.btn-primary::after {
+.btn-teal-outline:hover {
+    background-color: var(--light-teal);
+    color: var(--off-white);
+}
+
+.btn-teal::after {
     background-color: var(--darkest-teal);
 }
 
@@ -465,6 +470,7 @@ button>a {
 /* -------------- Footer ------------- */
 .footer-links {
     padding: 0.4rem;
+    font-size: large;
 }
 
 .footer-links>a {
@@ -472,7 +478,7 @@ button>a {
 }
 
 .footer-links>a:hover {
-    color: var(--orange);
+    color: var(--medium-teal);
 }
 
 

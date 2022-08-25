@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="continer auth-box mx-auto m-4 p-2">
-  <div class="box p-4">
+  <div class="box p-4 bg-light">
     <div class="row">
       <div class="col-12">
         <h2 class="text-center">{% trans "Sign Out" %}</h2>
@@ -20,7 +20,7 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button type="submit" class="btn btn-primary">{% trans 'Sign Out' %}</button>
+          <button type="submit" class="btn btn-teal">{% trans 'Sign Out' %}</button>
         </form>
       </div>
     </div>

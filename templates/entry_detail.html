@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container box m-3 mx-auto p-4 p-sm-5">
+<div class="container box m-3 mx-auto p-4 p-sm-5 bg-light">
     <div class="row mb-3">
         <div class="col-12 col-sm-6 mb-3">
             <a href="{% url 'entries' %}" class="title">
@@ -38,9 +38,10 @@
             <hr class="w-75">
             <p class="text-center">{{ entries.description }}</p>
         </div>
+        
         <div class="col-12 card-body">
-            <a href="{% url 'edit_entry' entries.id %}" class="btn btn-primary">Edit</a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModalCenter">
+            <a href="{% url 'edit_entry' entries.id %}" class="btn btn-teal">Edit</a>
+            <button type="button" class="btn btn-teal-outline" data-toggle="modal" data-target="#deleteModalCenter">
                 Delete
             </button>
         </div>
@@ -59,15 +60,14 @@
                         By pressing delete your Entry: {{ entries.title }} will be deleted
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-teal" data-dismiss="modal">Close</button>
                         <form action="{% url 'delete_entry' entries.id %}" method="post">{% csrf_token %}
-                            <input type="submit" value="Delete" class="btn btn-primary">
+                            <input type="submit" value="Delete" class="btn btn-teal-outline">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 

@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container box m-3 mx-auto p-4 p-sm-5">
+<div class="container box m-3 mx-auto p-4 p-sm-5 bg-light">
     <div class="row mb-3">
         <div class="col-12 col-sm-6 mb-3">
             <a href="{% url 'entries' %}" class="title">
@@ -22,7 +22,7 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy}}
-                <input type="submit" value="Save" class="btn btn-primary">
+                <input type="submit" value="Save" class="btn btn-teal">
             </form>
         </div>
     </div>

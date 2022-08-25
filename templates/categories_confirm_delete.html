@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="card box w-75 mx-auto m-5">
+<div class="card box w-75 mx-auto m-5 bg-light">
     <h5 class="card-header shadow">Delete Category: {{ object|title }}</h5>
     <div class="card-body">
         <h5 class="card-title">Are you sure you want to delete "{{ object|title }}"?</h5>
         <form class="card-text" method="post">
             {% csrf_token %}
             <p><small>All entries in this category will be deleted as well.</small></p>
-            <input type="submit" class="btn btn-danger mb-2" value="Confirm" />
-            <a href="{% url 'categories' %}" class="btn btn-primary mb-2">Go back</a>
+            <input type="submit" class="btn btn-teal mb-2" value="Confirm" />
+            <a href="{% url 'categories' %}" class="btn btn-teal-outline mb-2">Go back</a>
         </form>
     </div>
 </div>
