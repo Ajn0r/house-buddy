@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="subject">Choose a subject: </label>
                     <select id="subject" name="subject" class="form-control" required>
-                        <option value="Contact">Contact</option>
+                        <option value="Contact" selected>Contact</option>
                         <option value="Mypage">My page</option>
                         <option value="Questions">Questions</option>
                         <option value="Blog">The Blog</option>
@@ -49,20 +49,53 @@
             </form>
         </div>
         <!-- Modal for message sent -->
-        
+
     </div>
 </div>
 <div id="contactModal" class="modal contact-modal">
-        <div class="modal-content contact-modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Message sent</h5>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Thank you for getting in touch, we will get back to you as soon as possible.</p>
-            </div>
+    <div class="modal-content contact-modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Message sent</h5>
+            <span class="close">&times;</span>
         </div>
+        <div class="modal-body">
+            <p>Thank you for getting in touch, we will get back to you as soon as possible.</p>
+        </div>
+    </div>
 </div>
 
+<script>
+    /**
+ * Code to send email to house buddy mail
+ * Code for setting up Emailjs comes from 
+ * the documentation or their webpage
+ * https://www.emailjs.com/docs/sdk/send/
+ * The code for the modal is from: 
+ * https://www.w3schools.com/howto/howto_css_modals.asp
+ */
+    window.onload = function () {
+        let form = document.getElementById('contact-form')
+        let modal = document.getElementById("contactModal");
+        let span = document.getElementsByClassName("close")[0];
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            emailjs.sendForm("service_2qjf15k", "housebuddy", this)
+                .then(function () {
+                    form.reset()
+                    modal.style.display = "block";
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                }, function (error) {
+                    alert('Message not sent, try again.', error);
+                });
+        });
+    }
+</script>
 
 {% endblock content %}
