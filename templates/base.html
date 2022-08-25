@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +29,7 @@
 
 <body>
     <!-- Navbar -->
-    <!-- Logo -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{% url 'home' %}">
             <h1>House Buddy</h1>
         </a>
@@ -82,7 +80,9 @@
 
             </ul>
         </div>
+        <hr class="nav-hr mb-0">
     </nav>
+
     {% for message in messages %}
     <div class="conatiner-fluid p-0">
         <div class="alert {{ message.tags }} alert-dismissible mb-0" role="alert" id="bs-message">
@@ -93,12 +93,14 @@
         </div>
     </div>
     {% endfor %}
-    {% block content %}
-    <!-- Content goes here -->
-    {% endblock content %}
-
+    <main>
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock content %}
+    </main>
     <!-- Footer -->
-    <footer class="text-center bg-light pt-3">
+    <hr class="nav-hr">
+    <footer class="text-center">
         <div class="continer p-4">
             <div class="row">
                 <div class="col-md-4 col-lg-3 mb-4 mb-lg-0">
@@ -188,7 +190,8 @@
                     </h5>
                     <hr class="w-50">
                     <p class="pl-xl-5 pr-xl-5 ml-lg-5 mr-lg-5"><small>
-                            Every two weeks our blogger Kiela sends out a newsletter, with all the latest news and tips
+                            Every two weeks our blogger Kiela sends out a newsletter, with all the latest news and
+                            tips
                             on what you can do with your House Buddy account.
                         </small></p>
                     <hr class="w-25">
