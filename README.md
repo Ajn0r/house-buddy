@@ -229,6 +229,26 @@ There is a collapsible part that has the heading “Do you own a property in Swe
 
 If the user clicks that then the information on how to save money on tax if they sell their property, and how using house buddy can make life easier for them
 
+#### Contact
+
+The contact page consists of a short text encouraging the user to get in touch and suggesting what the user could contact House Buddy about.
+
+On large screens, the form is on the right of the text, and on medium and smaller it is below the text.
+
+The user has to input their name, and email, choose from a list of subjects to why they want to get in touch, and then the message. All fields are required.
+
+The form is sent to a house buddy email with emailJs, so the contact form is fully functional. Once sent the user will be displayed a modal with a success message.
+
+#### The blog page
+
+The blog page greets the user with an image with the text “The house buddy blog” on top.
+Under the image, there are four cards each showing a blog post.
+The card has the category on top, followed by the title, date published, and then the first 17 words of the post, encouraging the user to read more.
+
+On the top right corner, there is an icon for comments with the number of comments and a heart with the number of likes each post has.
+
+When there are more than four posts the pagination will appear, it has up to four pages, in the future, I would probably go for another logic behind the pagination but for this project, it’s unlikely to be more than four.
+
 #### Blogpost detail
 
 The blog post detail page is where the user can read the full blog post, it’s also where they can like and comment on the post.
@@ -239,6 +259,34 @@ A horizontal line separates the heading and the content and image.
 On smaller screens, the image will appear on top and the content of the post under. On medium and larger screens the text will wrap around the image for a better experience.
 
 Once the post is finished the comments will be displayed, with a comment form where logged-in users can submit a comment.
+
+#### The ‘My Page’
+
+The user has their page where they are greeted with ‘Welcome username’ and it also shows the last login date.
+
+On smaller screens, the number of categories and entries is displayed under the welcome phrase, and all others it is to the right.
+
+The user is then presented with up to 4 of their categories, a button for adding a new category, and a button to go to all categories.
+
+The same is displayed for entries under the category row.
+
+#### Categories
+
+The category page is a listview that displays all the user's categories, the page starts with a button to take the user back to ‘my page’ and one to add a new category.
+
+If the user doesn’t have any categories there will be a text saying ‘It looks like you don't have any categories yet, add one to get started to encourage the user to add a category.
+
+Once the user has created some categories they will be displayed as cards, The category name will be displayed first, which also is a link to view entries in that category.
+
+There are two buttons, one for editing and one for deleting the category.
+
+If the user chooses to delete the category they will be redirected to a delete confirmation page, to make sure they don’t accidentally remove a category.
+
+#### Entries
+
+There are two ways to view entries, one is by clicking on ‘view all entries’ on my page or ‘entries’ on the navbar, this will display all entries and also provides a search/filter function.
+
+If the user wants to view only entries in a certain category, they will have to click either on ‘view’ on the category on 'my page', or the category name on the category page.
 
 #### Footer
 
