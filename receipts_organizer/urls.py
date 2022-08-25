@@ -18,10 +18,6 @@ urlpatterns = [
         name='delete_category'
         ),
     path(
-        'detail', views.CategoryList.as_view(),
-        name='category_index'
-    ),
-    path(
         'entries', views.EntryList.as_view(),
         name='entries'
     ),
