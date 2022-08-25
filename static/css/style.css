@@ -51,7 +51,7 @@ body, span {
     --off-white: #f3f0ed;
 }
 .a-color {
-    color: black;
+    color: var(--dark-teal);
 }
 .a-color:hover {
     color: var(--medium-teal);
@@ -99,6 +99,9 @@ a:hover {
     border-color: var(--dark-teal);
     color: var(--off-white);
 }
+.btn-primary::after {
+    background-color: var(--darkest-teal);
+}
 
 .btn-danger {
     background-color: var(--orange);
@@ -108,6 +111,9 @@ a:hover {
 .btn-danger:hover {
     background-color: var(--dark-orange);
     border-color: var(--dark-orange);
+}
+.btn-danger::after {
+    background-color: var(--orange);
 }
 
 
