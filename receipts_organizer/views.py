@@ -51,7 +51,7 @@ class CategoryDetails(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def test_func(self):
         """
-        function to make sure that the user cannot 
+        function to make sure that the user cannot
         reach another users categories
         """
         category = self.get_object()
@@ -102,7 +102,7 @@ class EditCategory(
 
     def test_func(self):
         """
-        function to make sure that the user cannot 
+        function to make sure that the user cannot
         edit another users category
         """
         category = self.get_object()
@@ -122,7 +122,7 @@ class DeleteCategory(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         """
-        function to make sure that the user cannot 
+        function to make sure that the user cannot
         delete another users category
         """
         category = self.get_object()
@@ -156,7 +156,7 @@ class EntryDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def test_func(self):
         """
-        function to make sure that the user cannot 
+        function to make sure that the user cannot
         reach another users entries
         """
         entry = self.get_object()
@@ -215,10 +215,10 @@ class EditEntry(
         kwargs = super(EditEntry, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
-    
+
     def test_func(self):
         """
-        function to make sure that the user cannot 
+        function to make sure that the user cannot
         edit another users entry
         """
         entry = self.get_object()
