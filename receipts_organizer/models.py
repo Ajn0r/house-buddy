@@ -28,7 +28,7 @@ class Categories(models.Model):
         """"
         Returns as string
         """
-        return str(self.name)
+        return f"{self.name}"
 
     def save(self, *args, **kwargs):
         """
@@ -64,4 +64,4 @@ class Entries(models.Model):
         """
         returns the title as a string
         """
-        return str(self.title)
+        return f"{self.title}"
