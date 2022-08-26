@@ -3,7 +3,7 @@
 For my fourth project with Code Institue, I have created a website to store and organize receipts and other documents.
 The website was created to store mainly receipts regarding properties, however, the user can create their own customized categories to fit their needs.
 
-![amiresonsive-image](image here)
+![amiresonsive-image](/documentation/images/amiresponsive.png)
 
 For the live website, please click [here](https://the-house-buddy.herokuapp.com/)
 
@@ -305,3 +305,7 @@ If the user is signed in there will be four links, one for categories, one for a
 
 The fourth and last column is a suggestion to sign up for a newsletter.
 If the user would like they can submit their email and get a newsletter every two weeks. The form doesn’t go anywhere at this time, but I have used JavaScript to make it visible to the user that they have successfully signed up.
+
+## Testing
+
+All tests and validations can be found [here](/TESTING.md)
