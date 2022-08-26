@@ -5,6 +5,10 @@ from .models import Blogpost
 from .forms import CommentForm
 
 
+# This code is greatly inspired by the Code Institute
+# walkthrouh 'I think therefore I blog' with only minor adjustments.
+
+
 class BlogList(ListView):
     """
     View to display blogposts on blogpage
@@ -18,11 +22,11 @@ class BlogList(ListView):
 class BlogDetail(View):
     """
     A view to display the blogposts full details
-    This code is greatly inspired by the code institue
-    walkthrouh 'I think therefore I blog
     """
     def get(self, request, slug, *args, **kwargs):
-
+        """
+        Method to get the blogpost
+        """
         queryset = Blogpost.objects.filter(process=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('posted_on')
@@ -43,6 +47,9 @@ class BlogDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        """
+        Method for posting the comments
+        """
         queryset = Blogpost.objects.filter(process=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('posted_on')
@@ -75,6 +82,9 @@ class LikePost(View):
     View for function to like on blogposts
     """
     def post(self, request, slug):
+        """
+        Function for like and unlike on a blogpost
+        """
         post = get_object_or_404(Blogpost, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
