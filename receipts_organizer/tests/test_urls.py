@@ -9,7 +9,7 @@ from receipts_organizer.views import (
 class TestUrls(SimpleTestCase):
     """
     Test all urls in receipts organizer app
-    These test has been inspired by 
+    These test has been inspired by
     'The Dumbfonds' youtube video on django testing
     """
     def test_mypage_url_resolves(self):
