@@ -1,75 +1,91 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-    <div class="container box p-5 mt-4 mb-4 bg-light">
-        <a href="{% url 'blog' %}" class="a-color"><i class="fas fa-angle-double-left"></i><span class="ml-1">Back</span></a>
-        <div class="row">
-            <div class="col-11 mt-3 mt-lg-0">
-                <h2>
-                    {{ post.title|title }}
-                </h2>
-                <p><small><em>Posted: {{ post.created_on }} in category: {{ post.get_category_display }}</em></small>
-                </p>
-            </div>
-
-            <div class="col-sm-12 col-md-1">
-                {% if user.is_authenticated %}
-                <form action="{% url 'post_like' post.slug %}" method="POST">
-                    {% csrf_token %}
-                    {% if liked %}
-                    <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                    {% else %}
-                    <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    {% endif%}
-                </form>
-                {% else %}
-                <i class="far fa-heart"></i>
-                {% endif %}
-            </div>
-            <hr class="w-100 mt-0">
-            <div class="col-12">
-                <img src="{{ post.image.url }}" alt="A image for the blogpost" class="blog-image box float-sm-none float-md-right ml-md-4 mb-3 col-md-8 p-0">
-                <p class="float-start"> {{ post.content|safe }} </p>
-            </div>
+<div class="container box p-5 mt-4 mb-4 bg-light">
+    <a href="{% url 'blog' %}" class="a-color"><i class="fas fa-angle-double-left"></i><span
+            class="ml-1">Back</span></a>
+    <div class="row">
+        <div class="col-11 mt-3 mt-lg-0">
+            <h2>
+                {{ post.title|title }}
+            </h2>
+            <p><small><em>Posted: {{ post.created_on }} in category: {{ post.get_category_display }}</em></small>
+            </p>
         </div>
 
-        <!-- Displays Comments -->
-        <div class="row mt-5">
-            <div class="col-sm-12 col-lg-8 ">
-                <h4>Comments: </h4>
-                <hr>
-                {% for comment in comments %}
-                
-                <p>Posted by: {{ comment.name }}</p>
-                <p>
-                    {{ comment.content|striptags }}</p>
-                <hr>
-                {% endfor %}
-            </div>
-            <!-- Comment form -->
-            <div class="col-lg-4">
-                <div class="card box sticky p-3">
-                    {% if commented %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is submitted, once approved it will show up under comments
-                    </div>
-                    {% else %}
-                    {% if user.is_authenticated %}
-                    <h4>Leave a comment:</h4>
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ comment_form|crispy}}
-                        <button type="submit" class="btn btn-teal btn-lg">Submit</button>
-                    </form>
-                    {% endif %}
-                    {% endif %}
+        <div class="col-sm-12 col-md-1">
+            {% if user.is_authenticated %}
+            <form action="{% url 'post_like' post.slug %}" method="POST">
+                {% csrf_token %}
+                {% if liked %}
+                <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
+                    <i class="fas fa-heart"></i>
+                </button>
+                {% else %}
+                <button type="submit" class="like-btn" name="blogpost_id" value="{{ post.slug }}">
+                    <i class="far fa-heart"></i>
+                </button>
+                {% endif%}
+            </form>
+
+            {% endif %}
+        </div>
+        <hr class="w-100 mt-0">
+        <div class="col-12">
+            <img src="{{ post.image.url }}" alt="A image for the blogpost"
+                class="blog-image box float-sm-none float-md-right ml-md-4 mb-3 col-md-8 p-0">
+            <p class="float-start"> {{ post.content|safe }} </p>
+        </div>
+    </div>
+
+    <!-- Displays Comments -->
+    <div class="row mt-5">
+        <div class="col-sm-12 col-lg-8 card p-3 overflow-auto comment-card">
+            <h4>Comments: </h4>
+            <hr>
+            {% for comment in comments %}
+            <div class="card m-2 p-4 shadow ">
+                <p class="mb-0">
+                    {{ comment.name|title }}
+                </p>
+                <p class="mt-0"><small>{{ comment.posted_on|date}}</small></p>
+                <div class="card p-3">
+                    <p>
+                        {{ comment.content|safe }}
+                    </p>
                 </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <!-- Comment form -->
+        <div class="col-lg-4">
+            <div class="card box sticky p-3">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Thank you for your comment!
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h4>Leave a comment:</h4>
+                <p><small>You are commenting as: {{ user.username|title }}</small></p>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form|crispy}}
+                    <button type="submit" class="btn btn-teal btn-lg">Submit</button>
+                </form>
+                {% else %}
+                <div class="p-3 text-center">
+                    <i class="fas fa-comment-slash icons mb-3 a-color"></i>
+                    <p>You must be logged in to be able to leave a comment.</p>
+                    <p>Please <a class="a-color" href="{% url 'account_login' %}">Login</a>
+                        or <a class="a-color" href="{% url 'account_signup' %}">Sign up</a></p>
+                </div>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
 
 {% endblock content %}

@@ -16,12 +16,14 @@ span {
 }
 
 /* ------------------ Shadow css ---------------- */
+
 .box {
     border-radius: 5px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* ------------------ Icons ----------------- */
+
 .icons {
     font-size: 2rem;
 }
@@ -62,6 +64,7 @@ span {
 }
 
 /* ----------------------- Colors ----------------------- */
+
 :root {
     --darkest-teal: #012E40;
     --dark-teal: #025159;
@@ -88,14 +91,11 @@ body {
     color: var(--dark-teal);
 }
 
-
-/*  ----------------------- special rows -----------------------  */
-.row-center {
-    align-items: center;
-    justify-content: center;
+.page-link {
+    color: black;
 }
 
-/* ----------------------- Cards ----------------------- */
+/* texts  */
 
 .title {
     color: var(--darkest-teal);
@@ -121,6 +121,7 @@ a:hover {
 }
 
 /* ----------------------- Buttons ----------------------- */
+
 .btn-teal {
     border-color: var(--dark-teal);
     background-color: var(--dark-teal);
@@ -162,6 +163,10 @@ a:hover {
     background-color: var(--orange);
 }
 
+button>a {
+    color: var(--off-white);
+}
+
 
 /* ----------------------- Image placeholders ----------------------- */
 .no-image {
@@ -169,10 +174,6 @@ a:hover {
     width: 100%;
     height: 25rem;
     border-radius: 5px;
-}
-
-button>a {
-    color: var(--off-white);
 }
 
 /*----------------------- Home page -----------------------*/
@@ -257,6 +258,7 @@ button>a {
 }
 
 /*----------------------- About page -----------------------*/
+
 .about-header-bg {
     height: 83vh;
     width: 100%;
@@ -284,6 +286,9 @@ button>a {
     color: var(--orange);
 }
 
+/* The code for the bouncing icon comes from 
+https://techstacker.com/how-to-animate-a-bouncing-svg-icon-with-css/
+*/
 .bounce {
     animation: bounce 2s;
     animation-delay: 1s;
@@ -341,6 +346,8 @@ button>a {
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
 }
 
+/* media for the about page */
+
 @media only screen and (max-width: 767px) {
     .vr-line {
         border: none;
@@ -354,7 +361,7 @@ button>a {
     }
 
     .about-heading {
-        font-size: 4.25rem;
+        font-size: 4.5rem;
     }
 }
 
@@ -423,6 +430,10 @@ button>a {
     top: 20px;
 }
 
+.comment-card {
+    max-height: 80vh;
+}
+
 .comment-icon {
     color: var(--dark-teal);
 }
@@ -454,6 +465,7 @@ button>a {
 }
 
 /*----------------------- Entries -----------------------*/
+
 .entry-image {
     min-height: 25rem;
 }
@@ -462,12 +474,8 @@ button>a {
     min-height: 20rem;
 }
 
-/* ---------- Pagination ------------ */
-.page-link {
-    color: black;
-}
-
 /* -------------- Footer ------------- */
+
 .footer-links {
     padding: 0.4rem;
     font-size: large;
