@@ -192,9 +192,13 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 | 18 | The user can search for entries by title with the filter function, it will show results that contain what has been searched for, so it doesn't need to be exact. |
 | 19 | In the footer there is a section where the user can sign up for a newsletter, however, the form is not connected to anything, but with the magic of JavaScript, it will make it look like the user has subscribed if they enter their email and press subscribe. |
 
-## Features
+## Structure
 
-### Structure
+### Flowchart
+
+### Database models
+
+### Site structure
 
 The website has been structured to be easily navigated and user-friendly. Users that are not signed in will be displayed slight different content than logged-in users, inviting them to sign up. Logged-in users also get access to 'my page' 'categories' and 'entries' pages.
 
@@ -203,6 +207,8 @@ In total without the authorisation pages, there are 16 Html pages, one CSS, and 
 
 I have made two apps, one that handles the receipt organizing functionality and one that serves the blog and comment functions.
 The homepage, about and contact URLs are in the main project 'house buddy' folder.
+
+## Features
 
 ### Existing features
 
@@ -376,6 +382,20 @@ If the user would like they can submit their email and get a newsletter every tw
 
 ![footer](/documentation/images/footer-medium.png)
 
+### Features I would like to implement in the future
+
+
+
+## Wireframes
+
+## Colors and fonts
+
 ## Testing
 
 All tests and validations can be found [here](/TESTING.md)
+
+## Deployment
+
+## Technologies and resources used
+
+## Credits

@@ -13,9 +13,9 @@ setTimeout(function () {
 /**
  * Changes the innter html if the user submits the form.
  */
-let newsletter = document.getElementById('newsletter')
+let newsletter = document.getElementById('newsletter');
 newsletter.addEventListener('submit', function (e) {
     e.preventDefault();
-    newsletter.innerHTML = '<p>Thank you for subscribing!</p>'
-})
+    newsletter.innerHTML = '<p>Thank you for subscribing!</p>';
+});
 

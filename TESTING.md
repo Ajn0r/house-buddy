@@ -6,7 +6,7 @@
 
 pep8online.com was user to validate all python code.
 
-#### Validation for the receipts_organizer app
+<details><summary>Validation for the receipts_organizer app</summary>
 
 - admin.py
 
@@ -36,7 +36,9 @@ pep8online.com was user to validate all python code.
 
 ![pep8tests](/documentation/images/validation/pep8-tests.png)
 
-#### Validation for the blog app
+</details>
+
+<details><summary>Validation for the blog app</summary>
 
 - admin.py
 
@@ -57,6 +59,8 @@ pep8online.com was user to validate all python code.
 - forms.py
 
 ![pep8formsblog](/documentation/images/validation/pep8-formblog.png)
+
+</details>
 
 ## Html validation
 
@@ -107,6 +111,17 @@ One error was discovered at first, I had not set up text-shadow correctly, which
 I ran the code again through the validator and it passed.
 
 ![css-fixed](/documentation/images/validation/css-valid.png)
+
+## Javascript Validation
+
+Javascript has been validated using [Beautify Tools Javascript validator](https://beautifytools.com/javascript-validator.php)
+
+At first, a few semicolons were missing, but after adding those all Javascript was successfully validated.
+
+![js-valid](/documentation/images/validation/js-valid.png)
+![js-contact-valid](/documentation/images/validation/contact-js-valid.png)
+![js-filter-valid](/documentation/images/validation/filter-js-valid.png)
+
 
 ## Lighthouse
 
