@@ -16,10 +16,10 @@
             <hr>
         </div>
         <div class="col-12 col-md-5">
-            {% if "no_image" in entries.image.url %}
-            <div class="no-image"></div>
+            {% if "placeholder" in entries.image.url %}
+            <div class="no-image" alt="This post has no image"></div>
             {% else %}
-            <img src="{{ entries.image.url }}" width="100%" class="entry-image">
+            <img src="{{ entries.image.url }}" class="entry-image" alt="Image for the entry">
             {% endif %}
         </div>
 
@@ -47,7 +47,7 @@
         </div>
         <!-- Modal to delete entry -->
         <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+            aria-labelledby="deleteModalCenter" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">

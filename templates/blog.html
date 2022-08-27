@@ -20,13 +20,17 @@
                 <h5 class="hard-header">
                     {{ blogposts.title|title }}
                 </h5>
+
                 <p>
                     {{ blogposts.created_on }}
                 </p>
+
                 <hr>
+                
                 <p>
                     {{ blogposts.content|truncatewords_html:17|safe }}
                 </p>
+                
                 <p class="pt-4"><em>Read more...</em></p>
 
                 <!-- Number of comments -->

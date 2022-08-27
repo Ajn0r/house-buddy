@@ -468,6 +468,7 @@ https://techstacker.com/how-to-animate-a-bouncing-svg-icon-with-css/
 
 .entry-image {
     min-height: 25rem;
+    width: 100%;
 }
 
 .entry-box {
