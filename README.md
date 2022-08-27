@@ -320,13 +320,25 @@ If the user hasn't got any categories or entries yet there will be a text instea
 
 The category page is a listview that displays all the user's categories, the page starts with a button to take the user back to ‘my page’ and one to add a new category.
 
+![categories-page](/documentation/images/categories-list.png)
+
 If the user doesn’t have any categories there will be a text saying ‘It looks like you don't have any categories yet, add one to get started to encourage the user to add a category.
+
+To create a new category the user has to enter a name for the category and then press save.
+
+![new-category](/documentation/images/new-category.png)
 
 Once the user has created some categories they will be displayed as cards, The category name will be displayed first, which also is a link to view entries in that category.
 
 There are two buttons, one for editing and one for deleting the category.
 
+To edit the category, the user can choose a new name and press update, or just choose to go back.
+
+![edit-category](/documentation/images/edit-category.png)
+
 If the user chooses to delete the category they will be redirected to a delete confirmation page, to make sure they don’t accidentally remove a category.
+
+![delete-category](/documentation/images/delete-category.png)
 
 #### Entries
 
