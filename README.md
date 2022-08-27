@@ -388,7 +388,45 @@ If the user would like they can submit their email and get a newsletter every tw
 
 ## Wireframes
 
+Wireframes were made very early in the project, and the finished product is not 100% accurate to the initial wireframes.
+
+I ended up not using the logo since I felt it looked better in plain text with the Lora font.
+
+### Home
+
+![wiref-home](/documentation/images/home-lg.png)
+
+![wf-home-md](/documentation/images/home-mb.png)
+
+### About
+
+![wf-about](/documentation/images/about-lg.png)
+
+### Contact
+
+![wf-contact](/documentation/images/wf-contact.png)
+
+### Entries and Categories
+
+![wf-categories](/documentation/images/wf-categories.png)
+
+![wf-category](/documentation/images/wf-category-mb.png)
+
+![wf-entries](/documentation/images/wf-entry-mb.png)
+
 ## Colors and fonts
+
+### Fonts
+
+Fonts that have been used if from google fonts.
+
+For all types of headings, I have used 'Lora'
+
+![lora](/documentation/images/lora.png)
+
+For all other text on the page 'Lato' has been used.
+
+![lato](/documentation/images/lato.png)
 
 ## Testing
 
