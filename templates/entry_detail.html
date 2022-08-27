@@ -17,7 +17,7 @@
         </div>
         <div class="col-12 col-md-5">
             {% if "placeholder" in entries.image.url %}
-            <div class="no-image" alt="This post has no image"></div>
+            <div class="no-image"></div>
             {% else %}
             <img src="{{ entries.image.url }}" class="entry-image" alt="Image for the entry">
             {% endif %}
