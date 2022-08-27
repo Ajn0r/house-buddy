@@ -100,7 +100,6 @@ body {
 .title {
     color: var(--darkest-teal);
     text-decoration: none;
-    text-shadow: var(--medium-teal);
     font-size: 1.25rem;
     font-weight: 600;
     font-family: 'Lora', serif;
