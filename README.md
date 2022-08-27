@@ -344,11 +344,21 @@ If the user chooses to delete the category they will be redirected to a delete c
 
 There are two ways to view entries, one is by clicking on ‘view all entries’ on my page or ‘entries’ on the navbar, this will display all entries and also provides a search/filter function.
 
+![all-entries](/documentation/images/all-entries.png)
+
+The user can choose to filter or search on any word or letter that the title contains, by amount or date of purchase
+
+![filter-option](/documentation/images/filter-options.png)
+
+![filter](/documentation/images/filter-result.png)
+
 If the user wants to view only entries in a certain category, they will have to click either on ‘view’ on the category on 'my page', or the category name on the category page.
 
 #### Footer
 
 The footer consists of 4 different columns that stack on top of each other on small devices.
+
+![footer-large](/documentation/images/footer-lg.png)
 
 The first has the heading House Buddy and then displays a short description of the website, followed by a text that lets the user know that the site is for educational purposes.
 
