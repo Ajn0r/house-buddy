@@ -78,7 +78,8 @@ Looking through forums on the subject I found that people still use maps and fol
 ---
 I have used Github Issues to create user stories, these are the ones that have been implemented:
 
-<details><summary>These have the label `must have`</summary>
+<details>
+<summary>These have the label `must have`</summary>
 
 1. Account registration
     - As a **site user** I can **register for an account** so that **I can benefit from all the logged-in user functions of the site, such as creating, viewing, editing, and deleting entries and/or categories.**
@@ -209,8 +210,15 @@ The homepage, about and contact URLs are in the main project 'house buddy' folde
 
 The first page the user lands on is the 'Home' page, there is a large background image of houses, with a large jumbotron with text to give the user a quick idea of what house buddy is with a button that takes the user to the about page.
 
+![home-signedin](/documentation/images/home-hero.png)
+
 If the user is not signed in there will also be a button to sign up.
+
+![home-notsignedin](/documentation/images/home-notsi.png)
+
 Further down there are 3 cards, the first changes depending on if the user is signed in or not, and the other two stay the same.
+
+![home-cards](/documentation/images/home-cards.png)
 
 The user is redirected to 'My page' if they log in instead of Home.
 
@@ -221,17 +229,29 @@ The landing of the about page is a background of bricks with the text “We are 
 
 If the user clicks the bouncer they will be directed down to the about content.
 
+![aboutpage-hero](/documentation/images/about-page.png)
+
 The first part covers the fundamental idea of House buddy, and also a piece of short information about the blog and who runs it. It’s a made-up woman called “Kiela”.
+
+![about-text](/documentation/images/about-text.png)
 
 Further down on the page there are 4 icons and short benefits descriptions as to why the user should use House buddy.
 
+![benefits](/documentation/images/benefits.png)
+
 There is a collapsible part that has the heading “Do you own a property in Sweden?
 
+![aboutpage-sweden](/documentation/images/swe-benefit-col.png)
+
 If the user clicks that then the information on how to save money on tax if they sell their property, and how using house buddy can make life easier for them
+
+![openedsweden-benefits](/documentation/images/swe-benefit.png)
 
 #### Contact
 
 The contact page consists of a short text encouraging the user to get in touch and suggesting what the user could contact House Buddy about.
+
+![contact-page](/documentation/images/contactform.png)
 
 On large screens, the form is on the right of the text, and on medium and smaller it is below the text.
 
@@ -239,15 +259,27 @@ The user has to input their name, and email, choose from a list of subjects to w
 
 The form is sent to a house buddy email with emailJs, so the contact form is fully functional. Once sent the user will be displayed a modal with a success message.
 
+![contactformsent](/documentation/images/contact-sent.png)
+
 #### The blog page
 
 The blog page greets the user with an image with the text “The house buddy blog” on top.
+
+![blogpage](/documentation/images/blogpage.png)
+
 Under the image, there are four cards each showing a blog post.
+
 The card has the category on top, followed by the title, date published, and then the first 17 words of the post, encouraging the user to read more.
+
+![blogcard](/documentation/images/blogcard.png)
 
 On the top right corner, there is an icon for comments with the number of comments and a heart with the number of likes each post has.
 
-When there are more than four posts the pagination will appear, it has up to four pages, in the future, I would probably go for another logic behind the pagination but for this project, it’s unlikely to be more than four.
+When there are more than four posts the pagination will appear.
+
+At the bottom of the page, there is an 'about' box where the user can read about Kiela, the girl who writes all the blog posts. There is also a link to get in touch with her that takes the user to the contact page.
+
+![blog-about](/documentation/images/blog-about.png)
 
 #### Blogpost detail
 
@@ -255,20 +287,34 @@ The blog post detail page is where the user can read the full blog post, it’s 
 
 The first thing that the user sees is the “heading” which is the title of the post, followed by the published date and what category the post is in. On large and medium screens the like button shaped like a heart is at the right corner, it will stack under the heading on smaller screens.
 
+![blogpost-detail](/documentation/images/blogpost.png)
+
 A horizontal line separates the heading and the content and image.  
 On smaller screens, the image will appear on top and the content of the post under. On medium and larger screens the text will wrap around the image for a better experience.
 
 Once the post is finished the comments will be displayed, with a comment form where logged-in users can submit a comment.
 
+![comments](/documentation/images/comments-signedin.png)
+
+If the user is not signed in they will not be able to leave a comment, instead they are asked to login or sign up
+
+![comment-ifnot-signedin](/documentation/images/comments-not.png)
+
 #### The ‘My Page’
 
 The user has their page where they are greeted with ‘Welcome username’ and it also shows the last login date.
 
+![mypagestart](/documentation/images/mypage-welcome.png)
+
 On smaller screens, the number of categories and entries is displayed under the welcome phrase, and all others it is to the right.
 
-The user is then presented with up to 4 of their categories, a button for adding a new category, and a button to go to all categories.
+The user is then presented with up to 4 of their categories, a button for adding a new category, and a button to go to all categories, the same is displayed for entries under the category row.
 
-The same is displayed for entries under the category row.
+![mypage-categories-entries](/documentation/images/mypage-end-full.png)
+
+If the user hasn't got any categories or entries yet there will be a text instead encouraging the user to get started.
+
+![mypage-categories-entries-empty](/documentation/images/mypage-end.png)
 
 #### Categories
 
@@ -305,6 +351,8 @@ If the user is signed in there will be four links, one for categories, one for a
 
 The fourth and last column is a suggestion to sign up for a newsletter.
 If the user would like they can submit their email and get a newsletter every two weeks. The form doesn’t go anywhere at this time, but I have used JavaScript to make it visible to the user that they have successfully signed up.
+
+![footer](/documentation/images/footer-medium.png)
 
 ## Testing
 
