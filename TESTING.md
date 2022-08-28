@@ -1,5 +1,7 @@
 # The House Buddy
 
+[Back to Readme](/README.md)
+
 ## Validation
 
 ### Python validation
@@ -196,7 +198,11 @@ These are the manual tests that have been carried out.
 
 1. The email field in the newsletter form in the footer was not required, so the user could simply click the subscribe button and it would appear as if they had successfully signed up for the newsletter. This was simply corrected by adding 'required' to the email input field.
 
-2. There was no pagination on the category_detail.html page, this was simply adjusted by adding 'paginate_by = 6' to the CategoryDetails class in the views.py file
+2. There was no pagination on the category_detail.html page, this is left as an [unsolved bug](#unsolved-bugs) *(nr.2)*
+
+3. I fixed the [bug](#bugs) *(nr.3)* for duplicate categories name in the CreateView, however, the user could still add a duplicate in the UpdateView, this was solved by adding the same logic to the EditCategory view only slight changes were made.
+
+4. The issue in the entries test can be read about under [unsolved bug](#unsolved-bugs) *(nr.1)*
 
 ## Bugs
 
@@ -244,3 +250,10 @@ At the start of the about page the large text pressed the pointer down under the
 I have tried to fix it several ways however it is still left unsolved. I have created a custom 500.html page that the user lands on where they are let aware that something went wrong and a button to go back.
 
 2. The entries won't be paginated at the category_details page, I thought it was since I forgot to set paginate_by, but that won't work. I'm presuming it is because it is using the categories model so I will have to set the pagination somewhere else. This bug was discovered really late in the process so it is still not resolved. I did however instead set the max width and overflow to scroll as a quick fix. The code for the pagination is still on the template so it is ready to go once fixed. Entries on the entries page are still paginated as they are supposed to.
+
+3. Pylint issue  
+I get this warning, and the code is, however, working, After investigating the issue I found that it was a usual problem, one solution could be to install django-pylint so I tried that, it did however not work and I think there are some other settings to be done. This is something I will continue to try and solve, but for this release, it will not be solved since the code still works.
+
+![pylint-error](/documentation/images/testing/pylint-error.png)
+
+[Back to readme](/README.md)

@@ -487,18 +487,6 @@ Migrate changes with `python3 manage.py migrate`
 
 Test that the server works locally with `python3 manage.py runserver`
 
-#### Attaching the database
-
-1. In gitpod, I created an env.py file and make sure it was added to the .gitignore file.
-
-2. In the env.py I imported os library `import os`, set environment variables and added my secret key
-
-`os.environ["DATABASE_URL"] = "Heroku DATABASE_URL Link"`
-
-`os.environ["SECRET_KEY"] = "thisisnotmyrealsecretkey"`
-
-also added my Cloudinary API key with `os.environ["CLOUDINARY_URL"] = "cloudinary://************************"`
-
 #### Create a Heroku app
 
 1. Logged into my account on Heroku  
@@ -512,6 +500,18 @@ also added my Cloudinary API key with `os.environ["CLOUDINARY_URL"] = "cloudinar
 5. In the settings tab under 'Config Vars', I added the keys that I needed to start the development, which was SECRET_KEY, DATABASE_URL and CLOUDINARY_URL
 
 6. I also added PORT with the value of 8000 and DISABLE_COLLECTSTATIC with the value of 1 still in the config vars section.
+
+#### Attaching the database
+
+1. In gitpod, I created an env.py file and make sure it was added to the .gitignore file.
+
+2. In the env.py I imported os library `import os`, set environment variables and added my secret key
+
+`os.environ["DATABASE_URL"] = "Heroku DATABASE_URL Link"`
+
+`os.environ["SECRET_KEY"] = "thisisnotmyrealsecretkey"`
+
+also added my Cloudinary API key with `os.environ["CLOUDINARY_URL"] = "cloudinary://************************"`
 
 #### Set up the settings.py file with necessary folders and files
 
@@ -586,9 +586,9 @@ Finally deployed it manually and made sure it was successfully deployed.
 
 - Heroku - Used to deploy and host the project
 
-- Django - Used in the development of this project. Main python Framework.
+- Django - Used in the development of this project
 
-The following python modules were used on this project:
+The following packages has been installed:
 
 ```
 asgiref==3.5.2
