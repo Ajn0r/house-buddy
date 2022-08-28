@@ -385,7 +385,6 @@ If the user would like they can submit their email and get a newsletter every tw
 ### Features I would like to implement in the future
 
 
-
 ## Wireframes
 
 Wireframes were made very early in the project, and the finished product is not 100% accurate to the initial wireframes.
@@ -416,6 +415,16 @@ I ended up not using the logo since I felt it looked better in plain text with t
 
 ## Colors and fonts
 
+### Colors
+
+The colours have been found using Adobe Color & Coolors.
+
+The blue/teal colours are used for buttons, links and some icons, and the light grey and green-grey colour is used for the background on the page.
+
+The orange colour is used on some links when hovered such as the down one on the about page.
+
+![colors](/documentation/images/housebuddy-colors.png)
+
 ### Fonts
 
 Fonts that have been used if from google fonts.
@@ -436,7 +445,7 @@ All tests and validations can be found [here](/TESTING.md)
 
 I have followed the Code institute 'I think therefore I blog' Django Deployment Instruction to set up and deploy my project. 
 
-### Creating the repository.
+### Creating the repository
 
 I have used the Code Institute Gitpod Full Template for this project.
 By clicking on 'use this template' I created the repository on GitHub under my username.
@@ -473,9 +482,9 @@ Test that the server works locally with `python3 manage.py runserver`
 
 #### Attaching the database
 
-In gitpod, I created an env.py file and make sure it was added to the .gitignore file.
+1. In gitpod, I created an env.py file and make sure it was added to the .gitignore file.
 
-In the env.py I imported os library `import os`, set environment variables and added my secret key
+2. In the env.py I imported os library `import os`, set environment variables and added my secret key
 
 `os.environ["DATABASE_URL"] = "Heroku DATABASE_URL Link"`
 
@@ -499,7 +508,7 @@ also added my Cloudinary API key with `os.environ["CLOUDINARY_URL"] = "cloudinar
 
 #### Set up the settings.py file with necessary folders and files
 
-To connect the environment variables and also import messages
+1. To connect the environment variables and also import messages I added this code.
 
 ```
 from pathlib import Path
@@ -512,12 +521,12 @@ if os.path.isfile("env.py"):
 import env
 ```
 
-Added all necessary apps inside of `INSTALLED_APPS`
+2. Added all necessary apps inside of `INSTALLED_APPS`
 
-Replaced the default DATABASES with
+3. Replaced the default DATABASES with
 `DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}` To connect with my database.
 
-For all my static files I added this code to connect it to Cloudinary
+4. For all my static files I added this code to connect it to Cloudinary
 
 ```
 MEDIA_URL = '/media/'
@@ -534,13 +543,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-Setup templates with `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')` and added `TEMPLATES_DIR` within the TEMPLATES array in 'DIRS': key.
+5. Setup templates with `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')` and added `TEMPLATES_DIR` within the TEMPLATES array in 'DIRS': key.
 
-Added my Heroku hostname to ALLOWED_HOSTS array.
+6. Added my Heroku hostname to ALLOWED_HOSTS array.
 
-Finally added a Procfile with the code `web: gunicorn house_buddy.wsgi`
+7. Finally added a Procfile with the code `web: gunicorn house_buddy.wsgi`
 
-Push to GitHub for deployment with
+8. Push to GitHub for deployment with
 
 `git add .`
 
@@ -548,7 +557,7 @@ Push to GitHub for deployment with
 
 `git push`
 
-In Heroku, I deployed the project manually with the GibHub deployment method, and choose the house_buddy repository.
+9. In Heroku, I deployed the project manually with the GibHub deployment method, and choose the house_buddy repository.
 
 In the first deployment, I forgot to set up my secret key variable in the settings.py file, so I corrected it by adding `SECRET_KEY = os.environ.get('SECRET_KEY')`  and deployed once more now successfully.
 
@@ -559,7 +568,6 @@ For the final deployment, I changed  DEBUG to False and added `X_FRAME_OPTIONS =
 Then on Heroku, I removed the `DISABLE_COLLECTSTATIC` var under Config Vars.
 
 Finally deployed it manually and made sure it was successfully deployed.
-
 
 ## Technologies and resources used
 
