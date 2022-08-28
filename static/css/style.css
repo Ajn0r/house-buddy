@@ -483,6 +483,12 @@ https://techstacker.com/how-to-animate-a-bouncing-svg-icon-with-css/
     min-height: 20rem;
 }
 
+.no-pagination {
+    max-height: 70vh;
+    overflow: scroll;
+}
+
+
 /* -------------- Footer ------------- */
 
 .footer-links {
