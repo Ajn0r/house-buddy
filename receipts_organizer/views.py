@@ -37,6 +37,7 @@ class CategoryDetails(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Categories
     template_name = 'category_detail.html'
     success_url = reverse_lazy('categories')
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         """
@@ -95,7 +96,7 @@ class EditCategory(
     A view to update categories
     """
     model = Categories
-    fields = ['name']
+    form_class = NewCategoryForm
     template_name = 'edit_category.html'
     success_url = reverse_lazy('categories')
     success_message = 'Your category was updated successfully'
@@ -107,6 +108,25 @@ class EditCategory(
         """
         category = self.get_object()
         return category.user == self.request.user
+
+    def form_valid(self, form):
+        """
+        Function to validate form, catches IntegrityErrors,
+        such as if a user tries to add a category with the same name
+        that already exists.
+        """
+        try:
+            form.instance.user = self.request.user
+            return super().form_valid(form)
+        except IntegrityError:
+            name = form.instance.name
+            messages.error(
+                self.request,
+                f"You already have a category called: {name}."
+                " Try something else or go "
+                "<a href='%s'>back</a> to categories" % reverse('categories')
+                )
+            return super().form_invalid(form)
 
 
 class DeleteCategory(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
