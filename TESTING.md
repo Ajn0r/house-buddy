@@ -122,7 +122,6 @@ At first, a few semicolons were missing, but after adding those all Javascript w
 ![js-contact-valid](/documentation/images/validation/contact-js-valid.png)
 ![js-filter-valid](/documentation/images/validation/filter-js-valid.png)
 
-
 ## Lighthouse
 
 Lighthouse testing was performed but did not score very well on mobile
@@ -140,6 +139,45 @@ Lighthouse on desktop performed much better than on mobile, the home page howeve
 I could probably solve it by putting a button inside of the a link and the text inside of the button, however, I feel that it is a satisfactory result as it is.
 
 ![lighthouse-ceo](/documentation/images/testing/lighthouse-ceo.png)
+
+## Testing
+
+I have made one test_urls.py file in the receipt organizer app to test all URLs.
+
+The rest of the project has been manually tested with the use of an excel sheet.
+
+The project has also been tested on responsiveness on iPhone 12, Ipad, Macbook, PC, and also in Chrome Developer tools for more screen sizes and scenarios.
+
+These are the manual tests that have been carried out.
+
+- Navbar
+
+![test-navbar](/documentation/images/testing/test-navbar.png)
+
+- Footer
+
+![test-footer](/documentation/images/testing/test-footer.png)
+
+- Home
+
+![test-home](/documentation/images/testing/test-home.png)
+
+- About
+
+![test-about](/documentation/images/testing/test-about.png)
+
+- Conctact
+
+![test-contact](/documentation/images/testing/test-contact.png)
+
+- My page
+
+![test-mypage](/documentation/images/testing/test-mypage.png)
+
+- Categories
+
+![test-categories](/documentation/images/testing/test-categories-1.png)
+![test-categories-cont](/documentation/images/testing/test-categories-2.png)
 
 ## Bugs
 
@@ -160,3 +198,8 @@ I could probably solve it by putting a button inside of the a link and the text 
 
 3. When creating a new entry, the user could choose from all categories in the database, with was not restricted to the specific user.
 I wasn’t sure how to get the user inside forms.py, I found a solution on (link to webpage) which was to use get form kwargs in the view and pass the request to form. In the NewEntryForm I could then use the __init__ method to get the request and then reach the user.
+
+### Unsolved bugs
+
+1. The user can input something that is not an image and will be sent to a 500 error page.
+I have tried to fix it several ways however it is still left unsolved. I have created a custom 500.html page that the user lands on where they are let aware that something went wrong and a button to go back.
