@@ -44,6 +44,15 @@ span {
     text-align: center;
 }
 
+.active {
+    border-bottom: 1px solid var(--dark-teal);
+}
+
+.active-dropdown {
+    background-color: #025159;
+    color: var(--off-white);
+}
+
 @media only screen and (min-width: 992px) {
     .navbar {
         flex-direction: column;

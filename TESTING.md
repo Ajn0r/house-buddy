@@ -179,6 +179,12 @@ These are the manual tests that have been carried out.
 ![test-categories](/documentation/images/testing/test-categories-1.png)
 ![test-categories-cont](/documentation/images/testing/test-categories-2.png)
 
+### Issues found during testing
+
+1. The email field in the newsletter form in the footer was not required, so the user could simply click the subscribe button and it would appear as if they had successfully signed up for the newsletter. This was simply corrected by adding 'required' to the email input field.
+
+2. There was no pagination on the category_detail.html page, this was simply adjusted by adding 'paginate_by = 6' to the CategoryDetails class in the views.py file
+
 ## Bugs
 
 1. With unique=True in the name field on the Categories model restricted users from having the same name on a category as another user.
