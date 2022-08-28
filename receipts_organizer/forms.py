@@ -42,6 +42,6 @@ class NewEntryForm(forms.ModelForm):
 
         widgets = {
             'date_of_purchase': forms.DateInput(
-                format="%m/%d/%Y", attrs={'type': 'date', 'max': date.today()},
+                format="%Y-%m-%d", attrs={'type': 'date', 'max': date.today()},
             )
         }
