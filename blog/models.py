@@ -8,9 +8,9 @@ BLOG_CATEGORIES = (
     (1, 'Homeimprovments'),
     (2, 'Savings'),
     (3, 'Garden'),
-    (4, 'Usefull tips'),
+    (4, 'Useful tips'),
     (5, 'Home'),
-    (6, 'Evereyday life'),
+    (6, 'Everyday life'),
     (7, 'Other')
 )
 PROCESS = (
