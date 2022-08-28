@@ -33,3 +33,6 @@ urlpatterns = [
     path('blog/', include('blog.urls'), name='blog_urls'),
 
 ]
+
+handler500 = 'house_buddy.views.error_500'
+handler404 = 'house_buddy.views.error_404'
