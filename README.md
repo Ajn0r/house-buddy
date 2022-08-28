@@ -434,6 +434,133 @@ All tests and validations can be found [here](/TESTING.md)
 
 ## Deployment
 
+I have followed the Code institute 'I think therefore I blog' Django Deployment Instruction to set up and deploy my project. 
+
+### Creating the repository.
+
+I have used the Code Institute Gitpod Full Template for this project.
+By clicking on 'use this template' I created the repository on GitHub under my username.
+
+### Creating the Django project and apps
+
+#### Installing all libraries needed to start
+
+Django and gunicorn
+
+`pip3 install 'django<4' gunicorn`
+
+Supporting database libraries
+
+`pip3 install dj_database_url psycopg2`
+
+Cloudinary libraries to manage static files
+
+`pip3 install django-cloudinary-storage`
+
+Create a file for requirements
+
+`pip3 freeze --local > requirements.txt`
+
+Create a project: `django-admin startproject house_buddy`
+
+Create my two apps `python3 manage.py startapp receipts_organizer` and `python3 manage.py startapp blog`
+
+Add my apps to the list of `installed apps` in the settings.py file in `house_buddy`
+
+Migrate changes with `python3 manage.py migrate`
+
+Test that the server works locally with `python3 manage.py runserver`
+
+#### Attaching the database
+
+In gitpod, I created an env.py file and make sure it was added to the .gitignore file.
+
+In the env.py I imported os library `import os`, set environment variables and added my secret key
+
+`os.environ["DATABASE_URL"] = "Heroku DATABASE_URL Link"`
+
+`os.environ["SECRET_KEY"] = "thisisnotmyrealsecretkey"`
+
+also added my Cloudinary API key with `os.environ["CLOUDINARY_URL"] = "cloudinary://************************"`
+
+#### Create a Heroku app
+
+1. Logged into my account on Heroku  
+
+2. From Heroku Dashboard clicked on 'New' and 'Create new app'
+
+3. Gave the project the name of 'the-house-buddy' which was approved. I set the region to Europe and created the app.
+
+4. In the resources tab, under the section 'add-ons', I searched for 'Heroku Postgres' and selected that package for the database.
+
+5. In the settings tab under 'Config Vars', I added the keys that I needed to start the development, which was SECRET_KEY, DATABASE_URL and CLOUDINARY_URL
+
+6. I also added PORT with the value of 8000 and DISABLE_COLLECTSTATIC with the value of 1 still in the config vars section.
+
+#### Set up the settings.py file with necessary folders and files
+
+To connect the environment variables and also import messages
+
+```
+from pathlib import Path
+import os
+import dj_database_url
+from django.contrib.messages import constants as messages
+
+if os.path.isfile("env.py"):
+
+import env
+```
+
+Added all necessary apps inside of `INSTALLED_APPS`
+
+Replaced the default DATABASES with
+`DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}` To connect with my database.
+
+For all my static files I added this code to connect it to Cloudinary
+
+```
+MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+
+Setup templates with `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')` and added `TEMPLATES_DIR` within the TEMPLATES array in 'DIRS': key.
+
+Added my Heroku hostname to ALLOWED_HOSTS array.
+
+Finally added a Procfile with the code `web: gunicorn house_buddy.wsgi`
+
+Push to GitHub for deployment with
+
+`git add .`
+
+`git commit -"first try deployment commit"`
+
+`git push`
+
+In Heroku, I deployed the project manually with the GibHub deployment method, and choose the house_buddy repository.
+
+In the first deployment, I forgot to set up my secret key variable in the settings.py file, so I corrected it by adding `SECRET_KEY = os.environ.get('SECRET_KEY')`  and deployed once more now successfully.
+
+### Final deployment
+
+For the final deployment, I changed  DEBUG to False and added `X_FRAME_OPTIONS = 'SAMEORIGIN'` in the settings.py file.
+
+Then on Heroku, I removed the `DISABLE_COLLECTSTATIC` var under Config Vars.
+
+Finally deployed it manually and made sure it was successfully deployed.
+
+
 ## Technologies and resources used
 
 ## Credits
