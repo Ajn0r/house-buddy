@@ -587,7 +587,9 @@ Finally deployed it manually and made sure it was successfully deployed.
 - Heroku - Used to deploy and host the project
 
 - Django - Used in the development of this project. Main python Framework.
+
 The following python modules were used on this project:
+
 ```
 asgiref==3.5.2
 cloudinary==1.29.0
@@ -624,9 +626,13 @@ sqlparse==0.4.2
 
 - Google Fonts - Used for font selection
 
+- Pexels for images
+
 - Font Awesome - Used for the icons
 
 - Favicon.io - Used to implement the favicon on the website
+
+- Grammarly for writing all texts, hopefully, correct
 
 - DevTools - Chrome - to assist in the development of the project
 
@@ -634,13 +640,40 @@ sqlparse==0.4.2
 
 - PEP8online - Used to test/validate Python code
 
-- JShint - Used to test JavaScript code
+- [Beautify Tools](https://beautifytools.com/javascript-validator.php) for validating the Javascript
 
-- Jigsaw - Used to test CSS code
+- W3C CSS Validation Service for validating the CSS file
 
 - [The Nu Html Checker](https://validator.w3.org/nu/) - Used to validate Html code
 
 - [Dbdiagram.io](https://dbdiagram.io/home) for making the Database model diagram
 
+- EmailJs for sending emails from the contact form to thehousebuddyapps Gmail
 
 ## Credits
+
+- For setting up the Django project I have used the Code institute “Django Deployment Instruction”
+
+- For the blog app, I have used the Code Institute “I think therefore I blog” walkthrough as a base, and changed it slightly to fit my project
+
+- Daryl Howai_Alumni solution on slack for images not uploading to Cloudinary
+
+- [The Dumbfounds youtube](https://www.youtube.com/watch?v=0MrgsYswT1c&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=2) video for URL testing
+
+- [Cryce Truly youtube](https://www.youtube.com/c/CryceTruly) for adding custom error handling pages
+
+- [Very Academy youtube](https://www.youtube.com/c/veryacademy) for learning more about Django Class-based Views.
+
+- [Dennis Ivys youtube](https://www.youtube.com/c/DennisIvy/featured) for inspiration and to learn more about Django
+
+- [For setting the class of active in the template](https://stackoverflow.com/questions/9793576/how-to-render-menu-with-one-active-item-with-dry )
+
+- I have used and relied on the official docs for Django, Bootstrap, Allauth, Django filters and EmailJs when creating this project.
+
+- I have used w3Scool and stack overflow for troubleshooting when in need.
+
+- These have been particularly helpful and also credited in the code.
+
+    * [for displaying foreignkey values](https://stackoverflow.com/questions/71692499/django-foreign-key-display-values-in-detail-view)
+
+    * [for passing user object into forms.py](https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c)

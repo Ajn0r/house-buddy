@@ -2,7 +2,7 @@
 
 ## Validation
 
-### Pep8 Python validation
+### Python validation
 
 pep8online.com was user to validate all python code.
 
@@ -62,7 +62,7 @@ pep8online.com was user to validate all python code.
 
 </details>
 
-## Html validation
+### Html validation
 
 Html validation was carried out on all pages using [The Nu Html Checker](https://validator.w3.org/nu/)
 
@@ -104,7 +104,7 @@ There was a warning on the contact page which was solved by removing 'required' 
 
 ![contact-warning-ok](/documentation/images/validation/contact-validation-ok.png)
 
-## CSS Validation
+### CSS Validation
 
 CSS validation was carried out at W3C CSS Validation Service
 
@@ -116,7 +116,7 @@ I ran the code again through the validator and it passed.
 
 ![css-fixed](/documentation/images/validation/css-valid.png)
 
-## Javascript Validation
+### Javascript Validation
 
 Javascript has been validated using [Beautify Tools Javascript validator](https://beautifytools.com/javascript-validator.php)
 
@@ -229,9 +229,14 @@ The first deployment failed, this was due to that I forgot to set the secret_key
 
     I have added the title tag to the template so the user will see their category's name capitalized for better visual display.
 
-6. When creating a new entry, the user could choose from all categories in the database, with was not restricted to the specific user.
+4. When creating a new entry, the user could choose from all categories in the database, with was not restricted to the specific user.
 I wasn’t sure how to get the user inside forms.py, I found a solution on (link to webpage) which was to use get form kwargs in the view and pass the request to form. In the NewEntryForm I could then use the __init__ method to get the request and then reach the user.
 
+### Responsive bug
+
+At the start of the about page the large text pressed the pointer down under the image on most screens, this was easily solved by making the font size slightly smaller.
+
+![responsive-bug](/documentation/images/about-resp-error.png)
 
 ### Unsolved bugs
 
