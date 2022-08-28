@@ -198,6 +198,8 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 
 ### Database models
 
+![model](/documentation/images/models.png)
+
 ### Site structure
 
 The website has been structured to be easily navigated and user-friendly. Users that are not signed in will be displayed slight different content than logged-in users, inviting them to sign up. Logged-in users also get access to 'my page' 'categories' and 'entries' pages.

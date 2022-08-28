@@ -34,7 +34,7 @@
         <div class="col-12">
             <img src="{{ post.image.url }}" alt="A image for the blogpost"
                 class="blog-image box float-sm-none float-md-right ml-md-4 mb-3 col-md-8 p-0">
-            <p class="float-start"> {{ post.content|safe }} </p>
+            <div class="float-start blog-text"> {{ post.content|safe }} </div>
         </div>
     </div>
 
@@ -51,7 +51,7 @@
                 <p class="mt-0"><small>{{ comment.posted_on|date}}</small></p>
                 <div class="card p-3">
                     <p>
-                        {{ comment.content|safe }}
+                        {{ comment.content|safe|striptags }}
                     </p>
                 </div>
             </div>
