@@ -73,8 +73,8 @@ The pages that required the user to be logged in have been validated by pasting 
 | index.html | Pass |
 | contact.html | Pass |
 | about.html | Warning |
-| blog.html | Error |
-| blogpost_detail.html | Error |
+| blog.html | Pass |
+| blogpost_detail.html | Pass |
 | mypage | Pass |
 | category_page.html | Pass |
 | category_detail.html | Pass |
@@ -91,6 +91,9 @@ Both blog.html and the blogdetail page give errors of  "No p element in scope bu
 
 ![blogvalidation](/documentation/images/validation/blog-validation.png)
 ![blogvalidation](/documentation/images/validation/blogpost-validation.png)
+
+These issues were resolved by changing the p element surrounding to a div instead. 
+I also added a class to keep the font family to Lato no matter which font was used in the admin panel. The validator now passes without any errors.
 
 There is a warning on the about.html page about using h1 in both the header and on the page, this will be corrected in the next sprint.
 
