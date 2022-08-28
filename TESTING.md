@@ -2,6 +2,20 @@
 
 [Back to Readme](/README.md)
 
+- [The House Buddy](#the-house-buddy)
+  * [Validation](#validation)
+    + [Python validation](#python-validation)
+    + [Html validation](#html-validation)
+    + [CSS Validation](#css-validation)
+    + [Javascript Validation](#javascript-validation)
+  * [Lighthouse](#lighthouse)
+  * [Testing](#testing)
+    + [Issues found during testing](#issues-found-during-testing)
+  * [Bugs](#bugs)
+    + [Responsive bug](#responsive-bug)
+    + [Unsolved bugs](#unsolved-bugs)
+
+
 ## Validation
 
 ### Python validation
