@@ -39,7 +39,7 @@ More times than often they will be handed a bag of receipts from the homeowners,
 ### What value will it add?
 
 ---
-For all users it will add value in the sense that they will have all their receipts and information in one place, making it easier to find them if needed for warranty or other inquiries. 
+For all users it will add value in the sense that they will have all their receipts and information in one place, making it easier to find them if needed for warranty or other inquiries.
 
 Moreover, for the Swedish homeowners, it will add value in the sense that they can save money on the profit tax, in a hassle-free way.
 
@@ -384,6 +384,11 @@ If the user would like they can submit their email and get a newsletter every tw
 
 ### Features I would like to implement in the future
 
+- When the user clicks on “add a new entry” while in a specific category, the category field should already be populated. In this release, the user has to choose from the list of their categories.
+
+- Refine the filter function - I would like to take the filter function even better, it has been implemented in the most simple way to get the basic filter/search function in place.
+
+- I would also like to add a filter function to the blog so the user chose to filter by categories, most popular post, published date and number of comments.
 
 ## Wireframes
 
@@ -443,7 +448,7 @@ All tests and validations can be found [here](/TESTING.md)
 
 ## Deployment
 
-I have followed the Code institute 'I think therefore I blog' Django Deployment Instruction to set up and deploy my project. 
+I have followed the Code institute 'I think therefore I blog' Django Deployment Instruction to set up and deploy my project.
 
 ### Creating the repository
 

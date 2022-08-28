@@ -140,3 +140,23 @@ Lighthouse on desktop performed much better than on mobile, the home page howeve
 I could probably solve it by putting a button inside of the a link and the text inside of the button, however, I feel that it is a satisfactory result as it is.
 
 ![lighthouse-ceo](/documentation/images/testing/lighthouse-ceo.png)
+
+## Bugs
+
+1. With unique=True in the name field on the Categories model restricted users from having the same name on a category as another user.
+
+    I wanted to prevent one user from having duplicate categories, but two different users must be able to both have categories with the name “garden” as an example.  
+
+    I first used Django unique_together but read that Django recommended using “UniqueConstraint” instead since it comes with more functionality.
+
+    The user could now not make duplicates, however, if the user tried it anyway Django would raise an IntegrityError, and it was not caught by form_valid.
+    I imported IntegrityError from django.db and in the form valid function, I put a try/except statement that handles all IntegrityErrors as a solution.
+
+    The code worked and solved the problem, however later when testing to add a new category with the same name that already existed, only with all lowercase letters, the category was successfully created and once again I had duplicates. The solution was to add a clean_name function to the NewCategoryForm and return the name with .lower()
+
+    I have added the title tag to the template so the user will see their category's name capitalized for better visual display.
+
+2. The email input didn’t have a required tag in the newsletter form so the user could just press the subscribe button and get the feedback that they had subscribed without actually entering an email address.  
+
+3. When creating a new entry, the user could choose from all categories in the database, with was not restricted to the specific user.
+I wasn’t sure how to get the user inside forms.py, I found a solution on (link to webpage) which was to use get form kwargs in the view and pass the request to form. In the NewEntryForm I could then use the __init__ method to get the request and then reach the user.
