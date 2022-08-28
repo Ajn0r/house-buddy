@@ -578,4 +578,69 @@ Finally deployed it manually and made sure it was successfully deployed.
 
 ## Technologies and resources used
 
+- Programming languages used: Python 3.8, Java Script, HTML5 and CSS3
+
+- Gitpod - Used to create/edit the code of the project
+
+- Github - Used to create the repository, for version control and agile project managing
+
+- Heroku - Used to deploy and host the project
+
+- Django - Used in the development of this project. Main python Framework.
+The following python modules were used on this project:
+```
+asgiref==3.5.2
+cloudinary==1.29.0
+dj-database-url==1.0.0
+dj3-cloudinary-storage==0.0.6
+Django==3.2.15
+django-allauth==0.51.0
+django-crispy-forms==1.14.0
+django-filter==22.1
+django-summernote==0.8.20.0
+gunicorn==20.1.0
+oauthlib==3.2.0
+psycopg2==2.9.3
+PyJWT==2.4.0
+pylint-django==2.5.3
+pylint-plugin-utils==0.7
+python3-openid==3.2.0
+pytz==2022.1
+requests-oauthlib==1.3.1
+sqlparse==0.4.2
+```
+
+- Bootstrap - Used to style the project
+
+- PostgreSQL - Used as the database for this project through Heroku
+
+- Cloudinary - Used to upload images and cloud hosting service
+
+- Balsamiq - Used to create the wireframes
+
+- Adobe Color - User for choice of colours
+
+- Coolors - Used for the palette used in the README
+
+- Google Fonts - Used for font selection
+
+- Font Awesome - Used for the icons
+
+- Favicon.io - Used to implement the favicon on the website
+
+- DevTools - Chrome - to assist in the development of the project
+
+- Lighthouse (Chrome Devtools) Used to performance test
+
+- PEP8online - Used to test/validate Python code
+
+- JShint - Used to test JavaScript code
+
+- Jigsaw - Used to test CSS code
+
+- [The Nu Html Checker](https://validator.w3.org/nu/) - Used to validate Html code
+
+- [Dbdiagram.io](https://dbdiagram.io/home) for making the Database model diagram
+
+
 ## Credits
