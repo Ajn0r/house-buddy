@@ -9,16 +9,14 @@ For the live website, please click [here](https://the-house-buddy.herokuapp.com/
 
 - [The House Buddy](#the-house-buddy)
   * [User Experience](#user-experience)
-    + [Who would the user be?](#who-would-the-user-be-)
-    + [Why would a user want this?](#why-would-a-user-want-this-)
-      - [**Why?**](#--why---)
-    + [What value will it add?](#what-value-will-it-add-)
+    + [Who would the user be?](#who-would-the-user-be)
+    + [Why would a user want this?](#why-would-a-user-want-this)
+    + [What value will it add?](#what-value-will-it-add)
     + [What is already out there](#what-is-already-out-there)
   * [User goal](#user-goal)
     + [User stories](#user-stories)
     + [User stories fulfilment](#user-stories-fulfilment)
   * [Structure](#structure)
-    + [Flowchart](#flowchart)
     + [Database models](#database-models)
     + [Site structure](#site-structure)
   * [Features](#features)
@@ -28,17 +26,17 @@ For the live website, please click [here](https://the-house-buddy.herokuapp.com/
       - [Contact](#contact)
       - [The blog page](#the-blog-page)
       - [Blogpost detail](#blogpost-detail)
-      - [The ‘My Page’](#the--my-page-)
+      - [The ‘My Page’](#the-my-page)
       - [Categories](#categories)
       - [Entries](#entries)
       - [Footer](#footer)
-      - [Custom 403, 404 and 500 pages](#custom-403--404-and-500-pages)
+      - [Custom 403, 404 and 500 pages](#custom-403-404-and-500-pages)
     + [Features I would like to implement in the future](#features-i-would-like-to-implement-in-the-future)
   * [Wireframes](#wireframes)
   * [Colors and fonts](#colors-and-fonts)
     + [Colors](#colors)
     + [Fonts](#fonts)
-      - [Images](#images)
+  * [Images](#images)
   * [Testing](#testing)
   * [Deployment](#deployment)
     + [Creating the repository](#creating-the-repository)
@@ -237,9 +235,9 @@ The project board can be found [here](https://github.com/users/Ajn0r/projects/4/
 | 18 | The user can search for entries by title with the filter function, it will show results that contain what has been searched for, so it doesn't need to be exact. |
 | 19 | In the footer there is a section where the user can sign up for a newsletter, however, the form is not connected to anything, but with the magic of JavaScript, it will make it look like the user has subscribed if they enter their email and press subscribe. |
 
-## Structure
+[Back to top](#the-house-buddy)
 
-### Flowchart
+## Structure
 
 ### Database models
 
@@ -445,6 +443,8 @@ I have made very basic 403.html, 404.html and 500.html pages that the user will 
 
 - Some of the pages are taking some time to load, so for the next release I would like to add a spinner when the page is loading so the user doesn’t have to guess what is happening
 
+[Back to top](#the-house-buddy)
+
 ## Wireframes
 
 Wireframes were made very early in the project, and the finished product is not 100% accurate to the initial wireframes.
@@ -497,7 +497,7 @@ For all other text on the page 'Lato' has been used.
 
 ![lato](/documentation/images/lato.png)
 
-#### Images
+## Images
 
 All images used for the site have been found on [Pexels](https://www.pexels.com/) and [Unsplash](https://unsplash.com/), however, some of the images for the blog in the readme are my own that I have used only for testing.
 
@@ -693,6 +693,8 @@ sqlparse==0.4.2
 
 - Grammarly for writing all texts, hopefully, correct
 
+- GitHub Wiki TOC generator for table of content in readme
+
 - DevTools - Chrome - to assist in the development of the project
 
 - Lighthouse (Chrome Devtools) Used to performance test
@@ -738,3 +740,5 @@ sqlparse==0.4.2
     * [for passing user object into forms.py](https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c)
 
 - Thanks to my mentor Spencer Barriball for guiding and supporting me
+
+[Back to top](#the-house-buddy)
