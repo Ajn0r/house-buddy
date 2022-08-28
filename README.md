@@ -7,7 +7,52 @@ The website was created to store mainly receipts regarding properties, however, 
 
 For the live website, please click [here](https://the-house-buddy.herokuapp.com/)
 
-Here goes table of content.
+- [The House Buddy](#the-house-buddy)
+  * [User Experience](#user-experience)
+    + [Who would the user be?](#who-would-the-user-be-)
+    + [Why would a user want this?](#why-would-a-user-want-this-)
+      - [**Why?**](#--why---)
+    + [What value will it add?](#what-value-will-it-add-)
+    + [What is already out there](#what-is-already-out-there)
+  * [User goal](#user-goal)
+    + [User stories](#user-stories)
+    + [User stories fulfilment](#user-stories-fulfilment)
+  * [Structure](#structure)
+    + [Flowchart](#flowchart)
+    + [Database models](#database-models)
+    + [Site structure](#site-structure)
+  * [Features](#features)
+    + [Existing features](#existing-features)
+      - [Home](#home)
+      - [About](#about)
+      - [Contact](#contact)
+      - [The blog page](#the-blog-page)
+      - [Blogpost detail](#blogpost-detail)
+      - [The ‘My Page’](#the--my-page-)
+      - [Categories](#categories)
+      - [Entries](#entries)
+      - [Footer](#footer)
+      - [Custom 403, 404 and 500 pages](#custom-403--404-and-500-pages)
+    + [Features I would like to implement in the future](#features-i-would-like-to-implement-in-the-future)
+  * [Wireframes](#wireframes)
+  * [Colors and fonts](#colors-and-fonts)
+    + [Colors](#colors)
+    + [Fonts](#fonts)
+      - [Images](#images)
+  * [Testing](#testing)
+  * [Deployment](#deployment)
+    + [Creating the repository](#creating-the-repository)
+    + [Creating the Django project and apps](#creating-the-django-project-and-apps)
+      - [Installing all libraries needed to start](#installing-all-libraries-needed-to-start)
+      - [Create a Heroku app](#create-a-heroku-app)
+      - [Attaching the database](#attaching-the-database)
+      - [Set up the settings.py file with necessary folders and files](#set-up-the-settingspy-file-with-necessary-folders-and-files)
+    + [Final deployment](#final-deployment)
+  * [Technologies and resources used](#technologies-and-resources-used)
+  * [Credits](#credits)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## User Experience
 
@@ -384,6 +429,10 @@ If the user would like they can submit their email and get a newsletter every tw
 
 ![footer](/documentation/images/footer-medium.png)
 
+#### Custom 403, 404 and 500 pages
+
+I have made very basic 403.html, 404.html and 500.html pages that the user will land on instead of the default ones if something goes wrong.
+
 ### Features I would like to implement in the future
 
 - When the user clicks on “add a new entry” while in a specific category, the category field should already be populated. In this release, the user has to choose from the list of their categories.
@@ -392,27 +441,31 @@ If the user would like they can submit their email and get a newsletter every tw
 
 - I would also like to add a filter function to the blog so the user chose to filter by categories, most popular post, published date and number of comments.
 
+- For the next release, I would also like to style the 403, 404 and 500.html pages a bit better, they are very basic at this point.
+
+- Some of the pages are taking some time to load, so for the next release I would like to add a spinner when the page is loading so the user doesn’t have to guess what is happening
+
 ## Wireframes
 
 Wireframes were made very early in the project, and the finished product is not 100% accurate to the initial wireframes.
 
 I ended up not using the logo since I felt it looked better in plain text with the Lora font.
 
-### Home
+- Homepage
 
 ![wiref-home](/documentation/images/home-lg.png)
 
 ![wf-home-md](/documentation/images/home-mb.png)
 
-### About
+- About
 
 ![wf-about](/documentation/images/about-lg.png)
 
-### Contact
+- Contact
 
 ![wf-contact](/documentation/images/wf-contact.png)
 
-### Entries and Categories
+- Entries and Categories
 
 ![wf-categories](/documentation/images/wf-categories.png)
 
@@ -443,6 +496,10 @@ For all types of headings, I have used 'Lora'
 For all other text on the page 'Lato' has been used.
 
 ![lato](/documentation/images/lato.png)
+
+#### Images
+
+All images used for the site have been found on [Pexels](https://www.pexels.com/) and [Unsplash](https://unsplash.com/), however, some of the images for the blog in the readme are my own that I have used only for testing.
 
 ## Testing
 
@@ -582,6 +639,8 @@ Finally deployed it manually and made sure it was successfully deployed.
 
 - Gitpod - Used to create/edit the code of the project
 
+- Git for version control
+
 - Github - Used to create the repository, for version control and agile project managing
 
 - Heroku - Used to deploy and host the project
@@ -626,7 +685,7 @@ sqlparse==0.4.2
 
 - Google Fonts - Used for font selection
 
-- Pexels for images
+- Pexels and Unsplash for images
 
 - Font Awesome - Used for the icons
 
@@ -677,3 +736,5 @@ sqlparse==0.4.2
     * [for displaying foreignkey values](https://stackoverflow.com/questions/71692499/django-foreign-key-display-values-in-detail-view)
 
     * [for passing user object into forms.py](https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c)
+
+- Thanks to my mentor Spencer Barriball for guiding and supporting me
