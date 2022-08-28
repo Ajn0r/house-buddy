@@ -35,4 +35,5 @@ urlpatterns = [
 ]
 
 handler500 = 'house_buddy.views.error_500'
+handler403 = 'house_buddy.views.error_403'
 handler404 = 'house_buddy.views.error_404'
