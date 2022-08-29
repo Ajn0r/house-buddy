@@ -162,7 +162,7 @@ I could probably solve it by putting a button inside of the a link and the text 
 
 ## Testing
 
-I have made one test_urls.py file in the receipt organizer app to test all URLs.
+I have made one test_urls.py file in the receipt organizer app to test all URLs in that app.
 
 The rest of the project has been manually tested with the use of an excel sheet.
 

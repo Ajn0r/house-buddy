@@ -119,7 +119,11 @@ Looking through forums on the subject I found that people still use maps and fol
 ### User stories
 
 ---
-I have used Github Issues to create user stories, these are the ones that have been implemented:
+I have used Github Issues to create user stories and to manage the project in an agile way.
+
+![github-project](/documentation/images/github-projectboard.png)
+
+These are the ones that have been implemented:
 
 <details>
 <summary>These have the label `must have`</summary>
@@ -204,6 +208,8 @@ Blog: Like comments
 Blog: Manage blogpost frontend
 
 - As a **site owner** I can **create, view, edit and delete blog posts from my logged in site (not /admin)**   so that **I can create and edit blogpost quick and easy**
+
+These are now closed but can be opened again for future sprints.
 
 </details>
 
@@ -442,6 +448,8 @@ I have made very basic 403.html, 404.html and 500.html pages that the user will 
 - For the next release, I would also like to style the 403, 404 and 500.html pages a bit better, they are very basic at this point.
 
 - Some of the pages are taking some time to load, so for the next release I would like to add a spinner when the page is loading so the user doesn’t have to guess what is happening
+
+- I would like to add a feature that allows the user to add up the total amount of one or all categories, to get a clear overview of how much was spent on each.
 
 [Back to top](#the-house-buddy)
 
